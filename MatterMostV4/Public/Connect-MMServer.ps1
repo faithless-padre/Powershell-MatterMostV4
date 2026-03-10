@@ -1,0 +1,93 @@
+function Connect-MMServer {
+    [CmdletBinding(DefaultParameterSetName = 'Credential')]
+    param(
+        [Parameter(Mandatory, ParameterSetName = 'Credential')]
+        [Parameter(Mandatory, ParameterSetName = 'UsernamePassword')]
+        [Parameter(Mandatory, ParameterSetName = 'Token')]
+        [string]$Url,
+
+        # --- ParameterSet: Credential ---
+        [Parameter(Mandatory, ParameterSetName = 'Credential')]
+        [System.Management.Automation.PSCredential]$Credential,
+
+        # --- ParameterSet: UsernamePassword ---
+        [Parameter(Mandatory, ParameterSetName = 'UsernamePassword')]
+        [string]$Username,
+
+        [Parameter(Mandatory, ParameterSetName = 'UsernamePassword')]
+        [string]$Password,
+
+        # --- ParameterSet: Token ---
+        [Parameter(Mandatory, ParameterSetName = 'Token')]
+        [string]$Token
+    )
+
+    $Url = $Url.TrimEnd('/')
+
+    if ($PSCmdlet.ParameterSetName -in @('Credential', 'UsernamePassword')) {
+
+        if ($PSCmdlet.ParameterSetName -eq 'Credential') {
+            $loginId = $Credential.UserName
+            $plainPassword = $Credential.GetNetworkCredential().Password
+        }
+        else {
+            $loginId = $Username
+            $plainPassword = $Password
+        }
+
+        $body = @{ login_id = $loginId; password = $plainPassword } | ConvertTo-Json
+
+        try {
+            $response = Invoke-WebRequest -Uri "$Url/api/v4/users/login" `
+                -Method POST `
+                -Body $body `
+                -ContentType 'application/json'
+        }
+        catch {
+            $statusCode = $_.Exception.Response.StatusCode.value__
+            throw "Login failed [$statusCode]: $($_.ErrorDetails.Message)"
+        }
+
+        $sessionToken = $response.Headers['Token']
+        if ($sessionToken -is [array]) { $sessionToken = $sessionToken[0] }
+
+        $userInfo = $response.Content | ConvertFrom-Json
+
+        $script:MMSession = @{
+            Url      = $Url
+            Token    = $sessionToken
+            AuthType = 'SessionToken'
+            UserId   = $userInfo.id
+            Username = $userInfo.username
+        }
+    }
+    else {
+        # Token — validate by calling /users/me
+        try {
+            $me = Invoke-RestMethod -Uri "$Url/api/v4/users/me" `
+                -Method GET `
+                -Headers @{ Authorization = "Bearer $Token" }
+        }
+        catch {
+            $statusCode = $_.Exception.Response.StatusCode.value__
+            throw "Token validation failed [$statusCode]: $($_.ErrorDetails.Message)"
+        }
+
+        $script:MMSession = @{
+            Url      = $Url
+            Token    = $Token
+            AuthType = 'PersonalToken'
+            UserId   = $me.id
+            Username = $me.username
+        }
+    }
+
+    Write-Verbose "Connected to $Url as '$($script:MMSession.Username)' [$($script:MMSession.AuthType)]"
+
+    [PSCustomObject]@{
+        Url      = $script:MMSession.Url
+        Username = $script:MMSession.Username
+        UserId   = $script:MMSession.UserId
+        AuthType = $script:MMSession.AuthType
+    }
+}

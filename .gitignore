@@ -1,0 +1,5 @@
+# Test config with credentials
+Pester/Integration/testconfig.json
+
+# Docker build cache
+Sandbox/.docker/
