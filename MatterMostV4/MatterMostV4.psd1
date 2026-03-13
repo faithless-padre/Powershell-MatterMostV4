@@ -5,7 +5,33 @@
     Description       = 'PowerShell wrapper for MatterMost REST API'
     PowerShellVersion = '5.1'
     RootModule        = 'MatterMostV4.psm1'
-    FunctionsToExport = '*'
+    FunctionsToExport = @(
+        'Add-MMUserToChannel',
+        'Add-MMUserToTeam',
+        'Connect-MMServer',
+        'Disconnect-MMServer',
+        'Enable-MMUser',
+        'Get-MMChannel',
+        'Get-MMRole',
+        'Get-MMTeam',
+        'Get-MMUser',
+        'Get-MMUserChannels',
+        'Get-MMUserTeams',
+        'New-MMChannel',
+        'New-MMTeam',
+        'New-MMUser',
+        'Remove-MMChannel',
+        'Remove-MMTeam',
+        'Remove-MMUser',
+        'Remove-MMUserFromChannel',
+        'Remove-MMUserFromTeam',
+        'Set-MMChannel',
+        'Set-MMRole',
+        'Set-MMTeam',
+        'Set-MMUser',
+        'Set-MMUserPassword',
+        'Set-MMUserRole'
+    )
     CmdletsToExport   = @()
     VariablesToExport = @()
     AliasesToExport   = @()
