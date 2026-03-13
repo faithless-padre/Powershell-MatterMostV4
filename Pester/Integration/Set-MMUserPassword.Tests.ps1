@@ -55,6 +55,31 @@ Describe 'Set-MMUserPassword' {
         }
     }
 
+    Context 'CurrentPassword' {
+        BeforeAll {
+            $script:SelfUser = New-MMUser `
+                -Username "selfpwd_$($script:Suffix)" `
+                -Email    "selfpwd_$($script:Suffix)@test.local" `
+                -Password (ConvertToSecure 'Pester123!')
+        }
+
+        AfterAll {
+            Connect-MMServer -Url $config.Url -Username $config.AdminUsername -Password (ConvertToSecure $config.AdminPassword) | Out-Null
+            if ($script:SelfUser) { Remove-MMUser -UserId $script:SelfUser.id }
+        }
+
+        It 'пользователь меняет собственный пароль с CurrentPassword' {
+            Connect-MMServer -Url $config.Url `
+                -Username "selfpwd_$($script:Suffix)" `
+                -Password (ConvertToSecure 'Pester123!') | Out-Null
+
+            { Set-MMUserPassword -UserId $script:SelfUser.id -NewPassword (ConvertToSecure 'NewSelf456!') -CurrentPassword (ConvertToSecure 'Pester123!') } |
+                Should -Not -Throw
+
+            Connect-MMServer -Url $config.Url -Username $config.AdminUsername -Password (ConvertToSecure $config.AdminPassword) | Out-Null
+        }
+    }
+
     Context 'Ошибки' {
         It 'бросает исключение при невалидном UserId' {
             { Set-MMUserPassword -UserId 'invalid-id' -NewPassword (ConvertToSecure 'Pass123!') } |

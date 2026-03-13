@@ -94,3 +94,30 @@ Describe 'Get-MMUserTeams' {
         }
     }
 }
+
+Describe 'DefaultTeam в TeamMembership' {
+
+    Context 'Add/Remove без -TeamId' {
+        BeforeAll {
+            Connect-MMServer -Url $config.Url -Username $config.AdminUsername -Password (ConvertTo-SecureString $config.AdminPassword -AsPlainText -Force) -DefaultTeam $config.TestTeamName
+            $script:DtUser = New-MMUser `
+                -Username "dtmember_$($script:Suffix)" `
+                -Email    "dtmember_$($script:Suffix)@test.local" `
+                -Password $script:TestPass
+        }
+
+        AfterAll {
+            Connect-MMServer -Url $config.Url -Username $config.AdminUsername -Password (ConvertTo-SecureString $config.AdminPassword -AsPlainText -Force)
+            if ($script:DtUser) { Remove-MMUser -UserId $script:DtUser.id }
+        }
+
+        It 'добавляет пользователя в команду без -TeamId' {
+            { Add-MMUserToTeam -UserId $script:DtUser.id } | Should -Not -Throw
+        }
+
+        It 'удаляет пользователя из команды без -TeamId' {
+            Add-MMUserToTeam -UserId $script:DtUser.id
+            { Remove-MMUserFromTeam -UserId $script:DtUser.id } | Should -Not -Throw
+        }
+    }
+}

@@ -119,6 +119,15 @@ Describe 'Get-MMUser' {
             $result.username | Should -Not -Contain 'admin'
         }
 
+        It 'находит пользователей по -eq на поле email' {
+            $email       = (Get-MMUser -Username $config.AdminUsername).email
+            $filterBlock = [scriptblock]::Create("email -eq '$email'")
+            $result      = Get-MMUser -Filter $filterBlock
+
+            $result | Should -Not -BeNullOrEmpty
+            ($result | Where-Object { $_.email -eq $email }) | Should -Not -BeNullOrEmpty
+        }
+
         It 'бросает исключение при неверном синтаксисе фильтра' {
             { Get-MMUser -Filter { invalid } } | Should -Throw
         }

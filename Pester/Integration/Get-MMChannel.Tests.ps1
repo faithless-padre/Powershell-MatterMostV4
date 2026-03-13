@@ -73,4 +73,27 @@ Describe 'Get-MMChannel' {
             $result.id | Should -Be $source.id
         }
     }
+
+    Context 'DefaultTeam' {
+        BeforeAll {
+            Connect-MMServer -Url $config.Url -Username $config.AdminUsername -Password (ConvertTo-SecureString $config.AdminPassword -AsPlainText -Force) -DefaultTeam $config.TestTeamName
+        }
+
+        AfterAll {
+            Connect-MMServer -Url $config.Url -Username $config.AdminUsername -Password (ConvertTo-SecureString $config.AdminPassword -AsPlainText -Force)
+        }
+
+        It 'возвращает список каналов команды без -TeamId' {
+            $result = Get-MMChannel
+
+            $result      | Should -Not -BeNullOrEmpty
+            $result.name | Should -Contain 'town-square'
+        }
+
+        It 'возвращает канал по имени без -TeamId' {
+            $result = Get-MMChannel -Name 'town-square'
+
+            $result.name | Should -Be 'town-square'
+        }
+    }
 }
