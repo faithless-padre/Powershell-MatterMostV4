@@ -34,7 +34,13 @@ function Connect-MMServer {
 
         # --- ParameterSet: Token ---
         [Parameter(Mandatory, ParameterSetName = 'Token')]
-        [string]$Token
+        [string]$Token,
+
+        # --- Общий опциональный параметр ---
+        [Parameter(ParameterSetName = 'Credential')]
+        [Parameter(ParameterSetName = 'UsernamePassword')]
+        [Parameter(ParameterSetName = 'Token')]
+        [string]$DefaultTeam
     )
 
     $Url = $Url.TrimEnd('/')
@@ -60,7 +66,7 @@ function Connect-MMServer {
         }
         catch {
             $statusCode = $_.Exception.Response.StatusCode.value__
-            throw "Login failed [$statusCode]: $($_.ErrorDetails.Message)"
+            throw "Login failed [$statusCode]: $(Get-MMErrorMessage $_)"
         }
 
         $sessionToken = $response.Headers['Token']
@@ -85,7 +91,7 @@ function Connect-MMServer {
         }
         catch {
             $statusCode = $_.Exception.Response.StatusCode.value__
-            throw "Token validation failed [$statusCode]: $($_.ErrorDetails.Message)"
+            throw "Token validation failed [$statusCode]: $(Get-MMErrorMessage $_)"
         }
 
         $script:MMSession = @{
@@ -97,12 +103,23 @@ function Connect-MMServer {
         }
     }
 
+    if ($DefaultTeam) {
+        try {
+            $team = Invoke-MMRequest -Endpoint "teams/name/$DefaultTeam"
+            $script:MMSession.DefaultTeamId = $team.id
+        }
+        catch {
+            throw "DefaultTeam '$DefaultTeam' not found: $(Get-MMErrorMessage $_)"
+        }
+    }
+
     Write-Verbose "Connected to $Url as '$($script:MMSession.Username)' [$($script:MMSession.AuthType)]"
 
     [PSCustomObject]@{
-        Url      = $script:MMSession.Url
-        Username = $script:MMSession.Username
-        UserId   = $script:MMSession.UserId
-        AuthType = $script:MMSession.AuthType
+        Url           = $script:MMSession.Url
+        Username      = $script:MMSession.Username
+        UserId        = $script:MMSession.UserId
+        AuthType      = $script:MMSession.AuthType
+        DefaultTeamId = $script:MMSession.DefaultTeamId
     }
 }

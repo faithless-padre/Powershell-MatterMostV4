@@ -11,7 +11,6 @@ function Remove-MMUserFromTeam {
     #>
     [CmdletBinding(SupportsShouldProcess)]
     param(
-        [Parameter(Mandatory)]
         [string]$TeamId,
 
         [Parameter(Mandatory, ValueFromPipelineByPropertyName)]
@@ -20,8 +19,9 @@ function Remove-MMUserFromTeam {
     )
 
     process {
-        if ($PSCmdlet.ShouldProcess($UserId, "Remove from team $TeamId")) {
-            Invoke-MMRequest -Endpoint "teams/$TeamId/members/$UserId" -Method DELETE
+        $resolvedTeamId = if ($TeamId) { $TeamId } else { Get-MMDefaultTeamId }
+        if ($PSCmdlet.ShouldProcess($UserId, "Remove from team $resolvedTeamId")) {
+            Invoke-MMRequest -Endpoint "teams/$resolvedTeamId/members/$UserId" -Method DELETE
         }
     }
 }

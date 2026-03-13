@@ -12,6 +12,22 @@ BeforeAll {
 
 Describe 'Get-MMChannel' {
 
+    Context '-All (все каналы системы)' {
+        It 'возвращает каналы всех команд' {
+            $result = Get-MMChannel -All
+
+            $result          | Should -Not -BeNullOrEmpty
+            $result.name     | Should -Contain 'town-square'
+        }
+
+        It 'возвращает массив объектов (enumeration работает корректно)' {
+            $first = Get-MMChannel -All | Select-Object -First 1
+
+            $first    | Should -Not -BeNullOrEmpty
+            $first.id | Should -Not -BeNullOrEmpty
+        }
+    }
+
     Context 'Список каналов команды' {
         It 'возвращает каналы команды' {
             $result = Get-MMChannel -TeamId $script:Team.id

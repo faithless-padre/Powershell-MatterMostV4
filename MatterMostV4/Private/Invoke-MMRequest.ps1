@@ -41,10 +41,12 @@ function Invoke-MMRequest {
     }
 
     try {
-        Invoke-RestMethod @params
+        $result = Invoke-RestMethod @params
+        # Всегда перечисляем результат — массив отдаём поэлементно, одиночный объект как есть
+        $result | ForEach-Object { $_ }
     }
     catch {
         $statusCode = $_.Exception.Response.StatusCode.value__
-        throw "MM API error [$statusCode] on $Method /api/v4/$Endpoint : $($_.ErrorDetails.Message)"
+        throw "MM API error [$statusCode] on $Method /api/v4/$Endpoint : $(Get-MMErrorMessage $_)"
     }
 }

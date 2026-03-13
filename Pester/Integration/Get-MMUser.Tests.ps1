@@ -20,6 +20,24 @@ BeforeAll {
 
 Describe 'Get-MMUser' {
 
+    Context '-All' {
+        It 'возвращает всех пользователей' {
+            $result = Get-MMUser -All
+
+            $result            | Should -Not -BeNullOrEmpty
+            $result.username   | Should -Contain $config.AdminUsername
+            $result.username   | Should -Contain $config.TestUsername
+        }
+
+        It 'возвращает массив объектов (enumeration работает корректно)' {
+            $first = Get-MMUser -All | Select-Object -First 1
+
+            $first        | Should -Not -BeNullOrEmpty
+            $first.id     | Should -Not -BeNullOrEmpty
+            $first.username | Should -Not -BeNullOrEmpty
+        }
+    }
+
     Context '-Me' {
         It 'возвращает текущего пользователя' {
             $user = Get-MMUser -Me

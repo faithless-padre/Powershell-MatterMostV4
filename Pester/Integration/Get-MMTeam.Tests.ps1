@@ -12,9 +12,20 @@ BeforeAll {
 Describe 'Get-MMTeam' {
 
     Context 'Список всех команд' {
-        It 'возвращает хотя бы одну команду' {
+        It 'возвращает хотя бы одну команду без параметров' {
             $result = Get-MMTeam
             $result | Should -Not -BeNullOrEmpty
+        }
+
+        It 'возвращает хотя бы одну команду с -All' {
+            $result = Get-MMTeam -All
+            $result | Should -Not -BeNullOrEmpty
+        }
+
+        It '-All возвращает тот же результат что и без параметров' {
+            $withAll    = Get-MMTeam -All
+            $withoutAll = Get-MMTeam
+            ($withAll | Measure-Object).Count | Should -Be ($withoutAll | Measure-Object).Count
         }
     }
 
