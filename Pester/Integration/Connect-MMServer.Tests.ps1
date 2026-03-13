@@ -7,6 +7,7 @@ BeforeAll {
         AdminPassword = if ($env:MM_ADMIN_PASSWORD) { $env:MM_ADMIN_PASSWORD } else { $fileConfig.AdminPassword }
         TestUsername  = if ($env:MM_TEST_USERNAME)  { $env:MM_TEST_USERNAME }  else { $fileConfig.TestUsername }
         TestPassword  = if ($env:MM_TEST_PASSWORD)  { $env:MM_TEST_PASSWORD }  else { $fileConfig.TestPassword }
+        TestTeamName  = $fileConfig.TestTeamName
     }
 
     $modulePath = if (Test-Path '/module/MatterMostV4.psd1') {
@@ -86,6 +87,30 @@ Describe 'Connect-MMServer' {
         It 'бросает исключение если сервер недоступен' {
             { Connect-MMServer -Url 'http://localhost:9999' -Username $config.AdminUsername -Password (ConvertToSecure $config.AdminPassword) } |
                 Should -Throw
+        }
+    }
+
+    Context 'DefaultTeam' {
+        AfterAll {
+            Connect-MMServer -Url $config.Url -Username $config.AdminUsername -Password (ConvertToSecure $config.AdminPassword)
+        }
+
+        It 'устанавливает DefaultTeamId при корректном имени команды' {
+            Connect-MMServer -Url $config.Url -Username $config.AdminUsername -Password (ConvertToSecure $config.AdminPassword) -DefaultTeam $config.TestTeamName
+
+            $session = & (Get-Module MatterMostV4) { $script:MMSession }
+            $session.DefaultTeamId | Should -Not -BeNullOrEmpty
+        }
+
+        It 'бросает исключение при несуществующей команде' {
+            { Connect-MMServer -Url $config.Url -Username $config.AdminUsername -Password (ConvertToSecure $config.AdminPassword) -DefaultTeam 'nonexistent-team-xyz' } |
+                Should -Throw
+        }
+
+        It 'бросает исключение если DefaultTeamId не задан и TeamId не передан' {
+            Connect-MMServer -Url $config.Url -Username $config.AdminUsername -Password (ConvertToSecure $config.AdminPassword)
+
+            { Get-MMChannel } | Should -Throw
         }
     }
 }

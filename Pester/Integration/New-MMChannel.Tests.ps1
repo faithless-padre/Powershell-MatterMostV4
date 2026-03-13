@@ -71,4 +71,24 @@ Describe 'New-MMChannel' {
             }
         }
     }
+
+    Context 'DefaultTeam' {
+        BeforeAll {
+            Connect-MMServer -Url $config.Url -Username $config.AdminUsername -Password (ConvertTo-SecureString $config.AdminPassword -AsPlainText -Force) -DefaultTeam $config.TestTeamName
+        }
+
+        AfterAll {
+            Connect-MMServer -Url $config.Url -Username $config.AdminUsername -Password (ConvertTo-SecureString $config.AdminPassword -AsPlainText -Force)
+        }
+
+        It 'создаёт канал без -TeamId используя DefaultTeam' {
+            $chan = New-MMChannel -Name "defteam_$($script:Suffix)" -DisplayName 'DefaultTeam Channel'
+            try {
+                $chan      | Should -Not -BeNullOrEmpty
+                $chan.name | Should -Be "defteam_$($script:Suffix)"
+            } finally {
+                Remove-MMChannel -ChannelId $chan.id
+            }
+        }
+    }
 }

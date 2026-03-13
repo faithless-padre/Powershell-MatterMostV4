@@ -10,10 +10,11 @@ BeforeAll {
     Connect-MMServer -Url $config.Url -Username $config.AdminUsername -Password (ConvertTo-SecureString $config.AdminPassword -AsPlainText -Force)
 
     $script:Suffix   = (Get-Date -Format 'HHmmss')
+    $script:TestPass = ConvertTo-SecureString 'Pester123!' -AsPlainText -Force
     $script:TestUser = New-MMUser `
         -Username  "settest_$($script:Suffix)" `
         -Email     "settest_$($script:Suffix)@test.local" `
-        -Password  'Pester123!'
+        -Password  $script:TestPass
 }
 
 AfterAll {

@@ -18,9 +18,22 @@ jobs:
             if (\$results) { \$results; exit 1 }
           "
 
+  manifest:
+    name: Test-ModuleManifest
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Validate manifest
+        run: |
+          pwsh -Command "
+            \$result = Test-ModuleManifest ./MatterMostV4/MatterMostV4.psd1
+            if (-not \$result) { exit 1 }
+          "
+
   test:
     name: "Mattermost ${{ matrix.mm_version }}"
-    needs: lint
+    needs: [lint, manifest]
     runs-on: ubuntu-latest
     permissions:
       checks: write
@@ -28,7 +41,7 @@ jobs:
 
     strategy:
       matrix:
-        mm_version: ['11.5.1']
+        mm_version: ['9.11.14', '10.11.4', '11.5.1']
 
     steps:
       - uses: actions/checkout@v4
@@ -44,3 +57,10 @@ jobs:
           name: "Pester · MM ${{ matrix.mm_version }}"
           path: Pester/results.xml
           reporter: java-junit
+
+      - name: Upload coverage
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: "coverage-${{ matrix.mm_version }}"
+          path: Pester/coverage.xml
