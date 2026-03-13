@@ -14,11 +14,10 @@ BeforeAll {
     Connect-MMServer -Url $config.Url -Username $config.AdminUsername -Password (ConvertToSecure $config.AdminPassword)
 
     $script:Suffix        = (Get-Date -Format 'HHmmss')
-    $script:OriginalPass  = 'Pester123!'
     $script:TestUser      = New-MMUser `
         -Username "pwdtest_$($script:Suffix)" `
         -Email    "pwdtest_$($script:Suffix)@test.local" `
-        -Password $script:OriginalPass
+        -Password (ConvertToSecure 'Pester123!')
 }
 
 AfterAll {

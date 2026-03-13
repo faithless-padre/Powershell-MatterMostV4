@@ -9,11 +9,12 @@ BeforeAll {
     Connect-MMServer -Url $config.Url -Username $config.AdminUsername -Password (ConvertTo-SecureString $config.AdminPassword -AsPlainText -Force)
 
     $script:Suffix   = (Get-Date -Format 'HHmmss')
+    $script:TestPass = ConvertTo-SecureString 'Pester123!' -AsPlainText -Force
     $script:Team     = Get-MMTeam -Name $config.TestTeamName
     $script:TestUser = New-MMUser `
         -Username "tmtest_$($script:Suffix)" `
         -Email    "tmtest_$($script:Suffix)@test.local" `
-        -Password 'Pester123!'
+        -Password $script:TestPass
 }
 
 AfterAll {
@@ -35,7 +36,7 @@ Describe 'Add-MMUserToTeam' {
         }
 
         It 'принимает объект пользователя из пайплайна' {
-            $extraUser = New-MMUser -Username "tmadd_$($script:Suffix)" -Email "tmadd_$($script:Suffix)@test.local" -Password 'Pester123!'
+            $extraUser = New-MMUser -Username "tmadd_$($script:Suffix)" -Email "tmadd_$($script:Suffix)@test.local" -Password $script:TestPass
             try {
                 { $extraUser | Add-MMUserToTeam -TeamId $script:Team.id } | Should -Not -Throw
             } finally {
