@@ -1,5 +1,7 @@
 # MatterMostV4
 
+[![Integration Tests](https://github.com/faithless-padre/Powershell-MatterMostV4/actions/workflows/test.yml/badge.svg?branch=dev)](https://github.com/faithless-padre/Powershell-MatterMostV4/actions/workflows/test.yml)
+
 PowerShell module for managing MatterMost via REST API v4.
 
 Compatible with **Windows PowerShell 5.x** and **PowerShell 7.x**.
