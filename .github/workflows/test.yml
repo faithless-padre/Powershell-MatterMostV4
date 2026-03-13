@@ -1,12 +1,26 @@
 name: Integration Tests
 
 on:
-  push:
-    branches: [dev]
+  workflow_dispatch:
 
 jobs:
+  lint:
+    name: PSScriptAnalyzer
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Run linter
+        run: |
+          pwsh -Command "
+            Install-Module PSScriptAnalyzer -Force -Scope CurrentUser
+            \$results = Invoke-ScriptAnalyzer -Path ./MatterMostV4 -Recurse -Severity Error
+            if (\$results) { \$results; exit 1 }
+          "
+
   test:
     name: "Mattermost ${{ matrix.mm_version }}"
+    needs: lint
     runs-on: ubuntu-latest
     permissions:
       checks: write
