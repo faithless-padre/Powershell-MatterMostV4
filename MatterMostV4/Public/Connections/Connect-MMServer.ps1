@@ -1,4 +1,19 @@
+# Устанавливает соединение с MatterMost сервером и сохраняет сессию в модуле
+
 function Connect-MMServer {
+    <#
+    .SYNOPSIS
+        Подключается к MatterMost серверу и сохраняет токен сессии для последующих запросов.
+    .DESCRIPTION
+        Поддерживает три способа аутентификации: PSCredential, Username/Password или Personal Access Token.
+        После успешного подключения токен сохраняется в $script:MMSession и используется автоматически всеми командлетами модуля.
+    .EXAMPLE
+        Connect-MMServer -Url "http://localhost:8065" -Username "admin" -Password "Admin123456!"
+    .EXAMPLE
+        Connect-MMServer -Url "http://localhost:8065" -Credential (Get-Credential)
+    .EXAMPLE
+        Connect-MMServer -Url "http://localhost:8065" -Token "your-personal-access-token"
+    #>
     [CmdletBinding(DefaultParameterSetName = 'Credential')]
     param(
         [Parameter(Mandatory, ParameterSetName = 'Credential')]
@@ -15,7 +30,7 @@ function Connect-MMServer {
         [string]$Username,
 
         [Parameter(Mandatory, ParameterSetName = 'UsernamePassword')]
-        [string]$Password,
+        [SecureString]$Password,
 
         # --- ParameterSet: Token ---
         [Parameter(Mandatory, ParameterSetName = 'Token')]
@@ -32,7 +47,7 @@ function Connect-MMServer {
         }
         else {
             $loginId = $Username
-            $plainPassword = $Password
+            $plainPassword = [PSCredential]::new('x', $Password).GetNetworkCredential().Password
         }
 
         $body = @{ login_id = $loginId; password = $plainPassword } | ConvertTo-Json
