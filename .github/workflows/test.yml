@@ -58,9 +58,11 @@ jobs:
           path: Pester/results.xml
           reporter: java-junit
 
-      - name: Upload coverage
+      - name: Upload coverage to Codecov
         if: always()
-        uses: actions/upload-artifact@v4
+        uses: codecov/codecov-action@v4
         with:
-          name: "coverage-${{ matrix.mm_version }}"
-          path: Pester/coverage.xml
+          token: ${{ secrets.CODECOV_TOKEN }}
+          files: Pester/coverage.xml
+          name: "MM ${{ matrix.mm_version }}"
+          fail_ci_if_error: false
