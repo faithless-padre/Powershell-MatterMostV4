@@ -15,13 +15,18 @@ BeforeAll {
         Join-Path $PSScriptRoot '..\..\MatterMostV4\MatterMostV4.psd1'
     }
     Import-Module $modulePath -Force
+
+    # Хелпер для конвертации строки в SecureString
+    function ConvertToSecure([string]$plain) {
+        ConvertTo-SecureString $plain -AsPlainText -Force
+    }
 }
 
 Describe 'Connect-MMServer' {
 
-    Context 'Username and Password' {
-        It 'connects successfully and returns session info' {
-            $result = Connect-MMServer -Url $config.Url -Username $config.AdminUsername -Password $config.AdminPassword
+    Context 'Username и Password' {
+        It 'успешно подключается и возвращает информацию о сессии' {
+            $result = Connect-MMServer -Url $config.Url -Username $config.AdminUsername -Password (ConvertToSecure $config.AdminPassword)
 
             $result.Url      | Should -Be $config.Url
             $result.Username | Should -Be $config.AdminUsername
@@ -29,27 +34,26 @@ Describe 'Connect-MMServer' {
             $result.UserId   | Should -Not -BeNullOrEmpty
         }
 
-        It 'sets $script:MMSession inside the module' {
-            Connect-MMServer -Url $config.Url -Username $config.AdminUsername -Password $config.AdminPassword
+        It 'сохраняет $script:MMSession внутри модуля' {
+            Connect-MMServer -Url $config.Url -Username $config.AdminUsername -Password (ConvertToSecure $config.AdminPassword)
 
             $session = & (Get-Module MatterMostV4) { $script:MMSession }
 
-            $session           | Should -Not -BeNullOrEmpty
-            $session.Token     | Should -Not -BeNullOrEmpty
-            $session.Url       | Should -Be $config.Url
-            $session.AuthType  | Should -Be 'SessionToken'
+            $session          | Should -Not -BeNullOrEmpty
+            $session.Token    | Should -Not -BeNullOrEmpty
+            $session.Url      | Should -Be $config.Url
+            $session.AuthType | Should -Be 'SessionToken'
         }
 
-        It 'throws on wrong password' {
-            { Connect-MMServer -Url $config.Url -Username $config.AdminUsername -Password 'WrongPassword!' } |
+        It 'бросает исключение при неверном пароле' {
+            { Connect-MMServer -Url $config.Url -Username $config.AdminUsername -Password (ConvertToSecure 'WrongPassword!') } |
                 Should -Throw
         }
     }
 
     Context 'PSCredential' {
-        It 'connects successfully using Credential parameter' {
-            $securePass = ConvertTo-SecureString $config.AdminPassword -AsPlainText -Force
-            $cred = New-Object System.Management.Automation.PSCredential($config.AdminUsername, $securePass)
+        It 'успешно подключается через параметр Credential' {
+            $cred = New-Object System.Management.Automation.PSCredential($config.AdminUsername, (ConvertToSecure $config.AdminPassword))
 
             $result = Connect-MMServer -Url $config.Url -Credential $cred
 
@@ -60,11 +64,11 @@ Describe 'Connect-MMServer' {
 
     Context 'Token' {
         BeforeAll {
-            Connect-MMServer -Url $config.Url -Username $config.AdminUsername -Password $config.AdminPassword
+            Connect-MMServer -Url $config.Url -Username $config.AdminUsername -Password (ConvertToSecure $config.AdminPassword)
             $script:TokenForTest = (& (Get-Module MatterMostV4) { $script:MMSession }).Token
         }
 
-        It 'connects successfully using personal token' {
+        It 'успешно подключается через personal token' {
             $result = Connect-MMServer -Url $config.Url -Token $script:TokenForTest
 
             $result.Username | Should -Be $config.AdminUsername
@@ -72,15 +76,15 @@ Describe 'Connect-MMServer' {
             $result.UserId   | Should -Not -BeNullOrEmpty
         }
 
-        It 'throws on invalid token' {
+        It 'бросает исключение при невалидном токене' {
             { Connect-MMServer -Url $config.Url -Token 'invalid-token-xyz' } |
                 Should -Throw
         }
     }
 
-    Context 'Invalid server' {
-        It 'throws when server is unreachable' {
-            { Connect-MMServer -Url 'http://localhost:9999' -Username $config.AdminUsername -Password $config.AdminPassword } |
+    Context 'Недоступный сервер' {
+        It 'бросает исключение если сервер недоступен' {
+            { Connect-MMServer -Url 'http://localhost:9999' -Username $config.AdminUsername -Password (ConvertToSecure $config.AdminPassword) } |
                 Should -Throw
         }
     }

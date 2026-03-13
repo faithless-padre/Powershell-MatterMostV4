@@ -3,5 +3,7 @@
     "AdminUsername": "admin",
     "AdminPassword": "Admin123456!",
     "TestUsername": "testuser",
-    "TestPassword": "Test123456!"
+    "TestPassword": "Test123456!",
+    "TestTeamName": "testteam",
+    "TestTeamDisplayName": "Test Team"
 }
