@@ -25,10 +25,10 @@ BeforeAll {
 
 AfterAll {
     if ($script:Channel) {
-        Invoke-MMRequest -Endpoint "channels/$($script:Channel.id)" -Method DELETE | Out-Null
+        Remove-MMChannel -ChannelId $script:Channel.id
     }
     if ($script:TestUser) {
-        Invoke-MMRequest -Endpoint "users/$($script:TestUser.id)" -Method DELETE | Out-Null
+        Remove-MMUser -UserId $script:TestUser.id
     }
 }
 
@@ -49,7 +49,7 @@ Describe 'Add-MMUserToChannel' {
             try {
                 { $script:TestUser | Add-MMUserToChannel -ChannelId $chan2.id } | Should -Not -Throw
             } finally {
-                Invoke-MMRequest -Endpoint "channels/$($chan2.id)" -Method DELETE | Out-Null
+                Remove-MMChannel -ChannelId $chan2.id
             }
         }
     }

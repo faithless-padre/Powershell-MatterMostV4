@@ -18,7 +18,7 @@ Describe 'New-MMTeam' {
 
         AfterAll {
             if ($script:NewTeam) {
-                Invoke-MMRequest -Endpoint "teams/$($script:NewTeam.id)" -Method DELETE | Out-Null
+                Remove-MMTeam -TeamId $script:NewTeam.id
             }
         }
 
@@ -45,7 +45,7 @@ Describe 'New-MMTeam' {
 
         AfterAll {
             if ($script:InviteTeam) {
-                Invoke-MMRequest -Endpoint "teams/$($script:InviteTeam.id)" -Method DELETE | Out-Null
+                Remove-MMTeam -TeamId $script:InviteTeam.id
             }
         }
 
@@ -64,7 +64,7 @@ Describe 'New-MMTeam' {
             try {
                 { New-MMTeam -Name "dup$($script:Suffix)" -DisplayName 'Dup Team 2' } | Should -Throw
             } finally {
-                Invoke-MMRequest -Endpoint "teams/$($tempTeam.id)" -Method DELETE | Out-Null
+                Remove-MMTeam -TeamId $tempTeam.id
             }
         }
     }

@@ -3,11 +3,15 @@
 function Set-MMChannel {
     <#
     .SYNOPSIS
-        Обновляет параметры канала MatterMost.
+        Обновляет параметры канала MatterMost (PUT /channels/{id}/patch).
     .EXAMPLE
         Set-MMChannel -ChannelId 'abc123' -DisplayName 'New Name'
     .EXAMPLE
         Get-MMChannel -ChannelId 'abc123' | Set-MMChannel -Header 'New header'
+    .EXAMPLE
+        Set-MMChannel -ChannelId 'abc123' -GroupConstrained $true
+    .EXAMPLE
+        Set-MMChannel -ChannelId 'abc123' -Properties @{ new_field = 'value' }
     #>
     [CmdletBinding()]
     param(
@@ -15,26 +19,39 @@ function Set-MMChannel {
         [Alias('id')]
         [string]$ChannelId,
 
-        [Parameter(ValueFromPipelineByPropertyName)]
+        [string]$Name,
         [string]$DisplayName,
-
-        [Parameter(ValueFromPipelineByPropertyName)]
         [string]$Purpose,
+        [string]$Header,
+        [nullable[bool]]$GroupConstrained,
+        [nullable[bool]]$AutoTranslation,
+        [hashtable]$BannerInfo,
 
-        [Parameter(ValueFromPipelineByPropertyName)]
-        [string]$Header
+        # Произвольные поля — для новых или незадокументированных свойств API
+        [hashtable]$Properties
     )
 
     process {
-        $current = Invoke-MMRequest -Endpoint "channels/$ChannelId"
-
-        $body = @{
-            id           = $ChannelId
-            display_name = if ($PSBoundParameters.ContainsKey('DisplayName')) { $DisplayName } else { $current.display_name }
-            purpose      = if ($PSBoundParameters.ContainsKey('Purpose'))     { $Purpose }     else { $current.purpose }
-            header       = if ($PSBoundParameters.ContainsKey('Header'))      { $Header }      else { $current.header }
+        $paramMap = @{
+            Name             = 'name'
+            DisplayName      = 'display_name'
+            Purpose          = 'purpose'
+            Header           = 'header'
+            GroupConstrained = 'group_constrained'
+            AutoTranslation  = 'autotranslation'
+            BannerInfo       = 'banner_info'
         }
 
-        Invoke-MMRequest -Endpoint "channels/$ChannelId" -Method PUT -Body $body
+        $body = @{}
+        foreach ($param in $paramMap.Keys) {
+            if ($PSBoundParameters.ContainsKey($param)) {
+                $body[$paramMap[$param]] = $PSBoundParameters[$param]
+            }
+        }
+        if ($Properties) {
+            foreach ($key in $Properties.Keys) { $body[$key] = $Properties[$key] }
+        }
+
+        Invoke-MMRequest -Endpoint "channels/$ChannelId/patch" -Method PUT -Body $body
     }
 }

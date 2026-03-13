@@ -18,36 +18,50 @@ BeforeAll {
 
 AfterAll {
     if ($script:TestUser) {
-        Invoke-MMRequest -Endpoint "users/$($script:TestUser.id)" -Method DELETE | Out-Null
+        Remove-MMUser -UserId $script:TestUser.id
     }
 }
 
 Describe 'Set-MMUser' {
 
-    Context 'Обновление одного поля' {
-        It 'обновляет nickname' {
-            $result = Set-MMUser -UserId $script:TestUser.id -Properties @{ nickname = 'NickUpdated' }
+    Context 'Именованные параметры' {
+        It 'обновляет Nickname' {
+            $result = Set-MMUser -UserId $script:TestUser.id -Nickname 'NickNamed'
 
-            $result.nickname | Should -Be 'NickUpdated'
+            $result.nickname | Should -Be 'NickNamed'
         }
 
-        It 'обновляет first_name и last_name' {
-            $result = Set-MMUser -UserId $script:TestUser.id -Properties @{ first_name = 'Ivan'; last_name = 'Petrov' }
+        It 'обновляет FirstName и LastName' {
+            $result = Set-MMUser -UserId $script:TestUser.id -FirstName 'Ivan' -LastName 'Petrov'
 
             $result.first_name | Should -Be 'Ivan'
             $result.last_name  | Should -Be 'Petrov'
         }
 
-        It 'обновляет position' {
-            $result = Set-MMUser -UserId $script:TestUser.id -Properties @{ position = 'Developer' }
+        It 'обновляет Position' {
+            $result = Set-MMUser -UserId $script:TestUser.id -Position 'Developer'
 
             $result.position | Should -Be 'Developer'
         }
     }
 
+    Context 'Сырые данные через -Properties' {
+        It 'обновляет поле через -Properties' {
+            $result = Set-MMUser -UserId $script:TestUser.id -Properties @{ nickname = 'RawNick' }
+
+            $result.nickname | Should -Be 'RawNick'
+        }
+
+        It '-Properties перекрывает именованный параметр' {
+            $result = Set-MMUser -UserId $script:TestUser.id -Nickname 'Named' -Properties @{ nickname = 'Override' }
+
+            $result.nickname | Should -Be 'Override'
+        }
+    }
+
     Context 'Частичное обновление не затирает другие поля' {
-        It 'username и email сохраняются при обновлении nickname' {
-            Set-MMUser -UserId $script:TestUser.id -Properties @{ nickname = 'SafeCheck' } | Out-Null
+        It 'username и email сохраняются при обновлении Nickname' {
+            Set-MMUser -UserId $script:TestUser.id -Nickname 'SafeCheck' | Out-Null
             $user = Get-MMUser -UserId $script:TestUser.id
 
             $user.username | Should -Be "settest_$($script:Suffix)"
@@ -58,7 +72,7 @@ Describe 'Set-MMUser' {
 
     Context 'Pipeline' {
         It 'принимает объект пользователя из пайплайна' {
-            $result = Get-MMUser -UserId $script:TestUser.id | Set-MMUser -Properties @{ nickname = 'PipeNick' }
+            $result = Get-MMUser -UserId $script:TestUser.id | Set-MMUser -Nickname 'PipeNick'
 
             $result.nickname | Should -Be 'PipeNick'
         }
@@ -66,7 +80,7 @@ Describe 'Set-MMUser' {
 
     Context 'Ошибки' {
         It 'бросает исключение при невалидном UserId' {
-            { Set-MMUser -UserId 'invalid-id-xyz' -Properties @{ nickname = 'x' } } | Should -Throw
+            { Set-MMUser -UserId 'invalid-id-xyz' -Nickname 'x' } | Should -Throw
         }
     }
 }

@@ -14,13 +14,13 @@ BeforeAll {
 
 AfterAll {
     if ($script:Channel) {
-        Invoke-MMRequest -Endpoint "channels/$($script:Channel.id)" -Method DELETE | Out-Null
+        Remove-MMChannel -ChannelId $script:Channel.id
     }
 }
 
 Describe 'Set-MMChannel' {
 
-    Context 'Обновление полей' {
+    Context 'Именованные параметры' {
         It 'обновляет DisplayName' {
             $result = Set-MMChannel -ChannelId $script:Channel.id -DisplayName 'Updated Channel'
             $result.display_name | Should -Be 'Updated Channel'
@@ -36,11 +36,23 @@ Describe 'Set-MMChannel' {
             $result.purpose | Should -Be 'New purpose'
         }
 
-        It 'сохраняет остальные поля при частичном обновлении' {
-            Set-MMChannel -ChannelId $script:Channel.id -DisplayName 'Partial' | Out-Null
-            $chan = Get-MMChannel -ChannelId $script:Channel.id
-            $chan.display_name | Should -Be 'Partial'
-            $chan.name         | Should -Be "setch_$($script:Suffix)"
+        It 'обновляет Name' {
+            $newName = "setch_$($script:Suffix)_upd"
+            $result  = Set-MMChannel -ChannelId $script:Channel.id -Name $newName
+            $result.name | Should -Be $newName
+            Set-MMChannel -ChannelId $script:Channel.id -Name "setch_$($script:Suffix)" | Out-Null
+        }
+    }
+
+    Context 'Сырые данные через -Properties' {
+        It 'обновляет поле через -Properties' {
+            $result = Set-MMChannel -ChannelId $script:Channel.id -Properties @{ header = 'RawHeader' }
+            $result.header | Should -Be 'RawHeader'
+        }
+
+        It '-Properties перекрывает именованный параметр' {
+            $result = Set-MMChannel -ChannelId $script:Channel.id -Header 'Named' -Properties @{ header = 'Override' }
+            $result.header | Should -Be 'Override'
         }
     }
 

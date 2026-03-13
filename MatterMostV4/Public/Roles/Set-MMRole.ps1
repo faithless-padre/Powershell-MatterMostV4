@@ -17,13 +17,19 @@ function Set-MMRole {
         [Alias('id')]
         [string]$RoleId,
 
-        [Parameter(Mandatory)]
-        [string[]]$Permissions
+        [string[]]$Permissions,
+
+        # Произвольные поля — для новых или незадокументированных свойств API
+        [hashtable]$Properties
     )
 
     process {
-        Invoke-MMRequest -Endpoint "roles/$RoleId/patch" -Method PUT -Body @{
-            permissions = $Permissions
+        $body = @{}
+        if ($PSBoundParameters.ContainsKey('Permissions')) { $body['permissions'] = $Permissions }
+        if ($Properties) {
+            foreach ($key in $Properties.Keys) { $body[$key] = $Properties[$key] }
         }
+
+        Invoke-MMRequest -Endpoint "roles/$RoleId/patch" -Method PUT -Body $body
     }
 }

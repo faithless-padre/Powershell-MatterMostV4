@@ -9,12 +9,16 @@
         'Add-MMUserToChannel',
         'Add-MMUserToTeam',
         'Connect-MMServer',
+        'ConvertFrom-MMGuestUser',
+        'ConvertTo-MMGuestUser',
+        'Disable-MMUser',
         'Disconnect-MMServer',
         'Enable-MMUser',
         'Get-MMChannel',
         'Get-MMRole',
         'Get-MMTeam',
         'Get-MMUser',
+        'Get-MMUserAudit',
         'Get-MMUserChannels',
         'Get-MMUserTeams',
         'New-MMChannel',
@@ -31,6 +35,9 @@
         'Set-MMUser',
         'Set-MMUserPassword',
         'Set-MMUserRole'
+    )
+    FormatsToProcess  = @(
+        'Formats/MatterMost.User.Format.ps1xml'
     )
     CmdletsToExport   = @()
     VariablesToExport = @()

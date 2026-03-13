@@ -1,0 +1,26 @@
+name: Integration Tests
+
+on:
+  push:
+    branches: [dev]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    permissions:
+      checks: write
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Run integration tests
+        working-directory: Sandbox
+        run: docker compose run --rm tests
+
+      - name: Publish test results
+        if: always()
+        uses: dorny/test-reporter@v1
+        with:
+          name: Pester
+          path: Pester/results.xml
+          reporter: java-junit
