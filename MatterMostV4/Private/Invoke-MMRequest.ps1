@@ -1,4 +1,10 @@
+# Внутренний хелпер для выполнения HTTP запросов к MatterMost REST API
+
 function Invoke-MMRequest {
+    <#
+    .SYNOPSIS
+        Выполняет HTTP запрос к MatterMost API, используя сохранённую сессию.
+    #>
     [CmdletBinding()]
     param(
         [Parameter(Mandatory)]
