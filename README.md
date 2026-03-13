@@ -4,6 +4,74 @@ PowerShell module for managing MatterMost via REST API v4.
 
 Compatible with **Windows PowerShell 5.x** and **PowerShell 7.x**.
 
+---
+
+## Project Structure
+
+```
+MatterMost/
+├── MatterMostV4/               # Module code
+│   ├── MatterMostV4.psd1       # Module manifest
+│   ├── MatterMostV4.psm1       # Module loader
+│   ├── Public/                 # Exported cmdlets (one file = one cmdlet)
+│   │   ├── Channels/
+│   │   ├── Connections/
+│   │   ├── Roles/
+│   │   ├── Teams/
+│   │   └── Users/
+│   └── Private/                # Internal helpers
+├── Pester/
+│   └── Integration/            # Integration tests (run against real MM)
+└── Sandbox/                    # Docker environment for testing
+    ├── docker-compose.yml
+    ├── Makefile
+    └── setup.sh                # Idempotent: creates admin, team, testuser
+```
+
+---
+
+## Testing
+
+Tests run inside Docker against a real MatterMost instance.
+No mocks — all tests hit the actual API.
+
+### Prerequisites
+
+| Tool | Tested version |
+|---|---|
+| Docker | 29.2.1 |
+| Docker Compose | 5.0.2 |
+| GNU Make | 4.3 |
+| Pester | 5.7.1 |
+
+### MatterMost versions tested
+
+| Version | Type |
+|---|---|
+| 9.11.14 | ESR |
+| 10.11.4 | Regular |
+| 11.5.1 | Latest |
+
+### Running tests
+
+```bash
+cd Sandbox
+
+make start        # start MatterMost + run setup (admin, team, testuser)
+make tests        # run all Pester integration tests
+make stop         # tear down containers and volumes
+
+# Test against all configured MM versions sequentially
+make test-matrix
+
+# Test against specific versions
+make test-matrix MM_VERSIONS="9.11.14 11.5.1"
+```
+
+`make stop` wipes all data — next `make start` is always a clean environment.
+
+---
+
 ## Installation
 
 ```powershell
@@ -25,61 +93,37 @@ Disconnect-MMServer
 
 ## Commands
 
-### Connection
-| Command | Description |
-|---|---|
-| `Connect-MMServer` | Connect to MatterMost server |
-| `Disconnect-MMServer` | Clear the current session |
+```powershell
+PS> gcm -Module MatterMostV4 | Get-Help | Select-Object Name, @{N='Ver';E={(gcm $_.Name).Version}}, Synopsis | ft -a
 
-### Users
-| Command | Description |
-|---|---|
-| `Get-MMUser -All` | List all users |
-| `Get-MMUser admin` | Get user by username (positional) |
-| `Get-MMUser -UserId 'abc123'` | Get user by ID |
-| `Get-MMUser -Me` | Get current user |
-| `Get-MMUser -Filter { username -like 'adm*' }` | Filter users |
-| `New-MMUser` | Create user |
-| `Set-MMUser -UserId ... -Properties @{...}` | Update user profile (any fields) |
-| `Set-MMUserPassword` | Change user password |
-| `Set-MMUserRole` | Assign system role |
-| `Enable-MMUser` | Re-activate deactivated user |
-| `Remove-MMUser` | Delete user |
-
-### Teams
-| Command | Description |
-|---|---|
-| `Get-MMTeam -All` | List all teams |
-| `Get-MMTeam myteam` | Get team by name (positional) |
-| `Get-MMTeam -TeamId 'abc123'` | Get team by ID |
-| `New-MMTeam` | Create team |
-| `Set-MMTeam` | Update team |
-| `Remove-MMTeam` | Delete team |
-| `Get-MMUserTeams` | Get teams for a user |
-| `Add-MMUserToTeam` | Add user to team |
-| `Remove-MMUserFromTeam` | Remove user from team |
-
-### Channels
-| Command | Description |
-|---|---|
-| `Get-MMChannel -All` | List all channels (admin) |
-| `Get-MMChannel` | List channels in default team |
-| `Get-MMChannel general` | Get channel by name (positional) |
-| `Get-MMChannel -ChannelId 'abc123'` | Get channel by ID |
-| `New-MMChannel` | Create channel |
-| `Set-MMChannel` | Update channel |
-| `Remove-MMChannel` | Delete channel |
-| `Get-MMUserChannels` | Get channels for a user |
-| `Add-MMUserToChannel` | Add user to channel |
-| `Remove-MMUserFromChannel` | Remove user from channel |
-
-### Roles
-| Command | Description |
-|---|---|
-| `Get-MMRole -All` | List all roles |
-| `Get-MMRole system_admin` | Get role by name (positional) |
-| `Get-MMRole -Names 'system_admin','team_admin'` | Get multiple roles |
-| `Set-MMRole` | Update role permissions |
+Name                     Ver   Synopsis
+----                     ---   --------
+Add-MMUserToChannel      0.1.0 Добавляет пользователя в канал MatterMost.
+Add-MMUserToTeam         0.1.0 Добавляет пользователя в команду MatterMost.
+Connect-MMServer         0.1.0 Подключается к MatterMost серверу и сохраняет токен сессии для последующих запросов.
+Disconnect-MMServer      0.1.0 Завершает сессию MatterMost и очищает сохранённый токен.
+Enable-MMUser            0.1.0 Активирует деактивированного пользователя MatterMost.
+Get-MMChannel            0.1.0 Возвращает канал MatterMost по ID, имени внутри команды, список каналов команды или все каналы системы.
+Get-MMRole               0.1.0 Возвращает роль MatterMost по ID, имени, списку имён или все роли сразу.
+Get-MMTeam               0.1.0 Возвращает команду MatterMost по ID, имени или список всех команд.
+Get-MMUser               0.1.0 Возвращает пользователя MatterMost по ID, username, фильтру или текущей сессии.
+Get-MMUserChannels       0.1.0 Возвращает список каналов пользователя в указанной команде MatterMost.
+Get-MMUserTeams          0.1.0 Возвращает список команд, в которых состоит пользователь MatterMost.
+New-MMChannel            0.1.0 Создаёт новый канал в команде MatterMost.
+New-MMTeam               0.1.0 Создаёт новую команду в MatterMost.
+New-MMUser               0.1.0 Создаёт нового пользователя в MatterMost.
+Remove-MMChannel         0.1.0 Архивирует канал MatterMost.
+Remove-MMTeam            0.1.0 Архивирует команду MatterMost.
+Remove-MMUser            0.1.0 Деактивирует пользователя MatterMost (soft delete).
+Remove-MMUserFromChannel 0.1.0 Удаляет пользователя из канала MatterMost.
+Remove-MMUserFromTeam    0.1.0 Удаляет пользователя из команды MatterMost.
+Set-MMChannel            0.1.0 Обновляет параметры канала MatterMost.
+Set-MMRole               0.1.0 Изменяет список permissions для указанной роли MatterMost.
+Set-MMTeam               0.1.0 Обновляет параметры команды MatterMost.
+Set-MMUser               0.1.0 Обновляет профиль пользователя MatterMost произвольными полями API.
+Set-MMUserPassword       0.1.0 Меняет пароль пользователя MatterMost.
+Set-MMUserRole           0.1.0 Назначает системные роли пользователю MatterMost.
+```
 
 ## Pipeline Support
 
