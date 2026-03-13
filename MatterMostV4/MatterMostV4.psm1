@@ -15,7 +15,3 @@ foreach ($Folder in @('Private', 'Public')) {
     }
 }
 
-$PublicFunctions = Get-ChildItem -Path (Join-Path $ModuleRoot 'Public') -Filter '*.ps1' -Recurse |
-    ForEach-Object { [System.IO.Path]::GetFileNameWithoutExtension($_.Name) }
-
-Export-ModuleMember -Function $PublicFunctions

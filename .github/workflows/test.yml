@@ -1,0 +1,32 @@
+name: Integration Tests
+
+on:
+  push:
+    branches: [dev]
+
+jobs:
+  test:
+    name: "Mattermost ${{ matrix.mm_version }}"
+    runs-on: ubuntu-latest
+    permissions:
+      checks: write
+      contents: read
+
+    strategy:
+      matrix:
+        mm_version: ['11.5.1']
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Run integration tests
+        working-directory: Sandbox
+        run: MM_VERSION=${{ matrix.mm_version }} docker compose run --rm tests
+
+      - name: Publish test results
+        if: always()
+        uses: dorny/test-reporter@v1
+        with:
+          name: "Pester · MM ${{ matrix.mm_version }}"
+          path: Pester/results.xml
+          reporter: java-junit

@@ -51,6 +51,14 @@ Describe 'Set-MMRole' {
         }
     }
 
+    Context 'Сырые данные через -Properties' {
+        It 'обновляет permissions через -Properties' {
+            $role   = Get-MMRole -Name 'team_user'
+            $result = Set-MMRole -RoleId $role.id -Properties @{ permissions = $role.permissions }
+            $result.id | Should -Be $role.id
+        }
+    }
+
     Context 'Ошибки' {
         It 'бросает исключение при невалидном RoleId' {
             { Set-MMRole -RoleId 'invalidroleid000' -Permissions @('create_post') } | Should -Throw

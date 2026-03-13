@@ -36,17 +36,22 @@ function Get-MMUser {
         [Parameter(Mandatory, ParameterSetName = 'ByUsername', Position = 0)]
         [string]$Username,
 
+        [Parameter(Mandatory, ParameterSetName = 'ByEmail')]
+        [string]$Email,
+
         [Parameter(Mandatory, ParameterSetName = 'Filter')]
         [scriptblock]$Filter
     )
 
     process {
+        $typeName = 'MatterMost.User'
         switch ($PSCmdlet.ParameterSetName) {
-            'All'        { Get-MMUserList }
-            'Me'         { Invoke-MMRequest -Endpoint 'users/me' }
-            'ById'       { Invoke-MMRequest -Endpoint "users/$UserId" }
-            'ByUsername' { Invoke-MMRequest -Endpoint "users/username/$Username" }
-            'Filter'     { Invoke-MMUserFilter -Filter $Filter }
+            'All'        { Get-MMUserList                                        | Add-MMTypeName -TypeName $typeName }
+            'Me'         { Invoke-MMRequest -Endpoint 'users/me'                 | Add-MMTypeName -TypeName $typeName }
+            'ById'       { Invoke-MMRequest -Endpoint "users/$UserId"            | Add-MMTypeName -TypeName $typeName }
+            'ByUsername' { Invoke-MMRequest -Endpoint "users/username/$Username" | Add-MMTypeName -TypeName $typeName }
+            'ByEmail'    { Invoke-MMRequest -Endpoint "users/email/$Email"       | Add-MMTypeName -TypeName $typeName }
+            'Filter'     { Invoke-MMUserFilter -Filter $Filter                   | Add-MMTypeName -TypeName $typeName }
         }
     }
 }

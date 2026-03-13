@@ -47,6 +47,6 @@ function New-MMUser {
         if ($LastName)  { $body['last_name']  = $LastName }
         if ($Nickname)  { $body['nickname']   = $Nickname }
 
-        Invoke-MMRequest -Endpoint 'users' -Method POST -Body $body
+        Invoke-MMRequest -Endpoint 'users' -Method POST -Body $body | Add-MMTypeName -TypeName 'MatterMost.User'
     }
 }

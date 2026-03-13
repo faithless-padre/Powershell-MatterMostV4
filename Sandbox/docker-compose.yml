@@ -49,7 +49,7 @@ services:
         condition: service_completed_successfully
     volumes:
       - ../MatterMostV4:/module:ro
-      - ../Pester:/tests:ro
+      - ../Pester:/tests
     environment:
       MM_URL: http://mattermost:8065
       MM_ADMIN_USERNAME: admin

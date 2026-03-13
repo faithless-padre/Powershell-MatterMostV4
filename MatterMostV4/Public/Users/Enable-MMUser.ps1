@@ -17,6 +17,6 @@ function Enable-MMUser {
     )
 
     process {
-        Invoke-MMRequest -Endpoint "users/$UserId/active" -Method PUT -Body @{ active = $true }
+        Invoke-MMRequest -Endpoint "users/$UserId/active" -Method PUT -Body @{ active = $true } | Add-MMTypeName -TypeName 'MatterMost.User'
     }
 }

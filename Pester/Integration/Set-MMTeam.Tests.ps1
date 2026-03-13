@@ -12,13 +12,13 @@ BeforeAll {
 
 AfterAll {
     if ($script:TestTeam) {
-        Invoke-MMRequest -Endpoint "teams/$($script:TestTeam.id)" -Method DELETE | Out-Null
+        Remove-MMTeam -TeamId $script:TestTeam.id
     }
 }
 
 Describe 'Set-MMTeam' {
 
-    Context 'Обновление полей' {
+    Context 'Именованные параметры' {
         It 'обновляет DisplayName' {
             $result = Set-MMTeam -TeamId $script:TestTeam.id -DisplayName 'Updated Name'
             $result.display_name | Should -Be 'Updated Name'
@@ -29,11 +29,26 @@ Describe 'Set-MMTeam' {
             $result.description | Should -Be 'New description'
         }
 
-        It 'сохраняет остальные поля при частичном обновлении' {
-            Set-MMTeam -TeamId $script:TestTeam.id -DisplayName 'Partial Update' | Out-Null
-            $team = Get-MMTeam -TeamId $script:TestTeam.id
-            $team.display_name | Should -Be 'Partial Update'
-            $team.name         | Should -Be "setteam$($script:Suffix)"
+        It 'обновляет CompanyName' {
+            $result = Set-MMTeam -TeamId $script:TestTeam.id -CompanyName 'Acme Corp'
+            $result.company_name | Should -Be 'Acme Corp'
+        }
+
+        It 'обновляет AllowOpenInvite' {
+            $result = Set-MMTeam -TeamId $script:TestTeam.id -AllowOpenInvite $true
+            $result.allow_open_invite | Should -Be $true
+        }
+    }
+
+    Context 'Сырые данные через -Properties' {
+        It 'обновляет поле через -Properties' {
+            $result = Set-MMTeam -TeamId $script:TestTeam.id -Properties @{ description = 'RawDesc' }
+            $result.description | Should -Be 'RawDesc'
+        }
+
+        It '-Properties перекрывает именованный параметр' {
+            $result = Set-MMTeam -TeamId $script:TestTeam.id -DisplayName 'Named' -Properties @{ display_name = 'Override' }
+            $result.display_name | Should -Be 'Override'
         }
     }
 
