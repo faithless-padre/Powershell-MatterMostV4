@@ -5,6 +5,8 @@ function Get-MMUser {
     .SYNOPSIS
         Возвращает пользователя MatterMost по ID, username, фильтру или текущей сессии.
     .EXAMPLE
+        Get-MMUser -All
+    .EXAMPLE
         Get-MMUser -Me
     .EXAMPLE
         Get-MMUser -Username "testuser"
@@ -21,6 +23,9 @@ function Get-MMUser {
     #>
     [CmdletBinding(DefaultParameterSetName = 'Me')]
     param(
+        [Parameter(ParameterSetName = 'All')]
+        [switch]$All,
+
         [Parameter(ParameterSetName = 'Me')]
         [switch]$Me,
 
@@ -28,7 +33,7 @@ function Get-MMUser {
         [Alias('id')]
         [string]$UserId,
 
-        [Parameter(Mandatory, ParameterSetName = 'ByUsername')]
+        [Parameter(Mandatory, ParameterSetName = 'ByUsername', Position = 0)]
         [string]$Username,
 
         [Parameter(Mandatory, ParameterSetName = 'Filter')]
@@ -37,6 +42,7 @@ function Get-MMUser {
 
     process {
         switch ($PSCmdlet.ParameterSetName) {
+            'All'        { Get-MMUserList }
             'Me'         { Invoke-MMRequest -Endpoint 'users/me' }
             'ById'       { Invoke-MMRequest -Endpoint "users/$UserId" }
             'ByUsername' { Invoke-MMRequest -Endpoint "users/username/$Username" }
