@@ -1,4 +1,6 @@
-.PHONY: help start stop tests ps ls
+MM_VERSIONS ?= 9.11.14 10.11.4 11.5.1
+
+.PHONY: help start stop tests test-matrix ps ls
 
 help:
 	@echo "Usage: make [target]"
@@ -8,7 +10,8 @@ help:
 	@echo "  stop    - Stop and remove all containers and volumes"
 	@echo "  ps      - Show container status"
 	@echo "  ls      - Alias for ps"
-	@echo "  tests   - Run Pester integration tests"
+	@echo "  tests        - Run Pester integration tests"
+	@echo "  test-matrix  - Run tests against multiple MM versions (MM_VERSIONS='x y z')"
 	@echo "  help    - Show this help"
 
 start:
@@ -24,3 +27,26 @@ ls: ps
 
 tests:
 	docker compose run --rm tests
+
+test-matrix:
+	@failed=""; \
+	for v in $(MM_VERSIONS); do \
+		echo ""; \
+		echo "======================================"; \
+		echo "  Testing MatterMost $$v"; \
+		echo "======================================"; \
+		MM_VERSION=$$v docker compose down -v 2>/dev/null; \
+		MM_VERSION=$$v docker compose up -d; \
+		if MM_VERSION=$$v docker compose run --rm tests; then \
+			echo "PASS: $$v"; \
+		else \
+			echo "FAIL: $$v"; \
+			failed="$$failed $$v"; \
+		fi; \
+		MM_VERSION=$$v docker compose down -v; \
+	done; \
+	if [ -n "$$failed" ]; then \
+		echo ""; \
+		echo "FAILED:$$failed"; \
+		exit 1; \
+	fi
