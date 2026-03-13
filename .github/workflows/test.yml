@@ -4,23 +4,28 @@ on:
   push:
     branches: [dev]
 
+env:
+  MM_VERSION: '11.5.1'
+
 jobs:
   test:
+    name: "Integration Tests · Mattermost ${{ env.MM_VERSION }}"
     runs-on: ubuntu-latest
     permissions:
       checks: write
+      contents: read
 
     steps:
       - uses: actions/checkout@v4
 
       - name: Run integration tests
         working-directory: Sandbox
-        run: docker compose run --rm tests
+        run: MM_VERSION=${{ env.MM_VERSION }} docker compose run --rm tests
 
       - name: Publish test results
         if: always()
         uses: dorny/test-reporter@v1
         with:
-          name: Pester
+          name: "Pester · Integration Tests · MM ${{ env.MM_VERSION }}"
           path: Pester/results.xml
           reporter: java-junit
