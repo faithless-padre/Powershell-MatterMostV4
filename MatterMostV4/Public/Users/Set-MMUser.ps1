@@ -3,13 +3,15 @@
 function Set-MMUser {
     <#
     .SYNOPSIS
-        Обновляет профиль пользователя MatterMost произвольными полями API.
+        Обновляет профиль пользователя MatterMost (PUT /users/{id}/patch).
     .EXAMPLE
-        Get-MMUser admin | Set-MMUser -Properties @{ nickname = 'Boss' }
+        Set-MMUser -UserId 'abc123' -FirstName 'Ivan' -LastName 'Petrov'
     .EXAMPLE
-        Set-MMUser -UserId 'abc123' -Properties @{ first_name = 'Ivan'; last_name = 'Petrov' }
+        Get-MMUser admin | Set-MMUser -Nickname 'Boss' -Position 'CTO'
     .EXAMPLE
-        Get-MMUser admin | Set-MMUser -Properties @{ timezone = @{ useAutomaticTimezone = 'false'; manualTimezone = 'Europe/Moscow' } }
+        Set-MMUser -UserId 'abc123' -Timezone @{ useAutomaticTimezone = 'false'; manualTimezone = 'Europe/Moscow' }
+    .EXAMPLE
+        Set-MMUser -UserId 'abc123' -Properties @{ new_field = 'value' }
     #>
     [CmdletBinding()]
     param(
@@ -17,20 +19,45 @@ function Set-MMUser {
         [Alias('id')]
         [string]$UserId,
 
-        [Parameter(Mandatory)]
+        [string]$Email,
+        [string]$Username,
+        [string]$FirstName,
+        [string]$LastName,
+        [string]$Nickname,
+        [string]$Locale,
+        [string]$Position,
+        [hashtable]$Timezone,
+        [hashtable]$Props,
+        [hashtable]$NotifyProps,
+
+        # Произвольные поля — для новых или незадокументированных свойств API
         [hashtable]$Properties
     )
 
     process {
-        # Получаем текущий профиль чтобы не потерять обязательные поля (id, username, email)
-        $current = Invoke-MMRequest -Endpoint "users/$UserId"
-
-        $body = @{ id = $UserId; username = $current.username; email = $current.email }
-
-        foreach ($key in $Properties.Keys) {
-            $body[$key] = $Properties[$key]
+        $paramMap = @{
+            Email       = 'email'
+            Username    = 'username'
+            FirstName   = 'first_name'
+            LastName    = 'last_name'
+            Nickname    = 'nickname'
+            Locale      = 'locale'
+            Position    = 'position'
+            Timezone    = 'timezone'
+            Props       = 'props'
+            NotifyProps = 'notify_props'
         }
 
-        Invoke-MMRequest -Endpoint "users/$UserId" -Method PUT -Body $body
+        $body = @{}
+        foreach ($param in $paramMap.Keys) {
+            if ($PSBoundParameters.ContainsKey($param)) {
+                $body[$paramMap[$param]] = $PSBoundParameters[$param]
+            }
+        }
+        if ($Properties) {
+            foreach ($key in $Properties.Keys) { $body[$key] = $Properties[$key] }
+        }
+
+        Invoke-MMRequest -Endpoint "users/$UserId/patch" -Method PUT -Body $body | Add-MMTypeName -TypeName 'MatterMost.User'
     }
 }

@@ -20,7 +20,7 @@ Describe 'New-MMChannel' {
 
         AfterAll {
             if ($script:NewChannel) {
-                Invoke-MMRequest -Endpoint "channels/$($script:NewChannel.id)" -Method DELETE | Out-Null
+                Remove-MMChannel -ChannelId $script:NewChannel.id
             }
         }
 
@@ -47,7 +47,7 @@ Describe 'New-MMChannel' {
 
         AfterAll {
             if ($script:PrivChannel) {
-                Invoke-MMRequest -Endpoint "channels/$($script:PrivChannel.id)" -Method DELETE | Out-Null
+                Remove-MMChannel -ChannelId $script:PrivChannel.id
             }
         }
 
@@ -67,7 +67,7 @@ Describe 'New-MMChannel' {
             try {
                 { New-MMChannel -TeamId $script:Team.id -Name "dup_$($script:Suffix)" -DisplayName 'Dup Channel 2' } | Should -Throw
             } finally {
-                Invoke-MMRequest -Endpoint "channels/$($tempChan.id)" -Method DELETE | Out-Null
+                Remove-MMChannel -ChannelId $tempChan.id
             }
         }
     }

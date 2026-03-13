@@ -23,7 +23,7 @@ BeforeAll {
 
 AfterAll {
     if ($script:TestUser) {
-        Invoke-MMRequest -Endpoint "users/$($script:TestUser.id)" -Method DELETE | Out-Null
+        Remove-MMUser -UserId $script:TestUser.id
     }
 }
 

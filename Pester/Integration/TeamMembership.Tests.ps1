@@ -18,7 +18,7 @@ BeforeAll {
 
 AfterAll {
     if ($script:TestUser) {
-        Invoke-MMRequest -Endpoint "users/$($script:TestUser.id)" -Method DELETE | Out-Null
+        Remove-MMUser -UserId $script:TestUser.id
     }
 }
 
@@ -39,7 +39,7 @@ Describe 'Add-MMUserToTeam' {
             try {
                 { $extraUser | Add-MMUserToTeam -TeamId $script:Team.id } | Should -Not -Throw
             } finally {
-                Invoke-MMRequest -Endpoint "users/$($extraUser.id)" -Method DELETE | Out-Null
+                Remove-MMUser -UserId $extraUser.id
             }
         }
     }

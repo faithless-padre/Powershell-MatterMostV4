@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Configuration>
+  <ViewDefinitions>
+
+    <View>
+      <Name>MatterMost.User.Table</Name>
+      <ViewSelectedBy>
+        <TypeName>MatterMost.User</TypeName>
+      </ViewSelectedBy>
+      <TableControl>
+        <TableHeaders>
+          <TableColumnHeader><Label>Username</Label><Width>22</Width></TableColumnHeader>
+          <TableColumnHeader><Label>Email</Label><Width>32</Width></TableColumnHeader>
+          <TableColumnHeader><Label>First Name</Label><Width>14</Width></TableColumnHeader>
+          <TableColumnHeader><Label>Last Name</Label><Width>14</Width></TableColumnHeader>
+          <TableColumnHeader><Label>Roles</Label></TableColumnHeader>
+        </TableHeaders>
+        <TableRowEntries>
+          <TableRowEntry>
+            <TableColumnItems>
+              <TableColumnItem><PropertyName>username</PropertyName></TableColumnItem>
+              <TableColumnItem><PropertyName>email</PropertyName></TableColumnItem>
+              <TableColumnItem><PropertyName>first_name</PropertyName></TableColumnItem>
+              <TableColumnItem><PropertyName>last_name</PropertyName></TableColumnItem>
+              <TableColumnItem><PropertyName>roles</PropertyName></TableColumnItem>
+            </TableColumnItems>
+          </TableRowEntry>
+        </TableRowEntries>
+      </TableControl>
+    </View>
+
+    <View>
+      <Name>MatterMost.User.List</Name>
+      <ViewSelectedBy>
+        <TypeName>MatterMost.User</TypeName>
+      </ViewSelectedBy>
+      <ListControl>
+        <ListEntries>
+          <ListEntry>
+            <ListItems>
+              <ListItem><Label>Id</Label><PropertyName>id</PropertyName></ListItem>
+              <ListItem><Label>Username</Label><PropertyName>username</PropertyName></ListItem>
+              <ListItem><Label>Email</Label><PropertyName>email</PropertyName></ListItem>
+              <ListItem><Label>First Name</Label><PropertyName>first_name</PropertyName></ListItem>
+              <ListItem><Label>Last Name</Label><PropertyName>last_name</PropertyName></ListItem>
+              <ListItem><Label>Nickname</Label><PropertyName>nickname</PropertyName></ListItem>
+              <ListItem><Label>Position</Label><PropertyName>position</PropertyName></ListItem>
+              <ListItem><Label>Roles</Label><PropertyName>roles</PropertyName></ListItem>
+              <ListItem><Label>Locale</Label><PropertyName>locale</PropertyName></ListItem>
+              <ListItem><Label>Email Verified</Label><PropertyName>email_verified</PropertyName></ListItem>
+              <ListItem><Label>MFA Active</Label><PropertyName>mfa_active</PropertyName></ListItem>
+              <ListItem><Label>Auth Service</Label><PropertyName>auth_service</PropertyName></ListItem>
+            </ListItems>
+          </ListEntry>
+        </ListEntries>
+      </ListControl>
+    </View>
+
+  </ViewDefinitions>
+</Configuration>

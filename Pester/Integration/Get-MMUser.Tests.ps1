@@ -84,6 +84,20 @@ Describe 'Get-MMUser' {
         }
     }
 
+    Context '-Email' {
+        It 'возвращает пользователя по email' {
+            $email = (Get-MMUser -Username $config.AdminUsername).email
+            $user = Get-MMUser -Email $email
+
+            $user.email    | Should -Be $email
+            $user.username | Should -Be $config.AdminUsername
+        }
+
+        It 'бросает исключение если email не найден' {
+            { Get-MMUser -Email 'nonexistent@nowhere.invalid' } | Should -Throw
+        }
+    }
+
     Context '-Filter' {
         It 'находит пользователя по -eq на username' {
             $result = Get-MMUser -Filter { username -eq 'admin' }

@@ -101,12 +101,16 @@ Name                     Ver   Synopsis
 Add-MMUserToChannel      0.1.0 Добавляет пользователя в канал MatterMost.
 Add-MMUserToTeam         0.1.0 Добавляет пользователя в команду MatterMost.
 Connect-MMServer         0.1.0 Подключается к MatterMost серверу и сохраняет токен сессии для последующих запросов.
+ConvertFrom-MMGuestUser  0.1.0 Повышает гостевого пользователя до обычного пользователя MatterMost.
+ConvertTo-MMGuestUser    0.1.0 Понижает обычного пользователя до гостевого в MatterMost.
+Disable-MMUser           0.1.0 Деактивирует пользователя MatterMost (soft disable через PUT /active).
 Disconnect-MMServer      0.1.0 Завершает сессию MatterMost и очищает сохранённый токен.
 Enable-MMUser            0.1.0 Активирует деактивированного пользователя MatterMost.
 Get-MMChannel            0.1.0 Возвращает канал MatterMost по ID, имени внутри команды, список каналов команды или все каналы системы.
 Get-MMRole               0.1.0 Возвращает роль MatterMost по ID, имени, списку имён или все роли сразу.
 Get-MMTeam               0.1.0 Возвращает команду MatterMost по ID, имени или список всех команд.
-Get-MMUser               0.1.0 Возвращает пользователя MatterMost по ID, username, фильтру или текущей сессии.
+Get-MMUser               0.1.0 Возвращает пользователя MatterMost по ID, username, email, фильтру или текущей сессии.
+Get-MMUserAudit          0.1.0 Возвращает записи аудита пользователя MatterMost.
 Get-MMUserChannels       0.1.0 Возвращает список каналов пользователя в указанной команде MatterMost.
 Get-MMUserTeams          0.1.0 Возвращает список команд, в которых состоит пользователь MatterMost.
 New-MMChannel            0.1.0 Создаёт новый канал в команде MatterMost.
