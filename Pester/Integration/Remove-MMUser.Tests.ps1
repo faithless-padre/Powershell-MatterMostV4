@@ -8,7 +8,8 @@ BeforeAll {
     }
 
     Connect-MMServer -Url $config.Url -Username $config.AdminUsername -Password (ConvertTo-SecureString $config.AdminPassword -AsPlainText -Force)
-    $script:Suffix = (Get-Date -Format 'HHmmss')
+    $script:Suffix   = (Get-Date -Format 'HHmmss')
+    $script:TestPass = ConvertTo-SecureString 'Pester123!' -AsPlainText -Force
 }
 
 Describe 'Remove-MMUser и Enable-MMUser' {
@@ -18,7 +19,7 @@ Describe 'Remove-MMUser и Enable-MMUser' {
             $script:User = New-MMUser `
                 -Username "rmtest_$($script:Suffix)" `
                 -Email    "rmtest_$($script:Suffix)@test.local" `
-                -Password 'Pester123!'
+                -Password $script:TestPass
         }
 
         It 'деактивирует пользователя' {
@@ -34,7 +35,7 @@ Describe 'Remove-MMUser и Enable-MMUser' {
             $pipeUser = New-MMUser `
                 -Username "rmpipe_$($script:Suffix)" `
                 -Email    "rmpipe_$($script:Suffix)@test.local" `
-                -Password 'Pester123!'
+                -Password $script:TestPass
 
             { $pipeUser | Remove-MMUser } | Should -Not -Throw
         }
@@ -45,7 +46,7 @@ Describe 'Remove-MMUser и Enable-MMUser' {
             $script:DisabledUser = New-MMUser `
                 -Username "entest_$($script:Suffix)" `
                 -Email    "entest_$($script:Suffix)@test.local" `
-                -Password 'Pester123!'
+                -Password $script:TestPass
             Remove-MMUser -UserId $script:DisabledUser.id
         }
 

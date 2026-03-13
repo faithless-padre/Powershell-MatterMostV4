@@ -5,9 +5,9 @@ function New-MMUser {
     .SYNOPSIS
         Создаёт нового пользователя в MatterMost.
     .EXAMPLE
-        New-MMUser -Username 'jdoe' -Email 'jdoe@example.com' -Password 'Pass123!'
+        New-MMUser -Username 'jdoe' -Email 'jdoe@example.com' -Password (ConvertTo-SecureString 'Pass123!' -AsPlainText -Force)
     .EXAMPLE
-        New-MMUser -Username 'jdoe' -Email 'jdoe@example.com' -Password 'Pass123!' -FirstName 'John' -LastName 'Doe'
+        New-MMUser -Username 'jdoe' -Email 'jdoe@example.com' -Password (ConvertTo-SecureString 'Pass123!' -AsPlainText -Force) -FirstName 'John' -LastName 'Doe'
     .EXAMPLE
         $users | New-MMUser
     #>
@@ -20,7 +20,7 @@ function New-MMUser {
         [string]$Email,
 
         [Parameter(Mandatory, ValueFromPipelineByPropertyName)]
-        [string]$Password,
+        [SecureString]$Password,
 
         [Parameter(ValueFromPipelineByPropertyName)]
         [string]$FirstName,
@@ -39,7 +39,7 @@ function New-MMUser {
         $body = @{
             username = $Username
             email    = $Email
-            password = $Password
+            password = [System.Net.NetworkCredential]::new('', $Password).Password
             locale   = $Locale
         }
 

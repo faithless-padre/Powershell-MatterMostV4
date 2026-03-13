@@ -10,6 +10,7 @@ BeforeAll {
 
     # Уникальный суффикс для изоляции тестов
     $script:Suffix = (Get-Date -Format 'HHmmss')
+    $script:TestPass = ConvertTo-SecureString 'Pester123!' -AsPlainText -Force
 }
 
 Describe 'New-MMUser' {
@@ -19,7 +20,7 @@ Describe 'New-MMUser' {
             $script:NewUser = New-MMUser `
                 -Username "pester_$($script:Suffix)" `
                 -Email    "pester_$($script:Suffix)@test.local" `
-                -Password 'Pester123!'
+                -Password $script:TestPass
         }
 
         It 'возвращает объект пользователя' {
@@ -39,7 +40,7 @@ Describe 'New-MMUser' {
             $script:FullUser = New-MMUser `
                 -Username  "pester_full_$($script:Suffix)" `
                 -Email     "pester_full_$($script:Suffix)@test.local" `
-                -Password  'Pester123!' `
+                -Password  $script:TestPass `
                 -FirstName 'Pester' `
                 -LastName  'Test' `
                 -Nickname  'PT'
@@ -58,8 +59,8 @@ Describe 'New-MMUser' {
     Context 'Pipeline' {
         It 'принимает массив объектов по пайплайну' {
             $users = @(
-                [PSCustomObject]@{ Username = "pipe1_$($script:Suffix)"; Email = "pipe1_$($script:Suffix)@test.local"; Password = 'Pester123!' }
-                [PSCustomObject]@{ Username = "pipe2_$($script:Suffix)"; Email = "pipe2_$($script:Suffix)@test.local"; Password = 'Pester123!' }
+                [PSCustomObject]@{ Username = "pipe1_$($script:Suffix)"; Email = "pipe1_$($script:Suffix)@test.local"; Password = $script:TestPass }
+                [PSCustomObject]@{ Username = "pipe2_$($script:Suffix)"; Email = "pipe2_$($script:Suffix)@test.local"; Password = $script:TestPass }
             )
 
             $created = $users | New-MMUser
@@ -76,7 +77,7 @@ Describe 'New-MMUser' {
                 New-MMUser `
                     -Username "pester_$($script:Suffix)" `
                     -Email    "another_$($script:Suffix)@test.local" `
-                    -Password 'Pester123!'
+                    -Password $script:TestPass
             } | Should -Throw
         }
     }
