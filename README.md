@@ -1,7 +1,7 @@
 # MatterMostV4
 
 [![Integration Tests](https://github.com/faithless-padre/Powershell-MatterMostV4/actions/workflows/test.yml/badge.svg)](https://github.com/faithless-padre/Powershell-MatterMostV4/actions/workflows/test.yml)
-[![codecov](https://codecov.io/gh/faithless-padre/Powershell-MatterMostV4/graph/badge.svg)](https://codecov.io/gh/faithless-padre/Powershell-MatterMostV4)
+[![coverage](https://img.shields.io/codecov/c/github/faithless-padre/Powershell-MatterMostV4?label=coverage)](https://codecov.io/gh/faithless-padre/Powershell-MatterMostV4)
 
 PowerShell module for managing MatterMost via REST API v4.
 
