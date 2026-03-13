@@ -11,7 +11,6 @@ function New-MMChannel {
     #>
     [CmdletBinding()]
     param(
-        [Parameter(Mandatory)]
         [string]$TeamId,
 
         [Parameter(Mandatory)]
@@ -28,8 +27,10 @@ function New-MMChannel {
         [string]$Header
     )
 
+    $resolvedTeamId = if ($TeamId) { $TeamId } else { Get-MMDefaultTeamId }
+
     $body = @{
-        team_id      = $TeamId
+        team_id      = $resolvedTeamId
         name         = $Name
         display_name = $DisplayName
         type         = if ($Type -eq 'Public') { 'O' } else { 'P' }

@@ -11,7 +11,6 @@ function Add-MMUserToTeam {
     #>
     [CmdletBinding()]
     param(
-        [Parameter(Mandatory)]
         [string]$TeamId,
 
         [Parameter(Mandatory, ValueFromPipelineByPropertyName)]
@@ -20,6 +19,7 @@ function Add-MMUserToTeam {
     )
 
     process {
-        Invoke-MMRequest -Endpoint "teams/$TeamId/members" -Method POST -Body @{ team_id = $TeamId; user_id = $UserId }
+        $resolvedTeamId = if ($TeamId) { $TeamId } else { Get-MMDefaultTeamId }
+        Invoke-MMRequest -Endpoint "teams/$resolvedTeamId/members" -Method POST -Body @{ team_id = $resolvedTeamId; user_id = $UserId }
     }
 }

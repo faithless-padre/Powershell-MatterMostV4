@@ -3,11 +3,13 @@
 function Set-MMUser {
     <#
     .SYNOPSIS
-        Обновляет профиль пользователя MatterMost.
+        Обновляет профиль пользователя MatterMost произвольными полями API.
     .EXAMPLE
-        Set-MMUser -UserId 'abc123' -FirstName 'John' -LastName 'Doe'
+        Get-MMUser admin | Set-MMUser -Properties @{ nickname = 'Boss' }
     .EXAMPLE
-        Get-MMUser -Username 'jdoe' | Set-MMUser -Nickname 'JD'
+        Set-MMUser -UserId 'abc123' -Properties @{ first_name = 'Ivan'; last_name = 'Petrov' }
+    .EXAMPLE
+        Get-MMUser admin | Set-MMUser -Properties @{ timezone = @{ useAutomaticTimezone = 'false'; manualTimezone = 'Europe/Moscow' } }
     #>
     [CmdletBinding()]
     param(
@@ -15,52 +17,19 @@ function Set-MMUser {
         [Alias('id')]
         [string]$UserId,
 
-        [Parameter(ValueFromPipelineByPropertyName)]
-        [string]$Username,
-
-        [Parameter(ValueFromPipelineByPropertyName)]
-        [string]$Email,
-
-        [Parameter(ValueFromPipelineByPropertyName)]
-        [string]$FirstName,
-
-        [Parameter(ValueFromPipelineByPropertyName)]
-        [string]$LastName,
-
-        [Parameter(ValueFromPipelineByPropertyName)]
-        [string]$Nickname,
-
-        [Parameter(ValueFromPipelineByPropertyName)]
-        [string]$Position,
-
-        [Parameter(ValueFromPipelineByPropertyName)]
-        [string]$Locale
+        [Parameter(Mandatory)]
+        [hashtable]$Properties
     )
 
     process {
-        # Получаем текущий профиль чтобы не потерять обязательные поля
+        # Получаем текущий профиль чтобы не потерять обязательные поля (id, username, email)
         $current = Invoke-MMRequest -Endpoint "users/$UserId"
 
-        $body = @{
-            id       = $UserId
-            username = if ($Username) { $Username } else { $current.username }
-            email    = if ($Email)    { $Email }    else { $current.email }
+        $body = @{ id = $UserId; username = $current.username; email = $current.email }
+
+        foreach ($key in $Properties.Keys) {
+            $body[$key] = $Properties[$key]
         }
-
-        if ($PSBoundParameters.ContainsKey('FirstName')) { $body['first_name'] = $FirstName }
-        else { $body['first_name'] = $current.first_name }
-
-        if ($PSBoundParameters.ContainsKey('LastName'))  { $body['last_name']  = $LastName }
-        else { $body['last_name'] = $current.last_name }
-
-        if ($PSBoundParameters.ContainsKey('Nickname'))  { $body['nickname']   = $Nickname }
-        else { $body['nickname'] = $current.nickname }
-
-        if ($PSBoundParameters.ContainsKey('Position'))  { $body['position']   = $Position }
-        else { $body['position'] = $current.position }
-
-        if ($PSBoundParameters.ContainsKey('Locale'))    { $body['locale']     = $Locale }
-        else { $body['locale'] = $current.locale }
 
         Invoke-MMRequest -Endpoint "users/$UserId" -Method PUT -Body $body
     }
