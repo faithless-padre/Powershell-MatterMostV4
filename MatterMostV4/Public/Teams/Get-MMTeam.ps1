@@ -26,9 +26,9 @@ function Get-MMTeam {
 
     process {
         switch ($PSCmdlet.ParameterSetName) {
-            'ById'   { Invoke-MMRequest -Endpoint "teams/$TeamId" }
-            'ByName' { Invoke-MMRequest -Endpoint "teams/name/$Name" }
-            'All'    { Get-MMTeamList }
+            'ById'   { Invoke-MMRequest -Endpoint "teams/$TeamId" | Add-MMTypeName -TypeName 'MatterMost.Team' }
+            'ByName' { Invoke-MMRequest -Endpoint "teams/name/$Name" | Add-MMTypeName -TypeName 'MatterMost.Team' }
+            'All'    { Get-MMTeamList | Add-MMTypeName -TypeName 'MatterMost.Team' }
         }
     }
 }

@@ -32,5 +32,5 @@ function New-MMTeam {
 
     if ($Description) { $body['description'] = $Description }
 
-    Invoke-MMRequest -Endpoint 'teams' -Method POST -Body $body
+    Invoke-MMRequest -Endpoint 'teams' -Method POST -Body $body | Add-MMTypeName -TypeName 'MatterMost.Team'
 }

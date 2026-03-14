@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <!DOCTYPE report PUBLIC "-//JACOCO//DTD Report 1.1//EN" "report.dtd"[]>
-<report name="Pester (03/13/2026 18:06:02)">
-  <sessioninfo id="this" start="1773425125440" dump="1773425162494" />
+<report name="Pester (03/14/2026 08:14:57)">
+  <sessioninfo id="this" start="1773476043113" dump="1773476097658" />
   <package name="module">
     <class name="module/MatterMostV4" sourcefilename="MatterMostV4.psm1">
       <method name="&lt;script&gt;" desc="()" line="1">
@@ -206,33 +206,33 @@
     </class>
     <class name="module/Public/Channels/Get-MMChannel" sourcefilename="Public/Channels/Get-MMChannel.ps1">
       <method name="Get-MMChannel" desc="()" line="34">
-        <counter type="INSTRUCTION" missed="0" covered="19" />
+        <counter type="INSTRUCTION" missed="0" covered="23" />
         <counter type="LINE" missed="0" covered="15" />
         <counter type="METHOD" missed="0" covered="1" />
       </method>
-      <counter type="INSTRUCTION" missed="0" covered="19" />
+      <counter type="INSTRUCTION" missed="0" covered="23" />
       <counter type="LINE" missed="0" covered="15" />
       <counter type="METHOD" missed="0" covered="1" />
       <counter type="CLASS" missed="0" covered="1" />
     </class>
     <class name="module/Public/Channels/Get-MMUserChannels" sourcefilename="Public/Channels/Get-MMUserChannels.ps1">
       <method name="Get-MMUserChannels" desc="()" line="23">
-        <counter type="INSTRUCTION" missed="0" covered="1" />
+        <counter type="INSTRUCTION" missed="0" covered="2" />
         <counter type="LINE" missed="0" covered="1" />
         <counter type="METHOD" missed="0" covered="1" />
       </method>
-      <counter type="INSTRUCTION" missed="0" covered="1" />
+      <counter type="INSTRUCTION" missed="0" covered="2" />
       <counter type="LINE" missed="0" covered="1" />
       <counter type="METHOD" missed="0" covered="1" />
       <counter type="CLASS" missed="0" covered="1" />
     </class>
     <class name="module/Public/Channels/New-MMChannel" sourcefilename="Public/Channels/New-MMChannel.ps1">
       <method name="New-MMChannel" desc="()" line="30">
-        <counter type="INSTRUCTION" missed="0" covered="15" />
+        <counter type="INSTRUCTION" missed="0" covered="16" />
         <counter type="LINE" missed="0" covered="9" />
         <counter type="METHOD" missed="0" covered="1" />
       </method>
-      <counter type="INSTRUCTION" missed="0" covered="15" />
+      <counter type="INSTRUCTION" missed="0" covered="16" />
       <counter type="LINE" missed="0" covered="9" />
       <counter type="METHOD" missed="0" covered="1" />
       <counter type="CLASS" missed="0" covered="1" />
@@ -261,11 +261,11 @@
     </class>
     <class name="module/Public/Channels/Set-MMChannel" sourcefilename="Public/Channels/Set-MMChannel.ps1">
       <method name="Set-MMChannel" desc="()" line="35">
-        <counter type="INSTRUCTION" missed="0" covered="16" />
+        <counter type="INSTRUCTION" missed="0" covered="17" />
         <counter type="LINE" missed="0" covered="15" />
         <counter type="METHOD" missed="0" covered="1" />
       </method>
-      <counter type="INSTRUCTION" missed="0" covered="16" />
+      <counter type="INSTRUCTION" missed="0" covered="17" />
       <counter type="LINE" missed="0" covered="15" />
       <counter type="METHOD" missed="0" covered="1" />
       <counter type="CLASS" missed="0" covered="1" />
@@ -282,25 +282,25 @@
       <line nr="36" mi="0" ci="1" mb="0" cb="0" />
       <line nr="37" mi="0" ci="1" mb="0" cb="0" />
       <line nr="39" mi="0" ci="1" mb="0" cb="0" />
-      <line nr="40" mi="0" ci="1" mb="0" cb="0" />
+      <line nr="40" mi="0" ci="2" mb="0" cb="0" />
       <line nr="41" mi="0" ci="1" mb="0" cb="0" />
-      <line nr="44" mi="0" ci="1" mb="0" cb="0" />
+      <line nr="44" mi="0" ci="2" mb="0" cb="0" />
       <line nr="46" mi="0" ci="3" mb="0" cb="0" />
-      <line nr="47" mi="0" ci="1" mb="0" cb="0" />
+      <line nr="47" mi="0" ci="2" mb="0" cb="0" />
       <line nr="50" mi="0" ci="3" mb="0" cb="0" />
       <line nr="51" mi="0" ci="1" mb="0" cb="0" />
       <line nr="52" mi="0" ci="1" mb="0" cb="0" />
       <line nr="54" mi="0" ci="1" mb="0" cb="0" />
-      <line nr="55" mi="0" ci="1" mb="0" cb="0" />
+      <line nr="55" mi="0" ci="2" mb="0" cb="0" />
       <line nr="56" mi="0" ci="1" mb="0" cb="0" />
-      <counter type="INSTRUCTION" missed="0" covered="19" />
+      <counter type="INSTRUCTION" missed="0" covered="23" />
       <counter type="LINE" missed="0" covered="15" />
       <counter type="METHOD" missed="0" covered="1" />
       <counter type="CLASS" missed="0" covered="1" />
     </sourcefile>
     <sourcefile name="Public/Channels/Get-MMUserChannels.ps1">
-      <line nr="23" mi="0" ci="1" mb="0" cb="0" />
-      <counter type="INSTRUCTION" missed="0" covered="1" />
+      <line nr="23" mi="0" ci="2" mb="0" cb="0" />
+      <counter type="INSTRUCTION" missed="0" covered="2" />
       <counter type="LINE" missed="0" covered="1" />
       <counter type="METHOD" missed="0" covered="1" />
       <counter type="CLASS" missed="0" covered="1" />
@@ -314,8 +314,8 @@
       <line nr="36" mi="0" ci="3" mb="0" cb="0" />
       <line nr="39" mi="0" ci="2" mb="0" cb="0" />
       <line nr="40" mi="0" ci="2" mb="0" cb="0" />
-      <line nr="42" mi="0" ci="1" mb="0" cb="0" />
-      <counter type="INSTRUCTION" missed="0" covered="15" />
+      <line nr="42" mi="0" ci="2" mb="0" cb="0" />
+      <counter type="INSTRUCTION" missed="0" covered="16" />
       <counter type="LINE" missed="0" covered="9" />
       <counter type="METHOD" missed="0" covered="1" />
       <counter type="CLASS" missed="0" covered="1" />
@@ -351,13 +351,13 @@
       <line nr="48" mi="0" ci="1" mb="0" cb="0" />
       <line nr="51" mi="0" ci="1" mb="0" cb="0" />
       <line nr="52" mi="0" ci="2" mb="0" cb="0" />
-      <line nr="55" mi="0" ci="1" mb="0" cb="0" />
-      <counter type="INSTRUCTION" missed="0" covered="16" />
+      <line nr="55" mi="0" ci="2" mb="0" cb="0" />
+      <counter type="INSTRUCTION" missed="0" covered="17" />
       <counter type="LINE" missed="0" covered="15" />
       <counter type="METHOD" missed="0" covered="1" />
       <counter type="CLASS" missed="0" covered="1" />
     </sourcefile>
-    <counter type="INSTRUCTION" missed="0" covered="58" />
+    <counter type="INSTRUCTION" missed="0" covered="65" />
     <counter type="LINE" missed="0" covered="45" />
     <counter type="METHOD" missed="0" covered="7" />
     <counter type="CLASS" missed="0" covered="7" />
@@ -452,33 +452,33 @@
   <package name="module/Public/Roles">
     <class name="module/Public/Roles/Get-MMRole" sourcefilename="Public/Roles/Get-MMRole.ps1">
       <method name="Get-MMRole" desc="()" line="35">
-        <counter type="INSTRUCTION" missed="0" covered="5" />
+        <counter type="INSTRUCTION" missed="0" covered="9" />
         <counter type="LINE" missed="0" covered="5" />
         <counter type="METHOD" missed="0" covered="1" />
       </method>
-      <counter type="INSTRUCTION" missed="0" covered="5" />
+      <counter type="INSTRUCTION" missed="0" covered="9" />
       <counter type="LINE" missed="0" covered="5" />
       <counter type="METHOD" missed="0" covered="1" />
       <counter type="CLASS" missed="0" covered="1" />
     </class>
     <class name="module/Public/Roles/Set-MMRole" sourcefilename="Public/Roles/Set-MMRole.ps1">
       <method name="Set-MMRole" desc="()" line="27">
-        <counter type="INSTRUCTION" missed="0" covered="7" />
+        <counter type="INSTRUCTION" missed="0" covered="8" />
         <counter type="LINE" missed="0" covered="5" />
         <counter type="METHOD" missed="0" covered="1" />
       </method>
-      <counter type="INSTRUCTION" missed="0" covered="7" />
+      <counter type="INSTRUCTION" missed="0" covered="8" />
       <counter type="LINE" missed="0" covered="5" />
       <counter type="METHOD" missed="0" covered="1" />
       <counter type="CLASS" missed="0" covered="1" />
     </class>
     <sourcefile name="Public/Roles/Get-MMRole.ps1">
       <line nr="35" mi="0" ci="1" mb="0" cb="0" />
-      <line nr="36" mi="0" ci="1" mb="0" cb="0" />
-      <line nr="37" mi="0" ci="1" mb="0" cb="0" />
-      <line nr="38" mi="0" ci="1" mb="0" cb="0" />
-      <line nr="39" mi="0" ci="1" mb="0" cb="0" />
-      <counter type="INSTRUCTION" missed="0" covered="5" />
+      <line nr="36" mi="0" ci="2" mb="0" cb="0" />
+      <line nr="37" mi="0" ci="2" mb="0" cb="0" />
+      <line nr="38" mi="0" ci="2" mb="0" cb="0" />
+      <line nr="39" mi="0" ci="2" mb="0" cb="0" />
+      <counter type="INSTRUCTION" missed="0" covered="9" />
       <counter type="LINE" missed="0" covered="5" />
       <counter type="METHOD" missed="0" covered="1" />
       <counter type="CLASS" missed="0" covered="1" />
@@ -488,13 +488,13 @@
       <line nr="28" mi="0" ci="2" mb="0" cb="0" />
       <line nr="29" mi="0" ci="1" mb="0" cb="0" />
       <line nr="30" mi="0" ci="2" mb="0" cb="0" />
-      <line nr="33" mi="0" ci="1" mb="0" cb="0" />
-      <counter type="INSTRUCTION" missed="0" covered="7" />
+      <line nr="33" mi="0" ci="2" mb="0" cb="0" />
+      <counter type="INSTRUCTION" missed="0" covered="8" />
       <counter type="LINE" missed="0" covered="5" />
       <counter type="METHOD" missed="0" covered="1" />
       <counter type="CLASS" missed="0" covered="1" />
     </sourcefile>
-    <counter type="INSTRUCTION" missed="0" covered="12" />
+    <counter type="INSTRUCTION" missed="0" covered="17" />
     <counter type="LINE" missed="0" covered="10" />
     <counter type="METHOD" missed="0" covered="2" />
     <counter type="CLASS" missed="0" covered="2" />
@@ -513,33 +513,33 @@
     </class>
     <class name="module/Public/Teams/Get-MMTeam" sourcefilename="Public/Teams/Get-MMTeam.ps1">
       <method name="Get-MMTeam" desc="()" line="28">
-        <counter type="INSTRUCTION" missed="0" covered="4" />
+        <counter type="INSTRUCTION" missed="0" covered="7" />
         <counter type="LINE" missed="0" covered="4" />
         <counter type="METHOD" missed="0" covered="1" />
       </method>
-      <counter type="INSTRUCTION" missed="0" covered="4" />
+      <counter type="INSTRUCTION" missed="0" covered="7" />
       <counter type="LINE" missed="0" covered="4" />
       <counter type="METHOD" missed="0" covered="1" />
       <counter type="CLASS" missed="0" covered="1" />
     </class>
     <class name="module/Public/Teams/Get-MMUserTeams" sourcefilename="Public/Teams/Get-MMUserTeams.ps1">
       <method name="Get-MMUserTeams" desc="()" line="20">
-        <counter type="INSTRUCTION" missed="0" covered="1" />
+        <counter type="INSTRUCTION" missed="0" covered="2" />
         <counter type="LINE" missed="0" covered="1" />
         <counter type="METHOD" missed="0" covered="1" />
       </method>
-      <counter type="INSTRUCTION" missed="0" covered="1" />
+      <counter type="INSTRUCTION" missed="0" covered="2" />
       <counter type="LINE" missed="0" covered="1" />
       <counter type="METHOD" missed="0" covered="1" />
       <counter type="CLASS" missed="0" covered="1" />
     </class>
     <class name="module/Public/Teams/New-MMTeam" sourcefilename="Public/Teams/New-MMTeam.ps1">
       <method name="New-MMTeam" desc="()" line="27">
-        <counter type="INSTRUCTION" missed="0" covered="9" />
+        <counter type="INSTRUCTION" missed="0" covered="10" />
         <counter type="LINE" missed="0" covered="6" />
         <counter type="METHOD" missed="0" covered="1" />
       </method>
-      <counter type="INSTRUCTION" missed="0" covered="9" />
+      <counter type="INSTRUCTION" missed="0" covered="10" />
       <counter type="LINE" missed="0" covered="6" />
       <counter type="METHOD" missed="0" covered="1" />
       <counter type="CLASS" missed="0" covered="1" />
@@ -568,11 +568,11 @@
     </class>
     <class name="module/Public/Teams/Set-MMTeam" sourcefilename="Public/Teams/Set-MMTeam.ps1">
       <method name="Set-MMTeam" desc="()" line="33">
-        <counter type="INSTRUCTION" missed="0" covered="14" />
+        <counter type="INSTRUCTION" missed="0" covered="15" />
         <counter type="LINE" missed="0" covered="13" />
         <counter type="METHOD" missed="0" covered="1" />
       </method>
-      <counter type="INSTRUCTION" missed="0" covered="14" />
+      <counter type="INSTRUCTION" missed="0" covered="15" />
       <counter type="LINE" missed="0" covered="13" />
       <counter type="METHOD" missed="0" covered="1" />
       <counter type="CLASS" missed="0" covered="1" />
@@ -587,17 +587,17 @@
     </sourcefile>
     <sourcefile name="Public/Teams/Get-MMTeam.ps1">
       <line nr="28" mi="0" ci="1" mb="0" cb="0" />
-      <line nr="29" mi="0" ci="1" mb="0" cb="0" />
-      <line nr="30" mi="0" ci="1" mb="0" cb="0" />
-      <line nr="31" mi="0" ci="1" mb="0" cb="0" />
-      <counter type="INSTRUCTION" missed="0" covered="4" />
+      <line nr="29" mi="0" ci="2" mb="0" cb="0" />
+      <line nr="30" mi="0" ci="2" mb="0" cb="0" />
+      <line nr="31" mi="0" ci="2" mb="0" cb="0" />
+      <counter type="INSTRUCTION" missed="0" covered="7" />
       <counter type="LINE" missed="0" covered="4" />
       <counter type="METHOD" missed="0" covered="1" />
       <counter type="CLASS" missed="0" covered="1" />
     </sourcefile>
     <sourcefile name="Public/Teams/Get-MMUserTeams.ps1">
-      <line nr="20" mi="0" ci="1" mb="0" cb="0" />
-      <counter type="INSTRUCTION" missed="0" covered="1" />
+      <line nr="20" mi="0" ci="2" mb="0" cb="0" />
+      <counter type="INSTRUCTION" missed="0" covered="2" />
       <counter type="LINE" missed="0" covered="1" />
       <counter type="METHOD" missed="0" covered="1" />
       <counter type="CLASS" missed="0" covered="1" />
@@ -608,8 +608,8 @@
       <line nr="29" mi="0" ci="1" mb="0" cb="0" />
       <line nr="30" mi="0" ci="3" mb="0" cb="0" />
       <line nr="33" mi="0" ci="2" mb="0" cb="0" />
-      <line nr="35" mi="0" ci="1" mb="0" cb="0" />
-      <counter type="INSTRUCTION" missed="0" covered="9" />
+      <line nr="35" mi="0" ci="2" mb="0" cb="0" />
+      <counter type="INSTRUCTION" missed="0" covered="10" />
       <counter type="LINE" missed="0" covered="6" />
       <counter type="METHOD" missed="0" covered="1" />
       <counter type="CLASS" missed="0" covered="1" />
@@ -644,13 +644,13 @@
       <line nr="44" mi="0" ci="1" mb="0" cb="0" />
       <line nr="47" mi="0" ci="1" mb="0" cb="0" />
       <line nr="48" mi="0" ci="2" mb="0" cb="0" />
-      <line nr="51" mi="0" ci="1" mb="0" cb="0" />
-      <counter type="INSTRUCTION" missed="0" covered="14" />
+      <line nr="51" mi="0" ci="2" mb="0" cb="0" />
+      <counter type="INSTRUCTION" missed="0" covered="15" />
       <counter type="LINE" missed="0" covered="13" />
       <counter type="METHOD" missed="0" covered="1" />
       <counter type="CLASS" missed="0" covered="1" />
     </sourcefile>
-    <counter type="INSTRUCTION" missed="0" covered="41" />
+    <counter type="INSTRUCTION" missed="0" covered="47" />
     <counter type="LINE" missed="0" covered="31" />
     <counter type="METHOD" missed="0" covered="7" />
     <counter type="CLASS" missed="0" covered="7" />
@@ -916,7 +916,7 @@
     <counter type="METHOD" missed="0" covered="12" />
     <counter type="CLASS" missed="0" covered="11" />
   </package>
-  <counter type="INSTRUCTION" missed="5" covered="313" />
+  <counter type="INSTRUCTION" missed="5" covered="331" />
   <counter type="LINE" missed="4" covered="239" />
   <counter type="METHOD" missed="0" covered="37" />
   <counter type="CLASS" missed="0" covered="36" />
