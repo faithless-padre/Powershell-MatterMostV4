@@ -30,6 +30,6 @@ function Set-MMRole {
             foreach ($key in $Properties.Keys) { $body[$key] = $Properties[$key] }
         }
 
-        Invoke-MMRequest -Endpoint "roles/$RoleId/patch" -Method PUT -Body $body
+        Invoke-MMRequest -Endpoint "roles/$RoleId/patch" -Method PUT -Body $body | Add-MMTypeName -TypeName 'MatterMost.Role'
     }
 }

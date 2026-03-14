@@ -39,5 +39,5 @@ function New-MMChannel {
     if ($Purpose) { $body['purpose'] = $Purpose }
     if ($Header)  { $body['header']  = $Header }
 
-    Invoke-MMRequest -Endpoint 'channels' -Method POST -Body $body
+    Invoke-MMRequest -Endpoint 'channels' -Method POST -Body $body | Add-MMTypeName -TypeName 'MatterMost.Channel'
 }

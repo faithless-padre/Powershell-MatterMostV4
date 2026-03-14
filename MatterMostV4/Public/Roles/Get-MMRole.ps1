@@ -33,9 +33,9 @@ function Get-MMRole {
     )
 
     switch ($PSCmdlet.ParameterSetName) {
-        'All'     { Invoke-MMRequest -Endpoint 'roles' }
-        'ById'    { Invoke-MMRequest -Endpoint "roles/$RoleId" }
-        'ByName'  { Invoke-MMRequest -Endpoint "roles/name/$Name" }
-        'ByNames' { Invoke-MMRequest -Endpoint 'roles/names' -Method POST -Body $Names }
+        'All'     { Invoke-MMRequest -Endpoint 'roles' | Add-MMTypeName -TypeName 'MatterMost.Role' }
+        'ById'    { Invoke-MMRequest -Endpoint "roles/$RoleId" | Add-MMTypeName -TypeName 'MatterMost.Role' }
+        'ByName'  { Invoke-MMRequest -Endpoint "roles/name/$Name" | Add-MMTypeName -TypeName 'MatterMost.Role' }
+        'ByNames' { Invoke-MMRequest -Endpoint 'roles/names' -Method POST -Body $Names | Add-MMTypeName -TypeName 'MatterMost.Role' }
     }
 }

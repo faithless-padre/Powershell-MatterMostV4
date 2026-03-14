@@ -48,6 +48,6 @@ function Set-MMTeam {
             foreach ($key in $Properties.Keys) { $body[$key] = $Properties[$key] }
         }
 
-        Invoke-MMRequest -Endpoint "teams/$TeamId/patch" -Method PUT -Body $body
+        Invoke-MMRequest -Endpoint "teams/$TeamId/patch" -Method PUT -Body $body | Add-MMTypeName -TypeName 'MatterMost.Team'
     }
 }

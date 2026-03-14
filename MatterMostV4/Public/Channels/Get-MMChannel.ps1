@@ -37,14 +37,14 @@ function Get-MMChannel {
                 $perPage = 200
                 do {
                     $batch = Invoke-MMRequest -Endpoint "channels?page=$page&per_page=$perPage"
-                    $batch
+                    $batch | Add-MMTypeName -TypeName 'MatterMost.Channel'
                     $page++
                 } while ($batch.Count -eq $perPage)
             }
-            'ById'   { Invoke-MMRequest -Endpoint "channels/$ChannelId" }
+            'ById'   { Invoke-MMRequest -Endpoint "channels/$ChannelId" | Add-MMTypeName -TypeName 'MatterMost.Channel' }
             'ByName' {
                 $resolvedTeamId = if ($TeamId) { $TeamId } else { Get-MMDefaultTeamId }
-                Invoke-MMRequest -Endpoint "teams/$resolvedTeamId/channels/name/$Name"
+                Invoke-MMRequest -Endpoint "teams/$resolvedTeamId/channels/name/$Name" | Add-MMTypeName -TypeName 'MatterMost.Channel'
             }
             'ByTeam' {
                 $resolvedTeamId = if ($TeamId) { $TeamId } else { Get-MMDefaultTeamId }
@@ -52,7 +52,7 @@ function Get-MMChannel {
                 $perPage = 200
                 do {
                     $batch = Invoke-MMRequest -Endpoint "teams/$resolvedTeamId/channels?page=$page&per_page=$perPage"
-                    $batch
+                    $batch | Add-MMTypeName -TypeName 'MatterMost.Channel'
                     $page++
                 } while ($batch.Count -eq $perPage)
             }
