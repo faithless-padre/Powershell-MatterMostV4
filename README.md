@@ -2,7 +2,6 @@
 
 [![Integration Tests](https://github.com/faithless-padre/Powershell-MatterMostV4/actions/workflows/test.yml/badge.svg)](https://github.com/faithless-padre/Powershell-MatterMostV4/actions/workflows/test.yml)
 [![coverage](https://img.shields.io/codecov/c/github/faithless-padre/Powershell-MatterMostV4?label=coverage)](https://codecov.io/gh/faithless-padre/Powershell-MatterMostV4)
-
 ![MatterMost 9.11.14 ESR](https://img.shields.io/badge/MatterMost-9.11.14_ESR-0058CC)
 ![MatterMost 10.11.4](https://img.shields.io/badge/MatterMost-10.11.4-0058CC)
 ![MatterMost 11.5.1](https://img.shields.io/badge/MatterMost-11.5.1-0058CC)
