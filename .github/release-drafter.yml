@@ -1,0 +1,30 @@
+name-template: 'v$RESOLVED_VERSION'
+tag-template: 'v$RESOLVED_VERSION'
+
+categories:
+  - title: 'New Features'
+    labels: ['enhancement']
+  - title: 'Bug Fixes'
+    labels: ['bug']
+  - title: 'Documentation'
+    labels: ['documentation']
+  - title: 'Maintenance'
+    labels: ['maintenance']
+  - title: 'Security'
+    labels: ['security']
+
+version-resolver:
+  major:
+    labels: ['breaking-change']
+  minor:
+    labels: ['enhancement']
+  patch:
+    labels: ['bug', 'documentation', 'maintenance', 'security']
+  default: patch
+
+template: |
+  ## Changes
+
+  $CHANGES
+
+  **Full Changelog**: $PREVIOUS_TAG...v$RESOLVED_VERSION
