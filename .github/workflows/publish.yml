@@ -1,0 +1,51 @@
+name: Publish to PSGallery
+
+on:
+  workflow_dispatch:
+
+jobs:
+  test:
+    uses: ./.github/workflows/test.yml
+    permissions:
+      checks: write
+      contents: read
+
+  publish:
+    name: Publish to PSGallery
+    needs: test
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Publish module
+        run: |
+          pwsh -Command "
+            Publish-Module -Path ./MatterMostV4 -NuGetApiKey '${{ secrets.PSGALLERY_API_KEY }}'
+          "
+
+  release:
+    name: Create GitHub Release
+    needs: publish
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Get module version
+        id: version
+        run: |
+          VERSION=$(pwsh -Command "(Import-PowerShellDataFile ./MatterMostV4/MatterMostV4.psd1).ModuleVersion")
+          echo "version=$VERSION" >> $GITHUB_OUTPUT
+
+      - name: Package module
+        run: |
+          zip -r MatterMostV4-${{ steps.version.outputs.version }}.zip MatterMostV4/
+
+      - name: Create release
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: v${{ steps.version.outputs.version }}
+          name: v${{ steps.version.outputs.version }}
+          files: MatterMostV4-${{ steps.version.outputs.version }}.zip
+          generate_release_notes: true
