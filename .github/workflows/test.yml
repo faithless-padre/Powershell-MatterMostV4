@@ -9,7 +9,7 @@ jobs:
     name: PSScriptAnalyzer
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # v4
 
       - name: Run linter
         run: |
@@ -23,7 +23,7 @@ jobs:
     name: Test-ModuleManifest
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # v4
 
       - name: Validate manifest
         run: |
@@ -45,7 +45,7 @@ jobs:
         mm_version: ['9.11.14', '10.11.4', '11.5.1']
 
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # v4
 
       - name: Run integration tests
         working-directory: Sandbox
@@ -53,7 +53,7 @@ jobs:
 
       - name: Publish test results
         if: always()
-        uses: dorny/test-reporter@v1
+        uses: dorny/test-reporter@5540be7d257d0059d55ee0c144ab5a516329d0a1 # v2.6.0
         with:
           name: "Pester · MM ${{ matrix.mm_version }}"
           path: Pester/results.xml
@@ -61,7 +61,7 @@ jobs:
 
       - name: Upload coverage to Codecov
         if: always()
-        uses: codecov/codecov-action@v4
+        uses: codecov/codecov-action@0561704f0f02c16a585d4c7555e57fa2e44cf909 # v5.5.2
         with:
           token: ${{ secrets.CODECOV_TOKEN }}
           files: Pester/coverage.xml
