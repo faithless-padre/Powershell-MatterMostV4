@@ -1,8 +1,17 @@
 @{
     ModuleVersion     = '0.1.0'
     GUID              = 'a1b2c3d4-e5f6-7890-abcd-ef1234567890'
-    Author            = ''
-    Description       = 'PowerShell wrapper for MatterMost REST API'
+    Author            = 'Faithless Padre'
+    CompanyName       = 'Ygdrassil Projects'
+    Copyright         = '(c) 2025-2026 Ygdrassil Projects. All rights reserved.'
+    Description       = 'PowerShell module for interacting with the MatterMost REST API. Supports user, channel, team, and role management.'
+    PrivateData       = @{
+        PSData = @{
+            Tags       = @('MatterMost', 'Chat', 'REST', 'API', 'Messaging')
+            ProjectUri = 'https://github.com/faithless-padre/Powershell-MatterMostV4'
+            LicenseUri = 'https://github.com/faithless-padre/Powershell-MatterMostV4/blob/master/LICENSE'
+        }
+    }
     PowerShellVersion = '5.1'
     RootModule        = 'MatterMostV4.psm1'
     FunctionsToExport = @(
@@ -38,6 +47,9 @@
     )
     FormatsToProcess  = @(
         'Formats/MatterMost.User.Format.ps1xml'
+        'Formats/MatterMost.Channel.Format.ps1xml'
+        'Formats/MatterMost.Team.Format.ps1xml'
+        'Formats/MatterMost.Role.Format.ps1xml'
     )
     CmdletsToExport   = @()
     VariablesToExport = @()

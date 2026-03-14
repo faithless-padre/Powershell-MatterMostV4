@@ -52,6 +52,6 @@ function Set-MMChannel {
             foreach ($key in $Properties.Keys) { $body[$key] = $Properties[$key] }
         }
 
-        Invoke-MMRequest -Endpoint "channels/$ChannelId/patch" -Method PUT -Body $body
+        Invoke-MMRequest -Endpoint "channels/$ChannelId/patch" -Method PUT -Body $body | Add-MMTypeName -TypeName 'MatterMost.Channel'
     }
 }

@@ -17,6 +17,6 @@ function Get-MMUserTeams {
     )
 
     process {
-        Invoke-MMRequest -Endpoint "users/$UserId/teams"
+        Invoke-MMRequest -Endpoint "users/$UserId/teams" | Add-MMTypeName -TypeName 'MatterMost.Team'
     }
 }

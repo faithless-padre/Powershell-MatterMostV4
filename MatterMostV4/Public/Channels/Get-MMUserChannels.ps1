@@ -20,6 +20,6 @@ function Get-MMUserChannels {
     )
 
     process {
-        Invoke-MMRequest -Endpoint "users/$UserId/teams/$TeamId/channels"
+        Invoke-MMRequest -Endpoint "users/$UserId/teams/$TeamId/channels" | Add-MMTypeName -TypeName 'MatterMost.Channel'
     }
 }
