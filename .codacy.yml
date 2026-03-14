@@ -1,0 +1,7 @@
+---
+engines:
+  psscriptanalyzer:
+    enabled: true
+exclude_paths:
+  - "Pester/**"
+  - "Sandbox/**"
