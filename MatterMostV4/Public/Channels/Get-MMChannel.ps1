@@ -3,7 +3,7 @@
 function Get-MMChannel {
     <#
     .SYNOPSIS
-        Возвращает канал MatterMost по ID, имени внутри команды, список каналов команды или все каналы системы.
+        Returns a MatterMost channel by ID, name within a team, team channel list, or all channels.
     .EXAMPLE
         Get-MMChannel -All
     .EXAMPLE

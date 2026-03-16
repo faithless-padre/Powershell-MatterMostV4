@@ -3,7 +3,7 @@
 function New-MMGroupChannel {
     <#
     .SYNOPSIS
-        Создаёт групповой канал сообщений для 3–8 пользователей MatterMost.
+        Creates a group message channel for 3–8 MatterMost users.
     .EXAMPLE
         New-MMGroupChannel -UserIds 'id1', 'id2', 'id3'
     #>

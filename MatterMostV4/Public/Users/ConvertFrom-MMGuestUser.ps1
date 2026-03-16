@@ -3,7 +3,7 @@
 function ConvertFrom-MMGuestUser {
     <#
     .SYNOPSIS
-        Повышает гостевого пользователя до обычного пользователя MatterMost (POST /users/{id}/promote).
+        Promotes a guest user to a regular MatterMost user (POST /users/{id}/promote).
     .EXAMPLE
         ConvertFrom-MMGuestUser -UserId 'abc123'
     .EXAMPLE

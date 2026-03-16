@@ -3,7 +3,7 @@
 function Get-MMChannelMembers {
     <#
     .SYNOPSIS
-        Возвращает список участников канала MatterMost.
+        Returns the list of members for a MatterMost channel.
     .EXAMPLE
         Get-MMChannelMembers -ChannelId 'abc123'
     .EXAMPLE

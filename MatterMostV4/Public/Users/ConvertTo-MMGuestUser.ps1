@@ -3,7 +3,7 @@
 function ConvertTo-MMGuestUser {
     <#
     .SYNOPSIS
-        Понижает обычного пользователя до гостевого в MatterMost (POST /users/{id}/demote).
+        Demotes a regular user to a guest in MatterMost (POST /users/{id}/demote).
     .EXAMPLE
         ConvertTo-MMGuestUser -UserId 'abc123'
     .EXAMPLE

@@ -3,7 +3,7 @@
 function Set-MMChannelPrivacy {
     <#
     .SYNOPSIS
-        Изменяет приватность канала MatterMost: Public (открытый) или Private (закрытый).
+        Updates MatterMost channel privacy: Public or Private.
     .EXAMPLE
         Set-MMChannelPrivacy -ChannelId 'abc123' -Privacy Private
     .EXAMPLE

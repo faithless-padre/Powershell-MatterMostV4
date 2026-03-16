@@ -3,7 +3,7 @@
 function Get-MMUserStats {
     <#
     .SYNOPSIS
-        Возвращает общую статистику пользователей MatterMost (total_users_count, total_bots_count).
+        Returns overall MatterMost user statistics (total_users_count, total_bots_count).
     .EXAMPLE
         Get-MMUserStats
     #>

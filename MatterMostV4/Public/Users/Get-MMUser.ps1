@@ -3,7 +3,7 @@
 function Get-MMUser {
     <#
     .SYNOPSIS
-        Возвращает пользователя MatterMost по ID, username, фильтру или текущей сессии.
+        Returns a MatterMost user by ID, username, filter, or current session.
     .EXAMPLE
         Get-MMUser -All
     .EXAMPLE
@@ -71,7 +71,7 @@ function Get-MMUser {
 function Invoke-MMUserFilter {
     <#
     .SYNOPSIS
-        Парсит ScriptBlock фильтра и возвращает пользователей MatterMost по условию.
+        Parses a filter ScriptBlock and returns MatterMost users matching the condition.
     #>
     param([scriptblock]$Filter)
 

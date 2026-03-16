@@ -3,7 +3,7 @@
 function Get-MMTeam {
     <#
     .SYNOPSIS
-        Возвращает команду MatterMost по ID, имени или список всех команд.
+        Returns a MatterMost team by ID, name, or all teams.
     .EXAMPLE
         Get-MMTeam -All
     .EXAMPLE

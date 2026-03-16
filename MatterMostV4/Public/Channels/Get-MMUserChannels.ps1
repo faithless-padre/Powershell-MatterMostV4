@@ -3,7 +3,7 @@
 function Get-MMUserChannels {
     <#
     .SYNOPSIS
-        Возвращает список каналов пользователя в указанной команде MatterMost.
+        Returns the list of channels a user belongs to in a MatterMost team.
     .EXAMPLE
         Get-MMUserChannels -UserId 'user123' -TeamId 'team456'
     .EXAMPLE

@@ -3,7 +3,7 @@
 function Revoke-MMAllUserSessions {
     <#
     .SYNOPSIS
-        Отзывает все активные сессии пользователя MatterMost.
+        Revokes all active sessions for a MatterMost user.
     .EXAMPLE
         Revoke-MMAllUserSessions -UserId 'abc123'
     .EXAMPLE

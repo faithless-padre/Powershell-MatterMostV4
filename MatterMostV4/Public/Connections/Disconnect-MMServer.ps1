@@ -3,7 +3,7 @@
 function Disconnect-MMServer {
     <#
     .SYNOPSIS
-        Завершает сессию MatterMost и очищает сохранённый токен.
+        Logs out from MatterMost and clears the stored session token.
     .EXAMPLE
         Disconnect-MMServer
     #>

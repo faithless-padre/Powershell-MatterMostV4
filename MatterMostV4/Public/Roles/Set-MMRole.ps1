@@ -3,7 +3,7 @@
 function Set-MMRole {
     <#
     .SYNOPSIS
-        Изменяет список permissions для указанной роли MatterMost.
+        Updates the permissions list for the specified MatterMost role.
 
     .EXAMPLE
         Set-MMRole -RoleId 'abc123' -Permissions 'create_post', 'read_channel'

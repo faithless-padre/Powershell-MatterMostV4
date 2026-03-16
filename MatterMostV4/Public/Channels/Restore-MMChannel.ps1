@@ -3,7 +3,7 @@
 function Restore-MMChannel {
     <#
     .SYNOPSIS
-        Восстанавливает удалённый (архивированный) канал MatterMost.
+        Restores a deleted (archived) MatterMost channel.
     .EXAMPLE
         Restore-MMChannel -ChannelId 'abc123'
     .EXAMPLE

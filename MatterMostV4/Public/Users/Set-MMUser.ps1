@@ -3,7 +3,7 @@
 function Set-MMUser {
     <#
     .SYNOPSIS
-        Обновляет профиль пользователя MatterMost (PUT /users/{id}/patch).
+        Updates a MatterMost user profile (PUT /users/{id}/patch).
     .EXAMPLE
         Set-MMUser -UserId 'abc123' -FirstName 'Ivan' -LastName 'Petrov'
     .EXAMPLE

@@ -3,7 +3,7 @@
 function Send-MMTeamInvite {
     <#
     .SYNOPSIS
-        Отправляет приглашение в команду MatterMost по email-адресам.
+        Sends an invitation to a MatterMost team by email address(es).
     .EXAMPLE
         Send-MMTeamInvite -TeamId 'abc123' -Emails 'user@example.com'
     .EXAMPLE
