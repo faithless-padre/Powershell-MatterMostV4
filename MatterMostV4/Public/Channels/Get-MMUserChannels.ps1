@@ -9,6 +9,7 @@ function Get-MMUserChannels {
     .EXAMPLE
         Get-MMUser -Username 'jdoe' | Get-MMUserChannels -TeamId 'team456'
     #>
+    [OutputType('MMChannel')]
     [CmdletBinding()]
     param(
         [Parameter(Mandatory, ValueFromPipelineByPropertyName)]
@@ -20,6 +21,6 @@ function Get-MMUserChannels {
     )
 
     process {
-        Invoke-MMRequest -Endpoint "users/$UserId/teams/$TeamId/channels" | Add-MMTypeName -TypeName 'MatterMost.Channel'
+        Invoke-MMRequest -Endpoint "users/$UserId/teams/$TeamId/channels" | ConvertTo-MMChannel
     }
 }

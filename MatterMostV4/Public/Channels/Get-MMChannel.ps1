@@ -13,6 +13,7 @@ function Get-MMChannel {
     .EXAMPLE
         Get-MMChannel -TeamId 'team123'
     #>
+    [OutputType('MMChannel')]
     [CmdletBinding(DefaultParameterSetName = 'ByTeam')]
     param(
         [Parameter(ParameterSetName = 'All')]
@@ -37,14 +38,14 @@ function Get-MMChannel {
                 $perPage = 200
                 do {
                     $batch = Invoke-MMRequest -Endpoint "channels?page=$page&per_page=$perPage"
-                    $batch | Add-MMTypeName -TypeName 'MatterMost.Channel'
+                    $batch | ConvertTo-MMChannel
                     $page++
                 } while ($batch.Count -eq $perPage)
             }
-            'ById'   { Invoke-MMRequest -Endpoint "channels/$ChannelId" | Add-MMTypeName -TypeName 'MatterMost.Channel' }
+            'ById'   { Invoke-MMRequest -Endpoint "channels/$ChannelId" | ConvertTo-MMChannel }
             'ByName' {
                 $resolvedTeamId = if ($TeamId) { $TeamId } else { Get-MMDefaultTeamId }
-                Invoke-MMRequest -Endpoint "teams/$resolvedTeamId/channels/name/$Name" | Add-MMTypeName -TypeName 'MatterMost.Channel'
+                Invoke-MMRequest -Endpoint "teams/$resolvedTeamId/channels/name/$Name" | ConvertTo-MMChannel
             }
             'ByTeam' {
                 $resolvedTeamId = if ($TeamId) { $TeamId } else { Get-MMDefaultTeamId }
@@ -52,7 +53,7 @@ function Get-MMChannel {
                 $perPage = 200
                 do {
                     $batch = Invoke-MMRequest -Endpoint "teams/$resolvedTeamId/channels?page=$page&per_page=$perPage"
-                    $batch | Add-MMTypeName -TypeName 'MatterMost.Channel'
+                    $batch | ConvertTo-MMChannel
                     $page++
                 } while ($batch.Count -eq $perPage)
             }

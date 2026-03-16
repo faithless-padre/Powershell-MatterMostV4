@@ -11,6 +11,7 @@ function Set-MMRole {
     .EXAMPLE
         Get-MMRole -Name 'team_user' | Set-MMRole -Permissions 'create_post'
     #>
+    [OutputType('MMRole')]
     [CmdletBinding()]
     param(
         [Parameter(Mandatory, ValueFromPipelineByPropertyName)]
@@ -30,6 +31,6 @@ function Set-MMRole {
             foreach ($key in $Properties.Keys) { $body[$key] = $Properties[$key] }
         }
 
-        Invoke-MMRequest -Endpoint "roles/$RoleId/patch" -Method PUT -Body $body | Add-MMTypeName -TypeName 'MatterMost.Role'
+        Invoke-MMRequest -Endpoint "roles/$RoleId/patch" -Method PUT -Body $body | ConvertTo-MMRole
     }
 }

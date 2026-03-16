@@ -9,6 +9,7 @@ function Disable-MMUser {
     .EXAMPLE
         Get-MMUser testuser | Disable-MMUser
     #>
+    [OutputType('MMUser')]
     [CmdletBinding()]
     param(
         [Parameter(Mandatory, ValueFromPipelineByPropertyName)]
@@ -17,6 +18,6 @@ function Disable-MMUser {
     )
 
     process {
-        Invoke-MMRequest -Endpoint "users/$UserId/active" -Method PUT -Body @{ active = $false } | Add-MMTypeName -TypeName 'MatterMost.User'
+        Invoke-MMRequest -Endpoint "users/$UserId/active" -Method PUT -Body @{ active = $false } | ConvertTo-MMUser
     }
 }

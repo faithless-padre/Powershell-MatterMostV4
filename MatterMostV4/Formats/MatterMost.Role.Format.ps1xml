@@ -3,9 +3,9 @@
   <ViewDefinitions>
 
     <View>
-      <Name>MatterMost.Role.Table</Name>
+      <Name>MMRole.Table</Name>
       <ViewSelectedBy>
-        <TypeName>MatterMost.Role</TypeName>
+        <TypeName>MMRole</TypeName>
       </ViewSelectedBy>
       <TableControl>
         <TableHeaders>
@@ -28,9 +28,9 @@
     </View>
 
     <View>
-      <Name>MatterMost.Role.List</Name>
+      <Name>MMRole.List</Name>
       <ViewSelectedBy>
-        <TypeName>MatterMost.Role</TypeName>
+        <TypeName>MMRole</TypeName>
       </ViewSelectedBy>
       <ListControl>
         <ListEntries>

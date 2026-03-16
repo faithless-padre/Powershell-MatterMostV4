@@ -11,6 +11,7 @@ function New-MMUser {
     .EXAMPLE
         $users | New-MMUser
     #>
+    [OutputType('MMUser')]
     [CmdletBinding()]
     param(
         [Parameter(Mandatory, ValueFromPipelineByPropertyName)]
@@ -47,6 +48,6 @@ function New-MMUser {
         if ($LastName)  { $body['last_name']  = $LastName }
         if ($Nickname)  { $body['nickname']   = $Nickname }
 
-        Invoke-MMRequest -Endpoint 'users' -Method POST -Body $body | Add-MMTypeName -TypeName 'MatterMost.User'
+        Invoke-MMRequest -Endpoint 'users' -Method POST -Body $body | ConvertTo-MMUser
     }
 }

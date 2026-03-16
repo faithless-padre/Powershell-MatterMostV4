@@ -9,6 +9,7 @@ function New-MMTeam {
     .EXAMPLE
         New-MMTeam -Name 'privateteam' -DisplayName 'Private Team' -Type Invite
     #>
+    [OutputType('MMTeam')]
     [CmdletBinding()]
     param(
         [Parameter(Mandatory)]
@@ -32,5 +33,5 @@ function New-MMTeam {
 
     if ($Description) { $body['description'] = $Description }
 
-    Invoke-MMRequest -Endpoint 'teams' -Method POST -Body $body | Add-MMTypeName -TypeName 'MatterMost.Team'
+    Invoke-MMRequest -Endpoint 'teams' -Method POST -Body $body | ConvertTo-MMTeam
 }
