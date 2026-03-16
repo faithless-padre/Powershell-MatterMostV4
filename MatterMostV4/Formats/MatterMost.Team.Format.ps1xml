@@ -3,9 +3,9 @@
   <ViewDefinitions>
 
     <View>
-      <Name>MatterMost.Team.Table</Name>
+      <Name>MMTeam.Table</Name>
       <ViewSelectedBy>
-        <TypeName>MatterMost.Team</TypeName>
+        <TypeName>MMTeam</TypeName>
       </ViewSelectedBy>
       <TableControl>
         <TableHeaders>
@@ -28,9 +28,9 @@
     </View>
 
     <View>
-      <Name>MatterMost.Team.List</Name>
+      <Name>MMTeam.List</Name>
       <ViewSelectedBy>
-        <TypeName>MatterMost.Team</TypeName>
+        <TypeName>MMTeam</TypeName>
       </ViewSelectedBy>
       <ListControl>
         <ListEntries>

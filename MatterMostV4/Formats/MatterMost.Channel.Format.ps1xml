@@ -3,9 +3,9 @@
   <ViewDefinitions>
 
     <View>
-      <Name>MatterMost.Channel.Table</Name>
+      <Name>MMChannel.Table</Name>
       <ViewSelectedBy>
-        <TypeName>MatterMost.Channel</TypeName>
+        <TypeName>MMChannel</TypeName>
       </ViewSelectedBy>
       <TableControl>
         <TableHeaders>
@@ -28,9 +28,9 @@
     </View>
 
     <View>
-      <Name>MatterMost.Channel.List</Name>
+      <Name>MMChannel.List</Name>
       <ViewSelectedBy>
-        <TypeName>MatterMost.Channel</TypeName>
+        <TypeName>MMChannel</TypeName>
       </ViewSelectedBy>
       <ListControl>
         <ListEntries>

@@ -9,6 +9,7 @@ function Get-MMUserTeams {
     .EXAMPLE
         Get-MMUser -Username 'jdoe' | Get-MMUserTeams
     #>
+    [OutputType('MMTeam')]
     [CmdletBinding()]
     param(
         [Parameter(Mandatory, ValueFromPipelineByPropertyName)]
@@ -17,6 +18,6 @@ function Get-MMUserTeams {
     )
 
     process {
-        Invoke-MMRequest -Endpoint "users/$UserId/teams" | Add-MMTypeName -TypeName 'MatterMost.Team'
+        Invoke-MMRequest -Endpoint "users/$UserId/teams" | ConvertTo-MMTeam
     }
 }

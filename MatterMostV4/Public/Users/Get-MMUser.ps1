@@ -21,6 +21,7 @@ function Get-MMUser {
     .EXAMPLE
         $user | Get-MMUser
     #>
+    [OutputType('MMUser')]
     [CmdletBinding(DefaultParameterSetName = 'Me')]
     param(
         [Parameter(ParameterSetName = 'All')]
@@ -44,14 +45,13 @@ function Get-MMUser {
     )
 
     process {
-        $typeName = 'MatterMost.User'
         switch ($PSCmdlet.ParameterSetName) {
-            'All'        { Get-MMUserList                                        | Add-MMTypeName -TypeName $typeName }
-            'Me'         { Invoke-MMRequest -Endpoint 'users/me'                 | Add-MMTypeName -TypeName $typeName }
-            'ById'       { Invoke-MMRequest -Endpoint "users/$UserId"            | Add-MMTypeName -TypeName $typeName }
-            'ByUsername' { Invoke-MMRequest -Endpoint "users/username/$Username" | Add-MMTypeName -TypeName $typeName }
-            'ByEmail'    { Invoke-MMRequest -Endpoint "users/email/$Email"       | Add-MMTypeName -TypeName $typeName }
-            'Filter'     { Invoke-MMUserFilter -Filter $Filter                   | Add-MMTypeName -TypeName $typeName }
+            'All'        { Get-MMUserList                                        | ConvertTo-MMUser }
+            'Me'         { Invoke-MMRequest -Endpoint 'users/me'                 | ConvertTo-MMUser }
+            'ById'       { Invoke-MMRequest -Endpoint "users/$UserId"            | ConvertTo-MMUser }
+            'ByUsername' { Invoke-MMRequest -Endpoint "users/username/$Username" | ConvertTo-MMUser }
+            'ByEmail'    { Invoke-MMRequest -Endpoint "users/email/$Email"       | ConvertTo-MMUser }
+            'Filter'     { Invoke-MMUserFilter -Filter $Filter                   | ConvertTo-MMUser }
         }
     }
 }

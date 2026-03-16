@@ -3,9 +3,9 @@
   <ViewDefinitions>
 
     <View>
-      <Name>MatterMost.User.Table</Name>
+      <Name>MMUser.Table</Name>
       <ViewSelectedBy>
-        <TypeName>MatterMost.User</TypeName>
+        <TypeName>MMUser</TypeName>
       </ViewSelectedBy>
       <TableControl>
         <TableHeaders>
@@ -30,9 +30,9 @@
     </View>
 
     <View>
-      <Name>MatterMost.User.List</Name>
+      <Name>MMUser.List</Name>
       <ViewSelectedBy>
-        <TypeName>MatterMost.User</TypeName>
+        <TypeName>MMUser</TypeName>
       </ViewSelectedBy>
       <ListControl>
         <ListEntries>

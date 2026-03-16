@@ -17,6 +17,7 @@ function Get-MMRole {
     .EXAMPLE
         Get-MMRole -Names 'system_admin', 'system_user', 'team_admin'
     #>
+    [OutputType('MMRole')]
     [CmdletBinding(DefaultParameterSetName = 'All')]
     param(
         [Parameter(ParameterSetName = 'All')]
@@ -33,9 +34,9 @@ function Get-MMRole {
     )
 
     switch ($PSCmdlet.ParameterSetName) {
-        'All'     { Invoke-MMRequest -Endpoint 'roles' | Add-MMTypeName -TypeName 'MatterMost.Role' }
-        'ById'    { Invoke-MMRequest -Endpoint "roles/$RoleId" | Add-MMTypeName -TypeName 'MatterMost.Role' }
-        'ByName'  { Invoke-MMRequest -Endpoint "roles/name/$Name" | Add-MMTypeName -TypeName 'MatterMost.Role' }
-        'ByNames' { Invoke-MMRequest -Endpoint 'roles/names' -Method POST -Body $Names | Add-MMTypeName -TypeName 'MatterMost.Role' }
+        'All'     { Invoke-MMRequest -Endpoint 'roles' | ConvertTo-MMRole }
+        'ById'    { Invoke-MMRequest -Endpoint "roles/$RoleId" | ConvertTo-MMRole }
+        'ByName'  { Invoke-MMRequest -Endpoint "roles/name/$Name" | ConvertTo-MMRole }
+        'ByNames' { Invoke-MMRequest -Endpoint 'roles/names' -Method POST -Body $Names | ConvertTo-MMRole }
     }
 }

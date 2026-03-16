@@ -13,6 +13,7 @@ function Set-MMChannel {
     .EXAMPLE
         Set-MMChannel -ChannelId 'abc123' -Properties @{ new_field = 'value' }
     #>
+    [OutputType('MMChannel')]
     [CmdletBinding()]
     param(
         [Parameter(Mandatory, ValueFromPipelineByPropertyName)]
@@ -52,6 +53,6 @@ function Set-MMChannel {
             foreach ($key in $Properties.Keys) { $body[$key] = $Properties[$key] }
         }
 
-        Invoke-MMRequest -Endpoint "channels/$ChannelId/patch" -Method PUT -Body $body | Add-MMTypeName -TypeName 'MatterMost.Channel'
+        Invoke-MMRequest -Endpoint "channels/$ChannelId/patch" -Method PUT -Body $body | ConvertTo-MMChannel
     }
 }
