@@ -39,9 +39,11 @@ Import-Module ./MatterMostV4/MatterMostV4.psd1
 ## Available Commands
 
 <details>
-<summary>Get-Command -Module MatterMostV4 | Get-Help | Select-Object Name, Synopsis</summary>
+<summary><strong>Click to expand the full command list</strong></summary>
 
 ```
+PS /home/padre/> Get-Command -Module MatterMostV4 | Get-Help | Select-Object Name, Synopsis     
+
 Name                     Synopsis
 ----                     --------
 Add-MMPostPin            Pins a post to its MatterMost channel.
