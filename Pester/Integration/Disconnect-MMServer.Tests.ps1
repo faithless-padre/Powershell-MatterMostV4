@@ -16,7 +16,14 @@ Describe 'Disconnect-MMServer' {
 
     Context 'Успешный logout' {
         BeforeEach {
-            Connect-MMServer -Url $config.Url -Username $config.AdminUsername -Password (ConvertToSecure $config.AdminPassword)
+            $modulePath = if (Test-Path '/module/MatterMostV4.psd1') {
+        '/module/MatterMostV4.psd1'
+    } else {
+        Join-Path $PSScriptRoot '..\..\MatterMostV4\MatterMostV4.psd1'
+    }
+    Import-Module $modulePath -Force
+
+        Connect-MMServer -Url $config.Url -Username $config.AdminUsername -Password (ConvertToSecure $config.AdminPassword)
         }
 
         It 'очищает $script:MMSession после логаута' {

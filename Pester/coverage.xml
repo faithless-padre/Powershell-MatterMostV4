@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <!DOCTYPE report PUBLIC "-//JACOCO//DTD Report 1.1//EN" "report.dtd"[]>
-<report name="Pester (03/16/2026 09:30:30)">
-  <sessioninfo id="this" start="1773653373745" dump="1773653430251" />
+<report name="Pester (03/16/2026 09:52:44)">
+  <sessioninfo id="this" start="1773654707787" dump="1773654764268" />
   <package name="module">
     <class name="module/MatterMostV4" sourcefilename="MatterMostV4.psm1">
       <method name="&lt;script&gt;" desc="()" line="1">
@@ -38,17 +38,6 @@
     <counter type="CLASS" missed="0" covered="1" />
   </package>
   <package name="module/Private">
-    <class name="module/Private/Add-MMTypeName" sourcefilename="Private/Add-MMTypeName.ps1">
-      <method name="Add-MMTypeName" desc="()" line="18">
-        <counter type="INSTRUCTION" missed="2" covered="0" />
-        <counter type="LINE" missed="2" covered="0" />
-        <counter type="METHOD" missed="1" covered="0" />
-      </method>
-      <counter type="INSTRUCTION" missed="2" covered="0" />
-      <counter type="LINE" missed="2" covered="0" />
-      <counter type="METHOD" missed="1" covered="0" />
-      <counter type="CLASS" missed="1" covered="0" />
-    </class>
     <class name="module/Private/ConvertTo-MMChannel" sourcefilename="Private/ConvertTo-MMChannel.ps1">
       <method name="ConvertTo-MMChannel" desc="()" line="15">
         <counter type="INSTRUCTION" missed="0" covered="8" />
@@ -126,14 +115,6 @@
       <counter type="METHOD" missed="0" covered="1" />
       <counter type="CLASS" missed="0" covered="1" />
     </class>
-    <sourcefile name="Private/Add-MMTypeName.ps1">
-      <line nr="18" mi="1" ci="0" mb="0" cb="0" />
-      <line nr="19" mi="1" ci="0" mb="0" cb="0" />
-      <counter type="INSTRUCTION" missed="2" covered="0" />
-      <counter type="LINE" missed="2" covered="0" />
-      <counter type="METHOD" missed="1" covered="0" />
-      <counter type="CLASS" missed="1" covered="0" />
-    </sourcefile>
     <sourcefile name="Private/ConvertTo-MMChannel.ps1">
       <line nr="15" mi="0" ci="1" mb="0" cb="0" />
       <line nr="17" mi="0" ci="1" mb="0" cb="0" />
@@ -231,10 +212,10 @@
       <counter type="METHOD" missed="0" covered="1" />
       <counter type="CLASS" missed="0" covered="1" />
     </sourcefile>
-    <counter type="INSTRUCTION" missed="4" covered="66" />
-    <counter type="LINE" missed="4" covered="53" />
-    <counter type="METHOD" missed="1" covered="7" />
-    <counter type="CLASS" missed="1" covered="7" />
+    <counter type="INSTRUCTION" missed="2" covered="66" />
+    <counter type="LINE" missed="2" covered="53" />
+    <counter type="METHOD" missed="0" covered="7" />
+    <counter type="CLASS" missed="0" covered="7" />
   </package>
   <package name="module/Private/Teams">
     <class name="module/Private/Teams/Get-MMTeamList" sourcefilename="Private/Teams/Get-MMTeamList.ps1">
@@ -1015,8 +996,8 @@
     <counter type="METHOD" missed="0" covered="12" />
     <counter type="CLASS" missed="0" covered="11" />
   </package>
-  <counter type="INSTRUCTION" missed="7" covered="365" />
-  <counter type="LINE" missed="6" covered="268" />
-  <counter type="METHOD" missed="1" covered="40" />
-  <counter type="CLASS" missed="1" covered="39" />
+  <counter type="INSTRUCTION" missed="5" covered="365" />
+  <counter type="LINE" missed="4" covered="268" />
+  <counter type="METHOD" missed="0" covered="40" />
+  <counter type="CLASS" missed="0" covered="39" />
 </report>

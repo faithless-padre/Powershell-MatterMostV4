@@ -7,7 +7,14 @@ BeforeAll {
         AdminPassword = if ($env:MM_ADMIN_PASSWORD) { $env:MM_ADMIN_PASSWORD } else { $fileConfig.AdminPassword }
     }
 
-    Connect-MMServer -Url $config.Url -Username $config.AdminUsername -Password (ConvertTo-SecureString $config.AdminPassword -AsPlainText -Force)
+    $modulePath = if (Test-Path '/module/MatterMostV4.psd1') {
+        '/module/MatterMostV4.psd1'
+    } else {
+        Join-Path $PSScriptRoot '..\..\MatterMostV4\MatterMostV4.psd1'
+    }
+    Import-Module $modulePath -Force
+
+        Connect-MMServer -Url $config.Url -Username $config.AdminUsername -Password (ConvertTo-SecureString $config.AdminPassword -AsPlainText -Force)
 
     # Сохраняем оригинальные permissions чтобы восстановить после теста
     $script:OriginalRole = Get-MMRole -Name 'team_user'
