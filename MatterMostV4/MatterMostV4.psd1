@@ -29,7 +29,11 @@
         'Get-MMUser',
         'Get-MMUserAudit',
         'Get-MMUserChannels',
+        'Get-MMUserSession',
+        'Get-MMUserStats',
         'Get-MMUserTeams',
+        'Revoke-MMAllUserSessions',
+        'Revoke-MMUserSession',
         'New-MMChannel',
         'New-MMTeam',
         'New-MMUser',
@@ -50,6 +54,7 @@
         'Formats/MatterMost.Channel.Format.ps1xml'
         'Formats/MatterMost.Team.Format.ps1xml'
         'Formats/MatterMost.Role.Format.ps1xml'
+        'Formats/MatterMost.Session.Format.ps1xml'
     )
     CmdletsToExport   = @()
     VariablesToExport = @()

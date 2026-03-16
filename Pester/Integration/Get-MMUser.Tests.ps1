@@ -132,4 +132,23 @@ Describe 'Get-MMUser' {
             { Get-MMUser -Filter { invalid } } | Should -Throw
         }
     }
+
+    Context '-Ids (batch по ID)' {
+        It 'возвращает пользователей по массиву ID' {
+            $admin  = Get-MMUser -Username $config.AdminUsername
+            $result = Get-MMUser -Ids @($admin.id)
+
+            $result            | Should -Not -BeNullOrEmpty
+            $result[0].id      | Should -Be $admin.id
+        }
+    }
+
+    Context '-Usernames (batch по username)' {
+        It 'возвращает пользователей по массиву usernames' {
+            $result = Get-MMUser -Usernames @($config.AdminUsername)
+
+            $result                | Should -Not -BeNullOrEmpty
+            $result[0].username    | Should -Be $config.AdminUsername
+        }
+    }
 }
