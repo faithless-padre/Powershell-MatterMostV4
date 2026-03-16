@@ -69,6 +69,7 @@
         'New-MMPost',
         'Remove-MMPost',
         'Remove-MMPostPin',
+        'Send-MMMessage',
         'Set-MMPost'
     )
     FormatsToProcess  = @(

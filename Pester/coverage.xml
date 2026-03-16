@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <!DOCTYPE report PUBLIC "-//JACOCO//DTD Report 1.1//EN" "report.dtd"[]>
-<report name="Pester (03/16/2026 20:19:42)">
-  <sessioninfo id="this" start="1773692300823" dump="1773692382755" />
+<report name="Pester (03/16/2026 20:38:27)">
+  <sessioninfo id="this" start="1773693416444" dump="1773693507151" />
   <package name="module">
     <class name="module/MatterMostV4" sourcefilename="MatterMostV4.psm1">
       <method name="&lt;script&gt;" desc="()" line="1">
@@ -959,6 +959,17 @@
       <counter type="METHOD" missed="0" covered="1" />
       <counter type="CLASS" missed="0" covered="1" />
     </class>
+    <class name="module/Public/Posts/Send-MMMessage" sourcefilename="Public/Posts/Send-MMMessage.ps1">
+      <method name="Send-MMMessage" desc="()" line="54">
+        <counter type="INSTRUCTION" missed="1" covered="22" />
+        <counter type="LINE" missed="0" covered="12" />
+        <counter type="METHOD" missed="0" covered="1" />
+      </method>
+      <counter type="INSTRUCTION" missed="1" covered="22" />
+      <counter type="LINE" missed="0" covered="12" />
+      <counter type="METHOD" missed="0" covered="1" />
+      <counter type="CLASS" missed="0" covered="1" />
+    </class>
     <class name="module/Public/Posts/Set-MMPost" sourcefilename="Public/Posts/Set-MMPost.ps1">
       <method name="Set-MMPost" desc="()" line="24">
         <counter type="INSTRUCTION" missed="0" covered="3" />
@@ -1042,6 +1053,24 @@
       <counter type="METHOD" missed="0" covered="1" />
       <counter type="CLASS" missed="0" covered="1" />
     </sourcefile>
+    <sourcefile name="Public/Posts/Send-MMMessage.ps1">
+      <line nr="54" mi="0" ci="1" mb="0" cb="0" />
+      <line nr="57" mi="0" ci="1" mb="0" cb="0" />
+      <line nr="58" mi="0" ci="2" mb="0" cb="0" />
+      <line nr="62" mi="0" ci="2" mb="0" cb="0" />
+      <line nr="66" mi="0" ci="1" mb="0" cb="0" />
+      <line nr="67" mi="0" ci="4" mb="0" cb="0" />
+      <line nr="68" mi="0" ci="2" mb="0" cb="0" />
+      <line nr="72" mi="0" ci="2" mb="0" cb="0" />
+      <line nr="76" mi="0" ci="3" mb="0" cb="0" />
+      <line nr="77" mi="0" ci="2" mb="0" cb="0" />
+      <line nr="78" mi="1" ci="1" mb="0" cb="0" />
+      <line nr="80" mi="0" ci="1" mb="0" cb="0" />
+      <counter type="INSTRUCTION" missed="1" covered="22" />
+      <counter type="LINE" missed="0" covered="12" />
+      <counter type="METHOD" missed="0" covered="1" />
+      <counter type="CLASS" missed="0" covered="1" />
+    </sourcefile>
     <sourcefile name="Public/Posts/Set-MMPost.ps1">
       <line nr="24" mi="0" ci="2" mb="0" cb="0" />
       <line nr="25" mi="0" ci="1" mb="0" cb="0" />
@@ -1050,10 +1079,10 @@
       <counter type="METHOD" missed="0" covered="1" />
       <counter type="CLASS" missed="0" covered="1" />
     </sourcefile>
-    <counter type="INSTRUCTION" missed="6" covered="38" />
-    <counter type="LINE" missed="3" covered="29" />
-    <counter type="METHOD" missed="0" covered="8" />
-    <counter type="CLASS" missed="0" covered="8" />
+    <counter type="INSTRUCTION" missed="7" covered="60" />
+    <counter type="LINE" missed="3" covered="41" />
+    <counter type="METHOD" missed="0" covered="9" />
+    <counter type="CLASS" missed="0" covered="9" />
   </package>
   <package name="module/Public/Roles">
     <class name="module/Public/Roles/Get-MMRole" sourcefilename="Public/Roles/Get-MMRole.ps1">
@@ -1676,8 +1705,8 @@
     <counter type="METHOD" missed="0" covered="16" />
     <counter type="CLASS" missed="0" covered="15" />
   </package>
-  <counter type="INSTRUCTION" missed="17" covered="537" />
-  <counter type="LINE" missed="12" covered="401" />
-  <counter type="METHOD" missed="0" covered="71" />
-  <counter type="CLASS" missed="0" covered="70" />
+  <counter type="INSTRUCTION" missed="18" covered="559" />
+  <counter type="LINE" missed="12" covered="413" />
+  <counter type="METHOD" missed="0" covered="72" />
+  <counter type="CLASS" missed="0" covered="71" />
 </report>
