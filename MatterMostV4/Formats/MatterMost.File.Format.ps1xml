@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Configuration>
+  <ViewDefinitions>
+
+    <View>
+      <Name>MMFile.Table</Name>
+      <ViewSelectedBy>
+        <TypeName>MMFile</TypeName>
+      </ViewSelectedBy>
+      <TableControl>
+        <TableHeaders>
+          <TableColumnHeader><Label>Name</Label><Width>30</Width></TableColumnHeader>
+          <TableColumnHeader><Label>Ext</Label><Width>8</Width></TableColumnHeader>
+          <TableColumnHeader><Label>Size</Label><Width>12</Width></TableColumnHeader>
+          <TableColumnHeader><Label>MIME Type</Label><Width>28</Width></TableColumnHeader>
+          <TableColumnHeader><Label>Id</Label></TableColumnHeader>
+        </TableHeaders>
+        <TableRowEntries>
+          <TableRowEntry>
+            <TableColumnItems>
+              <TableColumnItem><PropertyName>name</PropertyName></TableColumnItem>
+              <TableColumnItem><PropertyName>extension</PropertyName></TableColumnItem>
+              <TableColumnItem><PropertyName>size</PropertyName></TableColumnItem>
+              <TableColumnItem><PropertyName>mime_type</PropertyName></TableColumnItem>
+              <TableColumnItem><PropertyName>id</PropertyName></TableColumnItem>
+            </TableColumnItems>
+          </TableRowEntry>
+        </TableRowEntries>
+      </TableControl>
+    </View>
+
+    <View>
+      <Name>MMFile.List</Name>
+      <ViewSelectedBy>
+        <TypeName>MMFile</TypeName>
+      </ViewSelectedBy>
+      <ListControl>
+        <ListEntries>
+          <ListEntry>
+            <ListItems>
+              <ListItem><Label>Id</Label><PropertyName>id</PropertyName></ListItem>
+              <ListItem><Label>Name</Label><PropertyName>name</PropertyName></ListItem>
+              <ListItem><Label>Extension</Label><PropertyName>extension</PropertyName></ListItem>
+              <ListItem><Label>MIME Type</Label><PropertyName>mime_type</PropertyName></ListItem>
+              <ListItem><Label>Size</Label><PropertyName>size</PropertyName></ListItem>
+              <ListItem><Label>Width</Label><PropertyName>width</PropertyName></ListItem>
+              <ListItem><Label>Height</Label><PropertyName>height</PropertyName></ListItem>
+              <ListItem><Label>Has Preview</Label><PropertyName>has_preview_image</PropertyName></ListItem>
+              <ListItem><Label>Post Id</Label><PropertyName>post_id</PropertyName></ListItem>
+              <ListItem><Label>User Id</Label><PropertyName>user_id</PropertyName></ListItem>
+            </ListItems>
+          </ListEntry>
+        </ListEntries>
+      </ListControl>
+    </View>
+
+  </ViewDefinitions>
+</Configuration>

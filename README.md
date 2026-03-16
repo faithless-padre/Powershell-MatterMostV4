@@ -54,6 +54,8 @@ Disconnect-MMServer      Logs out from MatterMost and clears the stored session 
 Enable-MMUser            Activates a deactivated MatterMost user.
 Get-MMChannel            Returns a MatterMost channel by ID, name within a team, team channel list, or all channels.
 Get-MMChannelMembers     Returns the list of members for a MatterMost channel.
+Get-MMFileLink           Returns a public link to a MatterMost file that can be accessed without authentication.
+Get-MMFileMetadata       Returns metadata for a previously uploaded MatterMost file.
 Get-MMRole               Returns a MatterMost role by ID, name, list of names, or all roles.
 Get-MMTeam               Returns a MatterMost team by ID, name, or all teams.
 Get-MMTeamMembers        Returns the list of members for a MatterMost team.
@@ -77,6 +79,8 @@ Restore-MMChannel        Restores a deleted (archived) MatterMost channel.
 Restore-MMTeam           Restores a deleted (archived) MatterMost team.
 Revoke-MMAllUserSessions Revokes all active sessions for a MatterMost user.
 Revoke-MMUserSession     Revokes the specified MatterMost user session.
+Save-MMFile              Downloads a file from MatterMost to the local filesystem.
+Send-MMFile              Uploads a file to a MatterMost channel. Returns an MMFile object with the file ID.
 Send-MMTeamInvite        Sends an invitation to a MatterMost team by email address(es).
 Set-MMChannel            Updates MatterMost channel settings (PUT /channels/{id}/patch).
 Set-MMChannelPrivacy     Updates MatterMost channel privacy: Public or Private.
