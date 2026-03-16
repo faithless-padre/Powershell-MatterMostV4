@@ -57,7 +57,11 @@
         'Set-MMTeamPrivacy',
         'Set-MMUser',
         'Set-MMUserPassword',
-        'Set-MMUserRole'
+        'Set-MMUserRole',
+        'Get-MMFileLink',
+        'Get-MMFileMetadata',
+        'Save-MMFile',
+        'Send-MMFile'
     )
     FormatsToProcess  = @(
         'Formats/MatterMost.User.Format.ps1xml'
@@ -67,6 +71,7 @@
         'Formats/MatterMost.Session.Format.ps1xml'
         'Formats/MatterMost.ChannelMember.Format.ps1xml'
         'Formats/MatterMost.TeamMember.Format.ps1xml'
+        'Formats/MatterMost.File.Format.ps1xml'
     )
     CmdletsToExport   = @()
     VariablesToExport = @()
