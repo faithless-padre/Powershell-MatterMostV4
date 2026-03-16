@@ -88,6 +88,7 @@ Revoke-MMAllUserSessions Revokes all active sessions for a MatterMost user.
 Revoke-MMUserSession     Revokes the specified MatterMost user session.
 Save-MMFile              Downloads a file from MatterMost to the local filesystem.
 Send-MMFile              Uploads a file to a MatterMost channel. Returns an MMFile object with the file ID.
+Send-MMMessage           Sends a message to a user (DM), group of users, or a channel by name.
 Send-MMTeamInvite        Sends an invitation to a MatterMost team by email address(es).
 Set-MMChannel            Updates MatterMost channel settings (PUT /channels/{id}/patch).
 Set-MMPost               Updates the message of an existing MatterMost post (PATCH).
