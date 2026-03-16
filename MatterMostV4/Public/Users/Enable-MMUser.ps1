@@ -9,6 +9,7 @@ function Enable-MMUser {
     .EXAMPLE
         Get-MMUser -UserId 'abc123' | Enable-MMUser
     #>
+    [OutputType('MMUser')]
     [CmdletBinding()]
     param(
         [Parameter(Mandatory, ValueFromPipelineByPropertyName)]
@@ -17,6 +18,6 @@ function Enable-MMUser {
     )
 
     process {
-        Invoke-MMRequest -Endpoint "users/$UserId/active" -Method PUT -Body @{ active = $true } | Add-MMTypeName -TypeName 'MatterMost.User'
+        Invoke-MMRequest -Endpoint "users/$UserId/active" -Method PUT -Body @{ active = $true } | ConvertTo-MMUser
     }
 }

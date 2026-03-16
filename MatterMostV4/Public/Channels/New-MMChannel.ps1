@@ -9,6 +9,7 @@ function New-MMChannel {
     .EXAMPLE
         New-MMChannel -TeamId 'team123' -Name 'private' -DisplayName 'Private Channel' -Type Private
     #>
+    [OutputType('MMChannel')]
     [CmdletBinding()]
     param(
         [string]$TeamId,
@@ -39,5 +40,5 @@ function New-MMChannel {
     if ($Purpose) { $body['purpose'] = $Purpose }
     if ($Header)  { $body['header']  = $Header }
 
-    Invoke-MMRequest -Endpoint 'channels' -Method POST -Body $body | Add-MMTypeName -TypeName 'MatterMost.Channel'
+    Invoke-MMRequest -Endpoint 'channels' -Method POST -Body $body | ConvertTo-MMChannel
 }

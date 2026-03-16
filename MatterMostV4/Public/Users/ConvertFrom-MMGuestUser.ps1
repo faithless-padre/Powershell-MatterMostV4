@@ -9,6 +9,7 @@ function ConvertFrom-MMGuestUser {
     .EXAMPLE
         Get-MMUser guest1 | ConvertFrom-MMGuestUser
     #>
+    [OutputType('MMUser')]
     [CmdletBinding()]
     param(
         [Parameter(Mandatory, ValueFromPipelineByPropertyName)]
@@ -17,6 +18,6 @@ function ConvertFrom-MMGuestUser {
     )
 
     process {
-        Invoke-MMRequest -Endpoint "users/$UserId/promote" -Method POST | Add-MMTypeName -TypeName 'MatterMost.User'
+        Invoke-MMRequest -Endpoint "users/$UserId/promote" -Method POST | ConvertTo-MMUser
     }
 }

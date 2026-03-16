@@ -13,6 +13,7 @@ function Set-MMTeam {
     .EXAMPLE
         Set-MMTeam -TeamId 'abc123' -Properties @{ new_field = 'value' }
     #>
+    [OutputType('MMTeam')]
     [CmdletBinding()]
     param(
         [Parameter(Mandatory, ValueFromPipelineByPropertyName)]
@@ -48,6 +49,6 @@ function Set-MMTeam {
             foreach ($key in $Properties.Keys) { $body[$key] = $Properties[$key] }
         }
 
-        Invoke-MMRequest -Endpoint "teams/$TeamId/patch" -Method PUT -Body $body | Add-MMTypeName -TypeName 'MatterMost.Team'
+        Invoke-MMRequest -Endpoint "teams/$TeamId/patch" -Method PUT -Body $body | ConvertTo-MMTeam
     }
 }

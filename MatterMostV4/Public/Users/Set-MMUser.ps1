@@ -13,6 +13,7 @@ function Set-MMUser {
     .EXAMPLE
         Set-MMUser -UserId 'abc123' -Properties @{ new_field = 'value' }
     #>
+    [OutputType('MMUser')]
     [CmdletBinding()]
     param(
         [Parameter(Mandatory, ValueFromPipelineByPropertyName)]
@@ -58,6 +59,6 @@ function Set-MMUser {
             foreach ($key in $Properties.Keys) { $body[$key] = $Properties[$key] }
         }
 
-        Invoke-MMRequest -Endpoint "users/$UserId/patch" -Method PUT -Body $body | Add-MMTypeName -TypeName 'MatterMost.User'
+        Invoke-MMRequest -Endpoint "users/$UserId/patch" -Method PUT -Body $body | ConvertTo-MMUser
     }
 }

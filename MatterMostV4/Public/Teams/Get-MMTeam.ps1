@@ -11,6 +11,7 @@ function Get-MMTeam {
     .EXAMPLE
         Get-MMTeam -Name 'testteam'
     #>
+    [OutputType('MMTeam')]
     [CmdletBinding(DefaultParameterSetName = 'All')]
     param(
         [Parameter(ParameterSetName = 'All')]
@@ -26,9 +27,9 @@ function Get-MMTeam {
 
     process {
         switch ($PSCmdlet.ParameterSetName) {
-            'ById'   { Invoke-MMRequest -Endpoint "teams/$TeamId" | Add-MMTypeName -TypeName 'MatterMost.Team' }
-            'ByName' { Invoke-MMRequest -Endpoint "teams/name/$Name" | Add-MMTypeName -TypeName 'MatterMost.Team' }
-            'All'    { Get-MMTeamList | Add-MMTypeName -TypeName 'MatterMost.Team' }
+            'ById'   { Invoke-MMRequest -Endpoint "teams/$TeamId" | ConvertTo-MMTeam }
+            'ByName' { Invoke-MMRequest -Endpoint "teams/name/$Name" | ConvertTo-MMTeam }
+            'All'    { Get-MMTeamList | ConvertTo-MMTeam }
         }
     }
 }
