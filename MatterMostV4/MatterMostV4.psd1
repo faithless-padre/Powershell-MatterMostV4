@@ -61,7 +61,15 @@
         'Get-MMFileLink',
         'Get-MMFileMetadata',
         'Save-MMFile',
-        'Send-MMFile'
+        'Send-MMFile',
+        'Add-MMPostPin',
+        'Get-MMChannelPosts',
+        'Get-MMPost',
+        'Get-MMPostThread',
+        'New-MMPost',
+        'Remove-MMPost',
+        'Remove-MMPostPin',
+        'Set-MMPost'
     )
     FormatsToProcess  = @(
         'Formats/MatterMost.User.Format.ps1xml'
@@ -72,6 +80,7 @@
         'Formats/MatterMost.ChannelMember.Format.ps1xml'
         'Formats/MatterMost.TeamMember.Format.ps1xml'
         'Formats/MatterMost.File.Format.ps1xml'
+        'Formats/MatterMost.Post.Format.ps1xml'
     )
     CmdletsToExport   = @()
     VariablesToExport = @()
