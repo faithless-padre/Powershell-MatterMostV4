@@ -3,7 +3,7 @@
 function Revoke-MMUserSession {
     <#
     .SYNOPSIS
-        Отзывает указанную сессию пользователя MatterMost.
+        Revokes the specified MatterMost user session.
     .EXAMPLE
         Revoke-MMUserSession -UserId 'abc123' -SessionId 'sess456'
     .EXAMPLE

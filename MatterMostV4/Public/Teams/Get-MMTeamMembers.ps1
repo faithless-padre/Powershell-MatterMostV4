@@ -3,7 +3,7 @@
 function Get-MMTeamMembers {
     <#
     .SYNOPSIS
-        Возвращает список участников команды MatterMost.
+        Returns the list of members for a MatterMost team.
     .EXAMPLE
         Get-MMTeamMembers -TeamId 'abc123'
     .EXAMPLE

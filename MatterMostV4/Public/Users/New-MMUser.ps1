@@ -3,7 +3,7 @@
 function New-MMUser {
     <#
     .SYNOPSIS
-        Создаёт нового пользователя в MatterMost.
+        Creates a new user in MatterMost.
     .EXAMPLE
         New-MMUser -Username 'jdoe' -Email 'jdoe@example.com' -Password (ConvertTo-SecureString 'Pass123!' -AsPlainText -Force)
     .EXAMPLE

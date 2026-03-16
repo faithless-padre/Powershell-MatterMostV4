@@ -39,53 +39,53 @@ Import-Module ./MatterMostV4/MatterMostV4.psd1
 ## Available Commands
 
 <details>
-<summary>Get-Command -Module MatterMostV4</summary>
+<summary>Get-Command -Module MatterMostV4 | Get-Help | Select-Object Name, Synopsis</summary>
 
 ```
-CommandType     Name                                               Version    Source
------------     ----                                               -------    ------
-Function        Add-MMUserToChannel                                0.1.0      MatterMostV4
-Function        Add-MMUserToTeam                                   0.1.0      MatterMostV4
-Function        Connect-MMServer                                   0.1.0      MatterMostV4
-Function        ConvertFrom-MMGuestUser                            0.1.0      MatterMostV4
-Function        ConvertTo-MMGuestUser                              0.1.0      MatterMostV4
-Function        Disable-MMUser                                     0.1.0      MatterMostV4
-Function        Disconnect-MMServer                                0.1.0      MatterMostV4
-Function        Enable-MMUser                                      0.1.0      MatterMostV4
-Function        Get-MMChannel                                      0.1.0      MatterMostV4
-Function        Get-MMChannelMembers                               0.1.0      MatterMostV4
-Function        Get-MMRole                                         0.1.0      MatterMostV4
-Function        Get-MMTeam                                         0.1.0      MatterMostV4
-Function        Get-MMTeamMembers                                  0.1.0      MatterMostV4
-Function        Get-MMUser                                         0.1.0      MatterMostV4
-Function        Get-MMUserAudit                                    0.1.0      MatterMostV4
-Function        Get-MMUserChannels                                 0.1.0      MatterMostV4
-Function        Get-MMUserSession                                  0.1.0      MatterMostV4
-Function        Get-MMUserStats                                    0.1.0      MatterMostV4
-Function        Get-MMUserTeams                                    0.1.0      MatterMostV4
-Function        New-MMChannel                                      0.1.0      MatterMostV4
-Function        New-MMDirectChannel                                0.1.0      MatterMostV4
-Function        New-MMGroupChannel                                 0.1.0      MatterMostV4
-Function        New-MMTeam                                         0.1.0      MatterMostV4
-Function        New-MMUser                                         0.1.0      MatterMostV4
-Function        Remove-MMChannel                                   0.1.0      MatterMostV4
-Function        Remove-MMTeam                                      0.1.0      MatterMostV4
-Function        Remove-MMUser                                      0.1.0      MatterMostV4
-Function        Remove-MMUserFromChannel                           0.1.0      MatterMostV4
-Function        Remove-MMUserFromTeam                              0.1.0      MatterMostV4
-Function        Restore-MMChannel                                  0.1.0      MatterMostV4
-Function        Restore-MMTeam                                     0.1.0      MatterMostV4
-Function        Revoke-MMAllUserSessions                           0.1.0      MatterMostV4
-Function        Revoke-MMUserSession                               0.1.0      MatterMostV4
-Function        Send-MMTeamInvite                                  0.1.0      MatterMostV4
-Function        Set-MMChannel                                      0.1.0      MatterMostV4
-Function        Set-MMChannelPrivacy                               0.1.0      MatterMostV4
-Function        Set-MMRole                                         0.1.0      MatterMostV4
-Function        Set-MMTeam                                         0.1.0      MatterMostV4
-Function        Set-MMTeamPrivacy                                  0.1.0      MatterMostV4
-Function        Set-MMUser                                         0.1.0      MatterMostV4
-Function        Set-MMUserPassword                                 0.1.0      MatterMostV4
-Function        Set-MMUserRole                                     0.1.0      MatterMostV4
+Name                     Synopsis
+----                     --------
+Add-MMUserToChannel      Adds a user to a MatterMost channel.
+Add-MMUserToTeam         Adds a user to a MatterMost team.
+Connect-MMServer         Connects to a MatterMost server and stores the session token for subsequent requests.
+ConvertFrom-MMGuestUser  Promotes a guest user to a regular MatterMost user (POST /users/{id}/promote).
+ConvertTo-MMGuestUser    Demotes a regular user to a guest in MatterMost (POST /users/{id}/demote).
+Disable-MMUser           Deactivates a MatterMost user (soft disable via PUT /active).
+Disconnect-MMServer      Logs out from MatterMost and clears the stored session token.
+Enable-MMUser            Activates a deactivated MatterMost user.
+Get-MMChannel            Returns a MatterMost channel by ID, name within a team, team channel list, or all channels.
+Get-MMChannelMembers     Returns the list of members for a MatterMost channel.
+Get-MMRole               Returns a MatterMost role by ID, name, list of names, or all roles.
+Get-MMTeam               Returns a MatterMost team by ID, name, or all teams.
+Get-MMTeamMembers        Returns the list of members for a MatterMost team.
+Get-MMUser               Returns a MatterMost user by ID, username, filter, or current session.
+Get-MMUserAudit          Returns audit log entries for a MatterMost user (GET /users/{id}/audits).
+Get-MMUserChannels       Returns the list of channels a user belongs to in a MatterMost team.
+Get-MMUserSession        Returns the list of active sessions for a MatterMost user.
+Get-MMUserStats          Returns overall MatterMost user statistics (total_users_count, total_bots_count).
+Get-MMUserTeams          Returns the list of teams a MatterMost user belongs to.
+New-MMChannel            Creates a new channel in a MatterMost team.
+New-MMDirectChannel      Creates a direct message (DM) channel between two MatterMost users.
+New-MMGroupChannel       Creates a group message channel for 3–8 MatterMost users.
+New-MMTeam               Creates a new team in MatterMost.
+New-MMUser               Creates a new user in MatterMost.
+Remove-MMChannel         Archives a MatterMost channel.
+Remove-MMTeam            Archives a MatterMost team.
+Remove-MMUser            Deactivates a MatterMost user (soft delete).
+Remove-MMUserFromChannel Removes a user from a MatterMost channel.
+Remove-MMUserFromTeam    Removes a user from a MatterMost team.
+Restore-MMChannel        Restores a deleted (archived) MatterMost channel.
+Restore-MMTeam           Restores a deleted (archived) MatterMost team.
+Revoke-MMAllUserSessions Revokes all active sessions for a MatterMost user.
+Revoke-MMUserSession     Revokes the specified MatterMost user session.
+Send-MMTeamInvite        Sends an invitation to a MatterMost team by email address(es).
+Set-MMChannel            Updates MatterMost channel settings (PUT /channels/{id}/patch).
+Set-MMChannelPrivacy     Updates MatterMost channel privacy: Public or Private.
+Set-MMRole               Updates the permissions list for the specified MatterMost role.
+Set-MMTeam               Updates MatterMost team settings (PUT /teams/{id}/patch).
+Set-MMTeamPrivacy        Updates MatterMost team privacy: Open or Invite-only.
+Set-MMUser               Updates a MatterMost user profile (PUT /users/{id}/patch).
+Set-MMUserPassword       Changes a MatterMost user password.
+Set-MMUserRole           Assigns system roles to a MatterMost user.
 ```
 
 </details>

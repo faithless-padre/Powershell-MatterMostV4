@@ -3,7 +3,7 @@
 function Get-MMRole {
     <#
     .SYNOPSIS
-        Возвращает роль MatterMost по ID, имени, списку имён или все роли сразу.
+        Returns a MatterMost role by ID, name, list of names, or all roles.
 
     .EXAMPLE
         Get-MMRole -All

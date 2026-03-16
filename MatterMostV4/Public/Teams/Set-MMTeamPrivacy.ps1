@@ -3,7 +3,7 @@
 function Set-MMTeamPrivacy {
     <#
     .SYNOPSIS
-        Изменяет приватность команды MatterMost: Open (открытая) или Invite (только по приглашению).
+        Updates MatterMost team privacy: Open or Invite-only.
     .EXAMPLE
         Set-MMTeamPrivacy -TeamId 'abc123' -Privacy Invite
     .EXAMPLE

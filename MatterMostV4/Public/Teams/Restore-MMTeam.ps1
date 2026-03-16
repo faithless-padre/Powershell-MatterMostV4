@@ -3,7 +3,7 @@
 function Restore-MMTeam {
     <#
     .SYNOPSIS
-        Восстанавливает удалённую (архивированную) команду MatterMost.
+        Restores a deleted (archived) MatterMost team.
     .EXAMPLE
         Restore-MMTeam -TeamId 'abc123'
     .EXAMPLE

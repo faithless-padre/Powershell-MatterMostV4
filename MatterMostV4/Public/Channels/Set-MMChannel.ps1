@@ -3,7 +3,7 @@
 function Set-MMChannel {
     <#
     .SYNOPSIS
-        Обновляет параметры канала MatterMost (PUT /channels/{id}/patch).
+        Updates MatterMost channel settings (PUT /channels/{id}/patch).
     .EXAMPLE
         Set-MMChannel -ChannelId 'abc123' -DisplayName 'New Name'
     .EXAMPLE

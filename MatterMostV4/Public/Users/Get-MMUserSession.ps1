@@ -3,7 +3,7 @@
 function Get-MMUserSession {
     <#
     .SYNOPSIS
-        Возвращает список активных сессий пользователя MatterMost.
+        Returns the list of active sessions for a MatterMost user.
     .EXAMPLE
         Get-MMUserSession -UserId 'abc123'
     .EXAMPLE

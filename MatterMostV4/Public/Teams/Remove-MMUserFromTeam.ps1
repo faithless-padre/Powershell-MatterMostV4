@@ -3,7 +3,7 @@
 function Remove-MMUserFromTeam {
     <#
     .SYNOPSIS
-        Удаляет пользователя из команды MatterMost.
+        Removes a user from a MatterMost team.
     .EXAMPLE
         Remove-MMUserFromTeam -TeamId 'team123' -UserId 'user123'
     .EXAMPLE

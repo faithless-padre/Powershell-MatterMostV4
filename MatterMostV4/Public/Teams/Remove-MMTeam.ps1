@@ -3,7 +3,7 @@
 function Remove-MMTeam {
     <#
     .SYNOPSIS
-        Архивирует команду MatterMost.
+        Archives a MatterMost team.
     .EXAMPLE
         Remove-MMTeam -TeamId 'abc123'
     .EXAMPLE

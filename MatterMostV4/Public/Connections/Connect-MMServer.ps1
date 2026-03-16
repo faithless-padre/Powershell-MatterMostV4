@@ -3,7 +3,7 @@
 function Connect-MMServer {
     <#
     .SYNOPSIS
-        Подключается к MatterMost серверу и сохраняет токен сессии для последующих запросов.
+        Connects to a MatterMost server and stores the session token for subsequent requests.
     .DESCRIPTION
         Поддерживает три способа аутентификации: PSCredential, Username/Password или Personal Access Token.
         После успешного подключения токен сохраняется в $script:MMSession и используется автоматически всеми командлетами модуля.

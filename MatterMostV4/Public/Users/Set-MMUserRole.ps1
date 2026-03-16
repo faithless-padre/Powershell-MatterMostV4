@@ -3,7 +3,7 @@
 function Set-MMUserRole {
     <#
     .SYNOPSIS
-        Назначает системные роли пользователю MatterMost.
+        Assigns system roles to a MatterMost user.
     .EXAMPLE
         Set-MMUserRole -UserId 'abc123' -Roles 'system_admin system_user'
     .EXAMPLE

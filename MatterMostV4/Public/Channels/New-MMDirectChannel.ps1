@@ -3,7 +3,7 @@
 function New-MMDirectChannel {
     <#
     .SYNOPSIS
-        Создаёт канал прямых сообщений (DM) между двумя пользователями MatterMost.
+        Creates a direct message (DM) channel between two MatterMost users.
     .EXAMPLE
         New-MMDirectChannel -UserId1 'abc123' -UserId2 'def456'
     .EXAMPLE

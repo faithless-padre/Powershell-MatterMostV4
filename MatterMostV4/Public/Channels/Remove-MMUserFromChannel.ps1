@@ -3,7 +3,7 @@
 function Remove-MMUserFromChannel {
     <#
     .SYNOPSIS
-        Удаляет пользователя из канала MatterMost.
+        Removes a user from a MatterMost channel.
     .EXAMPLE
         Remove-MMUserFromChannel -ChannelId 'chan123' -UserId 'user456'
     .EXAMPLE
