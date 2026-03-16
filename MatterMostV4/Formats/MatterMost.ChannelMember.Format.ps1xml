@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Configuration>
+  <ViewDefinitions>
+
+    <View>
+      <Name>MatterMost.ChannelMember.Table</Name>
+      <ViewSelectedBy>
+        <TypeName>MMChannelMember</TypeName>
+      </ViewSelectedBy>
+      <TableControl>
+        <TableHeaders>
+          <TableColumnHeader><Label>UserId</Label><Width>26</Width></TableColumnHeader>
+          <TableColumnHeader><Label>Roles</Label><Width>24</Width></TableColumnHeader>
+          <TableColumnHeader><Label>MsgCount</Label><Width>10</Width></TableColumnHeader>
+          <TableColumnHeader><Label>MentionCount</Label><Width>12</Width></TableColumnHeader>
+        </TableHeaders>
+        <TableRowEntries>
+          <TableRowEntry>
+            <TableColumnItems>
+              <TableColumnItem><PropertyName>user_id</PropertyName></TableColumnItem>
+              <TableColumnItem><PropertyName>roles</PropertyName></TableColumnItem>
+              <TableColumnItem><PropertyName>msg_count</PropertyName></TableColumnItem>
+              <TableColumnItem><PropertyName>mention_count</PropertyName></TableColumnItem>
+            </TableColumnItems>
+          </TableRowEntry>
+        </TableRowEntries>
+      </TableControl>
+    </View>
+
+  </ViewDefinitions>
+</Configuration>

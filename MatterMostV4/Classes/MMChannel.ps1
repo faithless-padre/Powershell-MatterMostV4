@@ -1,5 +1,4 @@
 # MatterMost Channel type definition
-
 class MMChannel {
     [string] $id
     [string] $team_id
