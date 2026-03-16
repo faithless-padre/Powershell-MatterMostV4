@@ -37,7 +37,7 @@ function Invoke-MMRequest {
     }
 
     if ($Body) {
-        $params['Body'] = ($Body | ConvertTo-Json -Depth 10)
+        $params['Body'] = ConvertTo-Json -InputObject $Body -Depth 10
     }
 
     try {

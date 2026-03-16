@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Configuration>
+  <ViewDefinitions>
+
+    <View>
+      <Name>MMSession.Table</Name>
+      <ViewSelectedBy>
+        <TypeName>MMSession</TypeName>
+      </ViewSelectedBy>
+      <TableControl>
+        <TableHeaders>
+          <TableColumnHeader><Label>Id</Label><Width>28</Width></TableColumnHeader>
+          <TableColumnHeader><Label>Device</Label><Width>20</Width></TableColumnHeader>
+          <TableColumnHeader><Label>OAuth</Label><Width>6</Width></TableColumnHeader>
+          <TableColumnHeader><Label>Last Activity</Label><Width>22</Width></TableColumnHeader>
+          <TableColumnHeader><Label>Expires</Label></TableColumnHeader>
+        </TableHeaders>
+        <TableRowEntries>
+          <TableRowEntry>
+            <TableColumnItems>
+              <TableColumnItem><PropertyName>id</PropertyName></TableColumnItem>
+              <TableColumnItem><PropertyName>device_id</PropertyName></TableColumnItem>
+              <TableColumnItem><PropertyName>is_oauth</PropertyName></TableColumnItem>
+              <TableColumnItem><PropertyName>last_activity_at</PropertyName></TableColumnItem>
+              <TableColumnItem><PropertyName>expires_at</PropertyName></TableColumnItem>
+            </TableColumnItems>
+          </TableRowEntry>
+        </TableRowEntries>
+      </TableControl>
+    </View>
+
+    <View>
+      <Name>MMSession.List</Name>
+      <ViewSelectedBy>
+        <TypeName>MMSession</TypeName>
+      </ViewSelectedBy>
+      <ListControl>
+        <ListEntries>
+          <ListEntry>
+            <ListItems>
+              <ListItem><Label>Id</Label><PropertyName>id</PropertyName></ListItem>
+              <ListItem><Label>User Id</Label><PropertyName>user_id</PropertyName></ListItem>
+              <ListItem><Label>Device</Label><PropertyName>device_id</PropertyName></ListItem>
+              <ListItem><Label>Roles</Label><PropertyName>roles</PropertyName></ListItem>
+              <ListItem><Label>OAuth</Label><PropertyName>is_oauth</PropertyName></ListItem>
+              <ListItem><Label>Created</Label><PropertyName>create_at</PropertyName></ListItem>
+              <ListItem><Label>Last Activity</Label><PropertyName>last_activity_at</PropertyName></ListItem>
+              <ListItem><Label>Expires</Label><PropertyName>expires_at</PropertyName></ListItem>
+            </ListItems>
+          </ListEntry>
+        </ListEntries>
+      </ListControl>
+    </View>
+
+  </ViewDefinitions>
+</Configuration>

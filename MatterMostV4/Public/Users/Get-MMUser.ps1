@@ -20,6 +20,10 @@ function Get-MMUser {
         Get-MMUser -Filter {username -ne 'admin'}
     .EXAMPLE
         $user | Get-MMUser
+    .EXAMPLE
+        Get-MMUser -Ids 'abc123', 'def456'
+    .EXAMPLE
+        Get-MMUser -Usernames 'john', 'jane'
     #>
     [OutputType('MMUser')]
     [CmdletBinding(DefaultParameterSetName = 'Me')]
@@ -40,18 +44,26 @@ function Get-MMUser {
         [Parameter(Mandatory, ParameterSetName = 'ByEmail')]
         [string]$Email,
 
+        [Parameter(Mandatory, ParameterSetName = 'ByIds')]
+        [string[]]$Ids,
+
+        [Parameter(Mandatory, ParameterSetName = 'ByUsernames')]
+        [string[]]$Usernames,
+
         [Parameter(Mandatory, ParameterSetName = 'Filter')]
         [scriptblock]$Filter
     )
 
     process {
         switch ($PSCmdlet.ParameterSetName) {
-            'All'        { Get-MMUserList                                        | ConvertTo-MMUser }
-            'Me'         { Invoke-MMRequest -Endpoint 'users/me'                 | ConvertTo-MMUser }
-            'ById'       { Invoke-MMRequest -Endpoint "users/$UserId"            | ConvertTo-MMUser }
-            'ByUsername' { Invoke-MMRequest -Endpoint "users/username/$Username" | ConvertTo-MMUser }
-            'ByEmail'    { Invoke-MMRequest -Endpoint "users/email/$Email"       | ConvertTo-MMUser }
-            'Filter'     { Invoke-MMUserFilter -Filter $Filter                   | ConvertTo-MMUser }
+            'All'         { Get-MMUserList                                                      | ConvertTo-MMUser }
+            'Me'          { Invoke-MMRequest -Endpoint 'users/me'                               | ConvertTo-MMUser }
+            'ById'        { Invoke-MMRequest -Endpoint "users/$UserId"                          | ConvertTo-MMUser }
+            'ByUsername'  { Invoke-MMRequest -Endpoint "users/username/$Username"               | ConvertTo-MMUser }
+            'ByEmail'     { Invoke-MMRequest -Endpoint "users/email/$Email"                     | ConvertTo-MMUser }
+            'ByIds'       { Invoke-MMRequest -Endpoint 'users/ids' -Method POST -Body $Ids      | ConvertTo-MMUser }
+            'ByUsernames' { Invoke-MMRequest -Endpoint 'users/usernames' -Method POST -Body $Usernames | ConvertTo-MMUser }
+            'Filter'      { Invoke-MMUserFilter -Filter $Filter                                 | ConvertTo-MMUser }
         }
     }
 }
