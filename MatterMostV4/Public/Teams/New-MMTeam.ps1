@@ -3,7 +3,7 @@
 function New-MMTeam {
     <#
     .SYNOPSIS
-        Создаёт новую команду в MatterMost.
+        Creates a new team in MatterMost.
     .EXAMPLE
         New-MMTeam -Name 'myteam' -DisplayName 'My Team'
     .EXAMPLE

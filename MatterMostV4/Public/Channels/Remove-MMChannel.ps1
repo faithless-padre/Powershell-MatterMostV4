@@ -3,7 +3,7 @@
 function Remove-MMChannel {
     <#
     .SYNOPSIS
-        Архивирует канал MatterMost.
+        Archives a MatterMost channel.
     .EXAMPLE
         Remove-MMChannel -ChannelId 'abc123'
     .EXAMPLE

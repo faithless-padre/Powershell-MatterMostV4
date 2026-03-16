@@ -3,7 +3,7 @@
 function Get-MMUserAudit {
     <#
     .SYNOPSIS
-        Возвращает записи аудита пользователя MatterMost (GET /users/{id}/audits).
+        Returns audit log entries for a MatterMost user (GET /users/{id}/audits).
     .EXAMPLE
         Get-MMUserAudit -UserId 'abc123'
     .EXAMPLE

@@ -3,7 +3,7 @@
 function Get-MMUserTeams {
     <#
     .SYNOPSIS
-        Возвращает список команд, в которых состоит пользователь MatterMost.
+        Returns the list of teams a MatterMost user belongs to.
     .EXAMPLE
         Get-MMUserTeams -UserId 'abc123'
     .EXAMPLE

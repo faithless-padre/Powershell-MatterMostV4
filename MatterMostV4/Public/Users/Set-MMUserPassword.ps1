@@ -3,7 +3,7 @@
 function Set-MMUserPassword {
     <#
     .SYNOPSIS
-        Меняет пароль пользователя MatterMost.
+        Changes a MatterMost user password.
     .EXAMPLE
         Set-MMUserPassword -UserId 'abc123' -NewPassword 'NewPass123!'
     .EXAMPLE

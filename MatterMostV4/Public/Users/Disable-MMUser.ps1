@@ -3,7 +3,7 @@
 function Disable-MMUser {
     <#
     .SYNOPSIS
-        Деактивирует пользователя MatterMost (soft disable через PUT /active).
+        Deactivates a MatterMost user (soft disable via PUT /active).
     .EXAMPLE
         Disable-MMUser -UserId 'abc123'
     .EXAMPLE

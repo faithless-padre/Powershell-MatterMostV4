@@ -3,7 +3,7 @@
 function Add-MMUserToChannel {
     <#
     .SYNOPSIS
-        Добавляет пользователя в канал MatterMost.
+        Adds a user to a MatterMost channel.
     .EXAMPLE
         Add-MMUserToChannel -ChannelId 'chan123' -UserId 'user456'
     .EXAMPLE

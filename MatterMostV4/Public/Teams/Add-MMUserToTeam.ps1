@@ -3,7 +3,7 @@
 function Add-MMUserToTeam {
     <#
     .SYNOPSIS
-        Добавляет пользователя в команду MatterMost.
+        Adds a user to a MatterMost team.
     .EXAMPLE
         Add-MMUserToTeam -TeamId 'team123' -UserId 'user123'
     .EXAMPLE

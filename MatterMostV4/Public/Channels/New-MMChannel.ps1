@@ -3,7 +3,7 @@
 function New-MMChannel {
     <#
     .SYNOPSIS
-        Создаёт новый канал в команде MatterMost.
+        Creates a new channel in a MatterMost team.
     .EXAMPLE
         New-MMChannel -TeamId 'team123' -Name 'mychannel' -DisplayName 'My Channel'
     .EXAMPLE

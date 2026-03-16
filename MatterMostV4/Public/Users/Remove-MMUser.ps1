@@ -3,7 +3,7 @@
 function Remove-MMUser {
     <#
     .SYNOPSIS
-        Деактивирует пользователя MatterMost (soft delete).
+        Deactivates a MatterMost user (soft delete).
     .EXAMPLE
         Remove-MMUser -UserId 'abc123'
     .EXAMPLE

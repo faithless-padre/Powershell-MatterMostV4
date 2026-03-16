@@ -3,7 +3,7 @@
 function Set-MMTeam {
     <#
     .SYNOPSIS
-        Обновляет параметры команды MatterMost (PUT /teams/{id}/patch).
+        Updates MatterMost team settings (PUT /teams/{id}/patch).
     .EXAMPLE
         Set-MMTeam -TeamId 'abc123' -DisplayName 'New Name'
     .EXAMPLE

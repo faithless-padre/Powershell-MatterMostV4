@@ -3,7 +3,7 @@
 function Enable-MMUser {
     <#
     .SYNOPSIS
-        Активирует деактивированного пользователя MatterMost.
+        Activates a deactivated MatterMost user.
     .EXAMPLE
         Enable-MMUser -UserId 'abc123'
     .EXAMPLE
