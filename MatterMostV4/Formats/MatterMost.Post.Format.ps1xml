@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Configuration>
+  <ViewDefinitions>
+
+    <View>
+      <Name>MMPost.Table</Name>
+      <ViewSelectedBy>
+        <TypeName>MMPost</TypeName>
+      </ViewSelectedBy>
+      <TableControl>
+        <TableHeaders>
+          <TableColumnHeader><Label>Created</Label><Width>20</Width></TableColumnHeader>
+          <TableColumnHeader><Label>User</Label><Width>20</Width></TableColumnHeader>
+          <TableColumnHeader><Label>Channel</Label><Width>20</Width></TableColumnHeader>
+          <TableColumnHeader><Label>Message</Label></TableColumnHeader>
+        </TableHeaders>
+        <TableRowEntries>
+          <TableRowEntry>
+            <TableColumnItems>
+              <TableColumnItem>
+                <ScriptBlock>[System.DateTimeOffset]::FromUnixTimeMilliseconds($_.create_at).LocalDateTime.ToString('yyyy-MM-dd HH:mm')</ScriptBlock>
+              </TableColumnItem>
+              <TableColumnItem><PropertyName>user_id</PropertyName></TableColumnItem>
+              <TableColumnItem><PropertyName>channel_id</PropertyName></TableColumnItem>
+              <TableColumnItem><PropertyName>message</PropertyName></TableColumnItem>
+            </TableColumnItems>
+          </TableRowEntry>
+        </TableRowEntries>
+      </TableControl>
+    </View>
+
+    <View>
+      <Name>MMPost.List</Name>
+      <ViewSelectedBy>
+        <TypeName>MMPost</TypeName>
+      </ViewSelectedBy>
+      <ListControl>
+        <ListEntries>
+          <ListEntry>
+            <ListItems>
+              <ListItem><Label>Id</Label><PropertyName>id</PropertyName></ListItem>
+              <ListItem><Label>Channel Id</Label><PropertyName>channel_id</PropertyName></ListItem>
+              <ListItem><Label>User Id</Label><PropertyName>user_id</PropertyName></ListItem>
+              <ListItem><Label>Message</Label><PropertyName>message</PropertyName></ListItem>
+              <ListItem><Label>Root Id</Label><PropertyName>root_id</PropertyName></ListItem>
+              <ListItem><Label>Type</Label><PropertyName>type</PropertyName></ListItem>
+              <ListItem><Label>File Ids</Label><PropertyName>file_ids</PropertyName></ListItem>
+              <ListItem>
+                <Label>Created</Label>
+                <ScriptBlock>[System.DateTimeOffset]::FromUnixTimeMilliseconds($_.create_at).LocalDateTime</ScriptBlock>
+              </ListItem>
+              <ListItem>
+                <Label>Updated</Label>
+                <ScriptBlock>[System.DateTimeOffset]::FromUnixTimeMilliseconds($_.update_at).LocalDateTime</ScriptBlock>
+              </ListItem>
+            </ListItems>
+          </ListEntry>
+        </ListEntries>
+      </ListControl>
+    </View>
+
+  </ViewDefinitions>
+</Configuration>

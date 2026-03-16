@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <!DOCTYPE report PUBLIC "-//JACOCO//DTD Report 1.1//EN" "report.dtd"[]>
-<report name="Pester (03/16/2026 19:56:23)">
-  <sessioninfo id="this" start="1773690892087" dump="1773690983443" />
+<report name="Pester (03/16/2026 20:19:42)">
+  <sessioninfo id="this" start="1773692300823" dump="1773692382755" />
   <package name="module">
     <class name="module/MatterMostV4" sourcefilename="MatterMostV4.psm1">
       <method name="&lt;script&gt;" desc="()" line="1">
@@ -62,6 +62,17 @@
     </class>
     <class name="module/Private/ConvertTo-MMFile" sourcefilename="Private/ConvertTo-MMFile.ps1">
       <method name="ConvertTo-MMFile" desc="()" line="15">
+        <counter type="INSTRUCTION" missed="0" covered="8" />
+        <counter type="LINE" missed="0" covered="7" />
+        <counter type="METHOD" missed="0" covered="1" />
+      </method>
+      <counter type="INSTRUCTION" missed="0" covered="8" />
+      <counter type="LINE" missed="0" covered="7" />
+      <counter type="METHOD" missed="0" covered="1" />
+      <counter type="CLASS" missed="0" covered="1" />
+    </class>
+    <class name="module/Private/ConvertTo-MMPost" sourcefilename="Private/ConvertTo-MMPost.ps1">
+      <method name="ConvertTo-MMPost" desc="()" line="15">
         <counter type="INSTRUCTION" missed="0" covered="8" />
         <counter type="LINE" missed="0" covered="7" />
         <counter type="METHOD" missed="0" covered="1" />
@@ -197,6 +208,19 @@
       <counter type="CLASS" missed="0" covered="1" />
     </sourcefile>
     <sourcefile name="Private/ConvertTo-MMFile.ps1">
+      <line nr="15" mi="0" ci="1" mb="0" cb="0" />
+      <line nr="17" mi="0" ci="1" mb="0" cb="0" />
+      <line nr="18" mi="0" ci="1" mb="0" cb="0" />
+      <line nr="19" mi="0" ci="1" mb="0" cb="0" />
+      <line nr="20" mi="0" ci="2" mb="0" cb="0" />
+      <line nr="22" mi="0" ci="1" mb="0" cb="0" />
+      <line nr="25" mi="0" ci="1" mb="0" cb="0" />
+      <counter type="INSTRUCTION" missed="0" covered="8" />
+      <counter type="LINE" missed="0" covered="7" />
+      <counter type="METHOD" missed="0" covered="1" />
+      <counter type="CLASS" missed="0" covered="1" />
+    </sourcefile>
+    <sourcefile name="Private/ConvertTo-MMPost.ps1">
       <line nr="15" mi="0" ci="1" mb="0" cb="0" />
       <line nr="17" mi="0" ci="1" mb="0" cb="0" />
       <line nr="18" mi="0" ci="1" mb="0" cb="0" />
@@ -348,10 +372,10 @@
       <counter type="METHOD" missed="0" covered="1" />
       <counter type="CLASS" missed="0" covered="1" />
     </sourcefile>
-    <counter type="INSTRUCTION" missed="3" covered="127" />
-    <counter type="LINE" missed="3" covered="103" />
-    <counter type="METHOD" missed="0" covered="12" />
-    <counter type="CLASS" missed="0" covered="12" />
+    <counter type="INSTRUCTION" missed="3" covered="135" />
+    <counter type="LINE" missed="3" covered="110" />
+    <counter type="METHOD" missed="0" covered="13" />
+    <counter type="CLASS" missed="0" covered="13" />
   </package>
   <package name="module/Private/Teams">
     <class name="module/Private/Teams/Get-MMTeamList" sourcefilename="Private/Teams/Get-MMTeamList.ps1">
@@ -856,6 +880,180 @@
     <counter type="LINE" missed="4" covered="14" />
     <counter type="METHOD" missed="0" covered="4" />
     <counter type="CLASS" missed="0" covered="4" />
+  </package>
+  <package name="module/Public/Posts">
+    <class name="module/Public/Posts/Add-MMPostPin" sourcefilename="Public/Posts/Add-MMPostPin.ps1">
+      <method name="Add-MMPostPin" desc="()" line="20">
+        <counter type="INSTRUCTION" missed="0" covered="1" />
+        <counter type="LINE" missed="0" covered="1" />
+        <counter type="METHOD" missed="0" covered="1" />
+      </method>
+      <counter type="INSTRUCTION" missed="0" covered="1" />
+      <counter type="LINE" missed="0" covered="1" />
+      <counter type="METHOD" missed="0" covered="1" />
+      <counter type="CLASS" missed="0" covered="1" />
+    </class>
+    <class name="module/Public/Posts/Get-MMChannelPosts" sourcefilename="Public/Posts/Get-MMChannelPosts.ps1">
+      <method name="Get-MMChannelPosts" desc="()" line="36">
+        <counter type="INSTRUCTION" missed="2" covered="8" />
+        <counter type="LINE" missed="0" covered="7" />
+        <counter type="METHOD" missed="0" covered="1" />
+      </method>
+      <counter type="INSTRUCTION" missed="2" covered="8" />
+      <counter type="LINE" missed="0" covered="7" />
+      <counter type="METHOD" missed="0" covered="1" />
+      <counter type="CLASS" missed="0" covered="1" />
+    </class>
+    <class name="module/Public/Posts/Get-MMPost" sourcefilename="Public/Posts/Get-MMPost.ps1">
+      <method name="Get-MMPost" desc="()" line="24">
+        <counter type="INSTRUCTION" missed="0" covered="5" />
+        <counter type="LINE" missed="0" covered="4" />
+        <counter type="METHOD" missed="0" covered="1" />
+      </method>
+      <counter type="INSTRUCTION" missed="0" covered="5" />
+      <counter type="LINE" missed="0" covered="4" />
+      <counter type="METHOD" missed="0" covered="1" />
+      <counter type="CLASS" missed="0" covered="1" />
+    </class>
+    <class name="module/Public/Posts/Get-MMPostThread" sourcefilename="Public/Posts/Get-MMPostThread.ps1">
+      <method name="Get-MMPostThread" desc="()" line="21">
+        <counter type="INSTRUCTION" missed="0" covered="5" />
+        <counter type="LINE" missed="0" covered="4" />
+        <counter type="METHOD" missed="0" covered="1" />
+      </method>
+      <counter type="INSTRUCTION" missed="0" covered="5" />
+      <counter type="LINE" missed="0" covered="4" />
+      <counter type="METHOD" missed="0" covered="1" />
+      <counter type="CLASS" missed="0" covered="1" />
+    </class>
+    <class name="module/Public/Posts/New-MMPost" sourcefilename="Public/Posts/New-MMPost.ps1">
+      <method name="New-MMPost" desc="()" line="44">
+        <counter type="INSTRUCTION" missed="4" covered="13" />
+        <counter type="LINE" missed="3" covered="8" />
+        <counter type="METHOD" missed="0" covered="1" />
+      </method>
+      <counter type="INSTRUCTION" missed="4" covered="13" />
+      <counter type="LINE" missed="3" covered="8" />
+      <counter type="METHOD" missed="0" covered="1" />
+      <counter type="CLASS" missed="0" covered="1" />
+    </class>
+    <class name="module/Public/Posts/Remove-MMPost" sourcefilename="Public/Posts/Remove-MMPost.ps1">
+      <method name="Remove-MMPost" desc="()" line="20">
+        <counter type="INSTRUCTION" missed="0" covered="2" />
+        <counter type="LINE" missed="0" covered="2" />
+        <counter type="METHOD" missed="0" covered="1" />
+      </method>
+      <counter type="INSTRUCTION" missed="0" covered="2" />
+      <counter type="LINE" missed="0" covered="2" />
+      <counter type="METHOD" missed="0" covered="1" />
+      <counter type="CLASS" missed="0" covered="1" />
+    </class>
+    <class name="module/Public/Posts/Remove-MMPostPin" sourcefilename="Public/Posts/Remove-MMPostPin.ps1">
+      <method name="Remove-MMPostPin" desc="()" line="20">
+        <counter type="INSTRUCTION" missed="0" covered="1" />
+        <counter type="LINE" missed="0" covered="1" />
+        <counter type="METHOD" missed="0" covered="1" />
+      </method>
+      <counter type="INSTRUCTION" missed="0" covered="1" />
+      <counter type="LINE" missed="0" covered="1" />
+      <counter type="METHOD" missed="0" covered="1" />
+      <counter type="CLASS" missed="0" covered="1" />
+    </class>
+    <class name="module/Public/Posts/Set-MMPost" sourcefilename="Public/Posts/Set-MMPost.ps1">
+      <method name="Set-MMPost" desc="()" line="24">
+        <counter type="INSTRUCTION" missed="0" covered="3" />
+        <counter type="LINE" missed="0" covered="2" />
+        <counter type="METHOD" missed="0" covered="1" />
+      </method>
+      <counter type="INSTRUCTION" missed="0" covered="3" />
+      <counter type="LINE" missed="0" covered="2" />
+      <counter type="METHOD" missed="0" covered="1" />
+      <counter type="CLASS" missed="0" covered="1" />
+    </class>
+    <sourcefile name="Public/Posts/Add-MMPostPin.ps1">
+      <line nr="20" mi="0" ci="1" mb="0" cb="0" />
+      <counter type="INSTRUCTION" missed="0" covered="1" />
+      <counter type="LINE" missed="0" covered="1" />
+      <counter type="METHOD" missed="0" covered="1" />
+      <counter type="CLASS" missed="0" covered="1" />
+    </sourcefile>
+    <sourcefile name="Public/Posts/Get-MMChannelPosts.ps1">
+      <line nr="36" mi="0" ci="1" mb="0" cb="0" />
+      <line nr="37" mi="1" ci="1" mb="0" cb="0" />
+      <line nr="38" mi="1" ci="1" mb="0" cb="0" />
+      <line nr="40" mi="0" ci="1" mb="0" cb="0" />
+      <line nr="43" mi="0" ci="1" mb="0" cb="0" />
+      <line nr="44" mi="0" ci="1" mb="0" cb="0" />
+      <line nr="45" mi="0" ci="2" mb="0" cb="0" />
+      <counter type="INSTRUCTION" missed="2" covered="8" />
+      <counter type="LINE" missed="0" covered="7" />
+      <counter type="METHOD" missed="0" covered="1" />
+      <counter type="CLASS" missed="0" covered="1" />
+    </sourcefile>
+    <sourcefile name="Public/Posts/Get-MMPost.ps1">
+      <line nr="24" mi="0" ci="1" mb="0" cb="0" />
+      <line nr="25" mi="0" ci="2" mb="0" cb="0" />
+      <line nr="27" mi="0" ci="1" mb="0" cb="0" />
+      <line nr="28" mi="0" ci="1" mb="0" cb="0" />
+      <counter type="INSTRUCTION" missed="0" covered="5" />
+      <counter type="LINE" missed="0" covered="4" />
+      <counter type="METHOD" missed="0" covered="1" />
+      <counter type="CLASS" missed="0" covered="1" />
+    </sourcefile>
+    <sourcefile name="Public/Posts/Get-MMPostThread.ps1">
+      <line nr="21" mi="0" ci="1" mb="0" cb="0" />
+      <line nr="23" mi="0" ci="1" mb="0" cb="0" />
+      <line nr="24" mi="0" ci="1" mb="0" cb="0" />
+      <line nr="25" mi="0" ci="2" mb="0" cb="0" />
+      <counter type="INSTRUCTION" missed="0" covered="5" />
+      <counter type="LINE" missed="0" covered="4" />
+      <counter type="METHOD" missed="0" covered="1" />
+      <counter type="CLASS" missed="0" covered="1" />
+    </sourcefile>
+    <sourcefile name="Public/Posts/New-MMPost.ps1">
+      <line nr="44" mi="0" ci="1" mb="0" cb="0" />
+      <line nr="45" mi="0" ci="2" mb="0" cb="0" />
+      <line nr="48" mi="0" ci="1" mb="0" cb="0" />
+      <line nr="49" mi="0" ci="1" mb="0" cb="0" />
+      <line nr="50" mi="1" ci="0" mb="0" cb="0" />
+      <line nr="51" mi="1" ci="0" mb="0" cb="0" />
+      <line nr="52" mi="1" ci="0" mb="0" cb="0" />
+      <line nr="56" mi="0" ci="3" mb="0" cb="0" />
+      <line nr="57" mi="0" ci="2" mb="0" cb="0" />
+      <line nr="58" mi="1" ci="1" mb="0" cb="0" />
+      <line nr="60" mi="0" ci="2" mb="0" cb="0" />
+      <counter type="INSTRUCTION" missed="4" covered="13" />
+      <counter type="LINE" missed="3" covered="8" />
+      <counter type="METHOD" missed="0" covered="1" />
+      <counter type="CLASS" missed="0" covered="1" />
+    </sourcefile>
+    <sourcefile name="Public/Posts/Remove-MMPost.ps1">
+      <line nr="20" mi="0" ci="1" mb="0" cb="0" />
+      <line nr="21" mi="0" ci="1" mb="0" cb="0" />
+      <counter type="INSTRUCTION" missed="0" covered="2" />
+      <counter type="LINE" missed="0" covered="2" />
+      <counter type="METHOD" missed="0" covered="1" />
+      <counter type="CLASS" missed="0" covered="1" />
+    </sourcefile>
+    <sourcefile name="Public/Posts/Remove-MMPostPin.ps1">
+      <line nr="20" mi="0" ci="1" mb="0" cb="0" />
+      <counter type="INSTRUCTION" missed="0" covered="1" />
+      <counter type="LINE" missed="0" covered="1" />
+      <counter type="METHOD" missed="0" covered="1" />
+      <counter type="CLASS" missed="0" covered="1" />
+    </sourcefile>
+    <sourcefile name="Public/Posts/Set-MMPost.ps1">
+      <line nr="24" mi="0" ci="2" mb="0" cb="0" />
+      <line nr="25" mi="0" ci="1" mb="0" cb="0" />
+      <counter type="INSTRUCTION" missed="0" covered="3" />
+      <counter type="LINE" missed="0" covered="2" />
+      <counter type="METHOD" missed="0" covered="1" />
+      <counter type="CLASS" missed="0" covered="1" />
+    </sourcefile>
+    <counter type="INSTRUCTION" missed="6" covered="38" />
+    <counter type="LINE" missed="3" covered="29" />
+    <counter type="METHOD" missed="0" covered="8" />
+    <counter type="CLASS" missed="0" covered="8" />
   </package>
   <package name="module/Public/Roles">
     <class name="module/Public/Roles/Get-MMRole" sourcefilename="Public/Roles/Get-MMRole.ps1">
@@ -1478,8 +1676,8 @@
     <counter type="METHOD" missed="0" covered="16" />
     <counter type="CLASS" missed="0" covered="15" />
   </package>
-  <counter type="INSTRUCTION" missed="11" covered="491" />
-  <counter type="LINE" missed="9" covered="365" />
-  <counter type="METHOD" missed="0" covered="62" />
-  <counter type="CLASS" missed="0" covered="61" />
+  <counter type="INSTRUCTION" missed="17" covered="537" />
+  <counter type="LINE" missed="12" covered="401" />
+  <counter type="METHOD" missed="0" covered="71" />
+  <counter type="CLASS" missed="0" covered="70" />
 </report>

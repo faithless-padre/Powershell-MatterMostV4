@@ -44,6 +44,7 @@ Import-Module ./MatterMostV4/MatterMostV4.psd1
 ```
 Name                     Synopsis
 ----                     --------
+Add-MMPostPin            Pins a post to its MatterMost channel.
 Add-MMUserToChannel      Adds a user to a MatterMost channel.
 Add-MMUserToTeam         Adds a user to a MatterMost team.
 Connect-MMServer         Connects to a MatterMost server and stores the session token for subsequent requests.
@@ -54,8 +55,11 @@ Disconnect-MMServer      Logs out from MatterMost and clears the stored session 
 Enable-MMUser            Activates a deactivated MatterMost user.
 Get-MMChannel            Returns a MatterMost channel by ID, name within a team, team channel list, or all channels.
 Get-MMChannelMembers     Returns the list of members for a MatterMost channel.
+Get-MMChannelPosts       Returns posts for a MatterMost channel with optional pagination and filtering.
 Get-MMFileLink           Returns a public link to a MatterMost file that can be accessed without authentication.
 Get-MMFileMetadata       Returns metadata for a previously uploaded MatterMost file.
+Get-MMPost               Returns a MatterMost post by ID, or multiple posts by a list of IDs.
+Get-MMPostThread         Returns all posts in a MatterMost thread (root post and all replies).
 Get-MMRole               Returns a MatterMost role by ID, name, list of names, or all roles.
 Get-MMTeam               Returns a MatterMost team by ID, name, or all teams.
 Get-MMTeamMembers        Returns the list of members for a MatterMost team.
@@ -66,11 +70,14 @@ Get-MMUserSession        Returns the list of active sessions for a MatterMost us
 Get-MMUserStats          Returns overall MatterMost user statistics (total_users_count, total_bots_count).
 Get-MMUserTeams          Returns the list of teams a MatterMost user belongs to.
 New-MMChannel            Creates a new channel in a MatterMost team.
+New-MMPost               Creates a new post in a MatterMost channel.
 New-MMDirectChannel      Creates a direct message (DM) channel between two MatterMost users.
 New-MMGroupChannel       Creates a group message channel for 3–8 MatterMost users.
 New-MMTeam               Creates a new team in MatterMost.
 New-MMUser               Creates a new user in MatterMost.
 Remove-MMChannel         Archives a MatterMost channel.
+Remove-MMPost            Deletes a MatterMost post.
+Remove-MMPostPin         Unpins a post from its MatterMost channel.
 Remove-MMTeam            Archives a MatterMost team.
 Remove-MMUser            Deactivates a MatterMost user (soft delete).
 Remove-MMUserFromChannel Removes a user from a MatterMost channel.
@@ -83,6 +90,7 @@ Save-MMFile              Downloads a file from MatterMost to the local filesyste
 Send-MMFile              Uploads a file to a MatterMost channel. Returns an MMFile object with the file ID.
 Send-MMTeamInvite        Sends an invitation to a MatterMost team by email address(es).
 Set-MMChannel            Updates MatterMost channel settings (PUT /channels/{id}/patch).
+Set-MMPost               Updates the message of an existing MatterMost post (PATCH).
 Set-MMChannelPrivacy     Updates MatterMost channel privacy: Public or Private.
 Set-MMRole               Updates the permissions list for the specified MatterMost role.
 Set-MMTeam               Updates MatterMost team settings (PUT /teams/{id}/patch).
