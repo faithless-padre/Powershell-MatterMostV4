@@ -6,7 +6,14 @@ BeforeAll {
     $adminPass = if ($env:MM_ADMIN_PASSWORD) { $env:MM_ADMIN_PASSWORD } else { $config.AdminPassword }
 
     $securePass = ConvertTo-SecureString $adminPass -AsPlainText -Force
-    Connect-MMServer -Url $mmUrl -Username $adminUser -Password $securePass
+    $modulePath = if (Test-Path '/module/MatterMostV4.psd1') {
+        '/module/MatterMostV4.psd1'
+    } else {
+        Join-Path $PSScriptRoot '..\..\MatterMostV4\MatterMostV4.psd1'
+    }
+    Import-Module $modulePath -Force
+
+        Connect-MMServer -Url $mmUrl -Username $adminUser -Password $securePass
 
     # Уникальный суффикс для изоляции тестов
     $script:Suffix = (Get-Date -Format 'HHmmss')
