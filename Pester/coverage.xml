@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <!DOCTYPE report PUBLIC "-//JACOCO//DTD Report 1.1//EN" "report.dtd"[]>
-<report name="Pester (03/16/2026 17:32:41)">
-  <sessioninfo id="this" start="1773682292566" dump="1773682361490" />
+<report name="Pester (03/16/2026 17:58:20)">
+  <sessioninfo id="this" start="1773683818400" dump="1773683900437" />
   <package name="module">
     <class name="module/MatterMostV4" sourcefilename="MatterMostV4.psm1">
       <method name="&lt;script&gt;" desc="()" line="1">
@@ -89,6 +89,17 @@
         <counter type="METHOD" missed="0" covered="1" />
       </method>
       <counter type="INSTRUCTION" missed="0" covered="8" />
+      <counter type="LINE" missed="0" covered="7" />
+      <counter type="METHOD" missed="0" covered="1" />
+      <counter type="CLASS" missed="0" covered="1" />
+    </class>
+    <class name="module/Private/ConvertTo-MMTeamMember" sourcefilename="Private/ConvertTo-MMTeamMember.ps1">
+      <method name="ConvertTo-MMTeamMember" desc="()" line="16">
+        <counter type="INSTRUCTION" missed="0" covered="9" />
+        <counter type="LINE" missed="0" covered="7" />
+        <counter type="METHOD" missed="0" covered="1" />
+      </method>
+      <counter type="INSTRUCTION" missed="0" covered="9" />
       <counter type="LINE" missed="0" covered="7" />
       <counter type="METHOD" missed="0" covered="1" />
       <counter type="CLASS" missed="0" covered="1" />
@@ -202,6 +213,19 @@
       <counter type="METHOD" missed="0" covered="1" />
       <counter type="CLASS" missed="0" covered="1" />
     </sourcefile>
+    <sourcefile name="Private/ConvertTo-MMTeamMember.ps1">
+      <line nr="16" mi="0" ci="2" mb="0" cb="0" />
+      <line nr="19" mi="0" ci="1" mb="0" cb="0" />
+      <line nr="20" mi="0" ci="1" mb="0" cb="0" />
+      <line nr="21" mi="0" ci="1" mb="0" cb="0" />
+      <line nr="22" mi="0" ci="2" mb="0" cb="0" />
+      <line nr="24" mi="0" ci="1" mb="0" cb="0" />
+      <line nr="27" mi="0" ci="1" mb="0" cb="0" />
+      <counter type="INSTRUCTION" missed="0" covered="9" />
+      <counter type="LINE" missed="0" covered="7" />
+      <counter type="METHOD" missed="0" covered="1" />
+      <counter type="CLASS" missed="0" covered="1" />
+    </sourcefile>
     <sourcefile name="Private/ConvertTo-MMUser.ps1">
       <line nr="15" mi="0" ci="1" mb="0" cb="0" />
       <line nr="17" mi="0" ci="1" mb="0" cb="0" />
@@ -260,10 +284,10 @@
       <counter type="METHOD" missed="0" covered="1" />
       <counter type="CLASS" missed="0" covered="1" />
     </sourcefile>
-    <counter type="INSTRUCTION" missed="2" covered="81" />
-    <counter type="LINE" missed="2" covered="67" />
-    <counter type="METHOD" missed="0" covered="9" />
-    <counter type="CLASS" missed="0" covered="9" />
+    <counter type="INSTRUCTION" missed="2" covered="90" />
+    <counter type="LINE" missed="2" covered="74" />
+    <counter type="METHOD" missed="0" covered="10" />
+    <counter type="CLASS" missed="0" covered="10" />
   </package>
   <package name="module/Private/Teams">
     <class name="module/Private/Teams/Get-MMTeamList" sourcefilename="Private/Teams/Get-MMTeamList.ps1">
@@ -750,6 +774,17 @@
       <counter type="METHOD" missed="0" covered="1" />
       <counter type="CLASS" missed="0" covered="1" />
     </class>
+    <class name="module/Public/Teams/Get-MMTeamMembers" sourcefilename="Public/Teams/Get-MMTeamMembers.ps1">
+      <method name="Get-MMTeamMembers" desc="()" line="21">
+        <counter type="INSTRUCTION" missed="0" covered="6" />
+        <counter type="LINE" missed="0" covered="5" />
+        <counter type="METHOD" missed="0" covered="1" />
+      </method>
+      <counter type="INSTRUCTION" missed="0" covered="6" />
+      <counter type="LINE" missed="0" covered="5" />
+      <counter type="METHOD" missed="0" covered="1" />
+      <counter type="CLASS" missed="0" covered="1" />
+    </class>
     <class name="module/Public/Teams/Get-MMUserTeams" sourcefilename="Public/Teams/Get-MMUserTeams.ps1">
       <method name="Get-MMUserTeams" desc="()" line="21">
         <counter type="INSTRUCTION" missed="0" covered="2" />
@@ -794,6 +829,28 @@
       <counter type="METHOD" missed="0" covered="1" />
       <counter type="CLASS" missed="0" covered="1" />
     </class>
+    <class name="module/Public/Teams/Restore-MMTeam" sourcefilename="Public/Teams/Restore-MMTeam.ps1">
+      <method name="Restore-MMTeam" desc="()" line="21">
+        <counter type="INSTRUCTION" missed="0" covered="2" />
+        <counter type="LINE" missed="0" covered="2" />
+        <counter type="METHOD" missed="0" covered="1" />
+      </method>
+      <counter type="INSTRUCTION" missed="0" covered="2" />
+      <counter type="LINE" missed="0" covered="2" />
+      <counter type="METHOD" missed="0" covered="1" />
+      <counter type="CLASS" missed="0" covered="1" />
+    </class>
+    <class name="module/Public/Teams/Send-MMTeamInvite" sourcefilename="Public/Teams/Send-MMTeamInvite.ps1">
+      <method name="Send-MMTeamInvite" desc="()" line="25">
+        <counter type="INSTRUCTION" missed="0" covered="1" />
+        <counter type="LINE" missed="0" covered="1" />
+        <counter type="METHOD" missed="0" covered="1" />
+      </method>
+      <counter type="INSTRUCTION" missed="0" covered="1" />
+      <counter type="LINE" missed="0" covered="1" />
+      <counter type="METHOD" missed="0" covered="1" />
+      <counter type="CLASS" missed="0" covered="1" />
+    </class>
     <class name="module/Public/Teams/Set-MMTeam" sourcefilename="Public/Teams/Set-MMTeam.ps1">
       <method name="Set-MMTeam" desc="()" line="34">
         <counter type="INSTRUCTION" missed="0" covered="15" />
@@ -802,6 +859,17 @@
       </method>
       <counter type="INSTRUCTION" missed="0" covered="15" />
       <counter type="LINE" missed="0" covered="13" />
+      <counter type="METHOD" missed="0" covered="1" />
+      <counter type="CLASS" missed="0" covered="1" />
+    </class>
+    <class name="module/Public/Teams/Set-MMTeamPrivacy" sourcefilename="Public/Teams/Set-MMTeamPrivacy.ps1">
+      <method name="Set-MMTeamPrivacy" desc="()" line="25">
+        <counter type="INSTRUCTION" missed="0" covered="6" />
+        <counter type="LINE" missed="0" covered="3" />
+        <counter type="METHOD" missed="0" covered="1" />
+      </method>
+      <counter type="INSTRUCTION" missed="0" covered="6" />
+      <counter type="LINE" missed="0" covered="3" />
       <counter type="METHOD" missed="0" covered="1" />
       <counter type="CLASS" missed="0" covered="1" />
     </class>
@@ -820,6 +888,17 @@
       <line nr="32" mi="0" ci="2" mb="0" cb="0" />
       <counter type="INSTRUCTION" missed="0" covered="7" />
       <counter type="LINE" missed="0" covered="4" />
+      <counter type="METHOD" missed="0" covered="1" />
+      <counter type="CLASS" missed="0" covered="1" />
+    </sourcefile>
+    <sourcefile name="Public/Teams/Get-MMTeamMembers.ps1">
+      <line nr="21" mi="0" ci="1" mb="0" cb="0" />
+      <line nr="22" mi="0" ci="1" mb="0" cb="0" />
+      <line nr="24" mi="0" ci="1" mb="0" cb="0" />
+      <line nr="25" mi="0" ci="2" mb="0" cb="0" />
+      <line nr="26" mi="0" ci="1" mb="0" cb="0" />
+      <counter type="INSTRUCTION" missed="0" covered="6" />
+      <counter type="LINE" missed="0" covered="5" />
       <counter type="METHOD" missed="0" covered="1" />
       <counter type="CLASS" missed="0" covered="1" />
     </sourcefile>
@@ -859,6 +938,21 @@
       <counter type="METHOD" missed="0" covered="1" />
       <counter type="CLASS" missed="0" covered="1" />
     </sourcefile>
+    <sourcefile name="Public/Teams/Restore-MMTeam.ps1">
+      <line nr="21" mi="0" ci="1" mb="0" cb="0" />
+      <line nr="22" mi="0" ci="1" mb="0" cb="0" />
+      <counter type="INSTRUCTION" missed="0" covered="2" />
+      <counter type="LINE" missed="0" covered="2" />
+      <counter type="METHOD" missed="0" covered="1" />
+      <counter type="CLASS" missed="0" covered="1" />
+    </sourcefile>
+    <sourcefile name="Public/Teams/Send-MMTeamInvite.ps1">
+      <line nr="25" mi="0" ci="1" mb="0" cb="0" />
+      <counter type="INSTRUCTION" missed="0" covered="1" />
+      <counter type="LINE" missed="0" covered="1" />
+      <counter type="METHOD" missed="0" covered="1" />
+      <counter type="CLASS" missed="0" covered="1" />
+    </sourcefile>
     <sourcefile name="Public/Teams/Set-MMTeam.ps1">
       <line nr="34" mi="0" ci="1" mb="0" cb="0" />
       <line nr="35" mi="0" ci="1" mb="0" cb="0" />
@@ -878,10 +972,19 @@
       <counter type="METHOD" missed="0" covered="1" />
       <counter type="CLASS" missed="0" covered="1" />
     </sourcefile>
-    <counter type="INSTRUCTION" missed="0" covered="47" />
-    <counter type="LINE" missed="0" covered="31" />
-    <counter type="METHOD" missed="0" covered="7" />
-    <counter type="CLASS" missed="0" covered="7" />
+    <sourcefile name="Public/Teams/Set-MMTeamPrivacy.ps1">
+      <line nr="25" mi="0" ci="3" mb="0" cb="0" />
+      <line nr="26" mi="0" ci="2" mb="0" cb="0" />
+      <line nr="27" mi="0" ci="1" mb="0" cb="0" />
+      <counter type="INSTRUCTION" missed="0" covered="6" />
+      <counter type="LINE" missed="0" covered="3" />
+      <counter type="METHOD" missed="0" covered="1" />
+      <counter type="CLASS" missed="0" covered="1" />
+    </sourcefile>
+    <counter type="INSTRUCTION" missed="0" covered="62" />
+    <counter type="LINE" missed="0" covered="42" />
+    <counter type="METHOD" missed="0" covered="11" />
+    <counter type="CLASS" missed="0" covered="11" />
   </package>
   <package name="module/Public/Users">
     <class name="module/Public/Users/ConvertFrom-MMGuestUser" sourcefilename="Public/Users/ConvertFrom-MMGuestUser.ps1">
@@ -1219,8 +1322,8 @@
     <counter type="METHOD" missed="0" covered="16" />
     <counter type="CLASS" missed="0" covered="15" />
   </package>
-  <counter type="INSTRUCTION" missed="5" covered="411" />
-  <counter type="LINE" missed="4" covered="304" />
-  <counter type="METHOD" missed="0" covered="51" />
-  <counter type="CLASS" missed="0" covered="50" />
+  <counter type="INSTRUCTION" missed="5" covered="435" />
+  <counter type="LINE" missed="4" covered="322" />
+  <counter type="METHOD" missed="0" covered="56" />
+  <counter type="CLASS" missed="0" covered="55" />
 </report>

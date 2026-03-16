@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Configuration>
+  <ViewDefinitions>
+
+    <View>
+      <Name>MatterMost.TeamMember.Table</Name>
+      <ViewSelectedBy>
+        <TypeName>MMTeamMember</TypeName>
+      </ViewSelectedBy>
+      <TableControl>
+        <TableHeaders>
+          <TableColumnHeader><Label>UserId</Label><Width>26</Width></TableColumnHeader>
+          <TableColumnHeader><Label>Roles</Label><Width>30</Width></TableColumnHeader>
+          <TableColumnHeader><Label>SchemeAdmin</Label><Width>12</Width></TableColumnHeader>
+        </TableHeaders>
+        <TableRowEntries>
+          <TableRowEntry>
+            <TableColumnItems>
+              <TableColumnItem><PropertyName>user_id</PropertyName></TableColumnItem>
+              <TableColumnItem><PropertyName>roles</PropertyName></TableColumnItem>
+              <TableColumnItem><PropertyName>scheme_admin</PropertyName></TableColumnItem>
+            </TableColumnItems>
+          </TableRowEntry>
+        </TableRowEntries>
+      </TableControl>
+    </View>
+
+  </ViewDefinitions>
+</Configuration>

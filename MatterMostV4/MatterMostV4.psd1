@@ -48,8 +48,13 @@
         'Restore-MMChannel',
         'Set-MMChannel',
         'Set-MMChannelPrivacy',
+        'Get-MMTeamMembers',
+        'Restore-MMTeam',
+        'Send-MMTeamInvite',
+        'Set-MMChannelPrivacy',
         'Set-MMRole',
         'Set-MMTeam',
+        'Set-MMTeamPrivacy',
         'Set-MMUser',
         'Set-MMUserPassword',
         'Set-MMUserRole'
@@ -61,6 +66,7 @@
         'Formats/MatterMost.Role.Format.ps1xml'
         'Formats/MatterMost.Session.Format.ps1xml'
         'Formats/MatterMost.ChannelMember.Format.ps1xml'
+        'Formats/MatterMost.TeamMember.Format.ps1xml'
     )
     CmdletsToExport   = @()
     VariablesToExport = @()
