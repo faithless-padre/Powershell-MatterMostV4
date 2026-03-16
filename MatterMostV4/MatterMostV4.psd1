@@ -42,7 +42,12 @@
         'Remove-MMUser',
         'Remove-MMUserFromChannel',
         'Remove-MMUserFromTeam',
+        'Get-MMChannelMembers',
+        'New-MMDirectChannel',
+        'New-MMGroupChannel',
+        'Restore-MMChannel',
         'Set-MMChannel',
+        'Set-MMChannelPrivacy',
         'Set-MMRole',
         'Set-MMTeam',
         'Set-MMUser',
@@ -55,6 +60,7 @@
         'Formats/MatterMost.Team.Format.ps1xml'
         'Formats/MatterMost.Role.Format.ps1xml'
         'Formats/MatterMost.Session.Format.ps1xml'
+        'Formats/MatterMost.ChannelMember.Format.ps1xml'
     )
     CmdletsToExport   = @()
     VariablesToExport = @()
