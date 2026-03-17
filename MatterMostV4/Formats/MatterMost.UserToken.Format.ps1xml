@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Configuration>
+  <ViewDefinitions>
+
+    <View>
+      <Name>MMUserToken.Table</Name>
+      <ViewSelectedBy>
+        <TypeName>MMUserToken</TypeName>
+      </ViewSelectedBy>
+      <TableControl>
+        <TableHeaders>
+          <TableColumnHeader><Label>Id</Label><Width>28</Width></TableColumnHeader>
+          <TableColumnHeader><Label>User Id</Label><Width>28</Width></TableColumnHeader>
+          <TableColumnHeader><Label>Active</Label><Width>8</Width></TableColumnHeader>
+          <TableColumnHeader><Label>Description</Label></TableColumnHeader>
+        </TableHeaders>
+        <TableRowEntries>
+          <TableRowEntry>
+            <TableColumnItems>
+              <TableColumnItem><PropertyName>id</PropertyName></TableColumnItem>
+              <TableColumnItem><PropertyName>user_id</PropertyName></TableColumnItem>
+              <TableColumnItem><PropertyName>is_active</PropertyName></TableColumnItem>
+              <TableColumnItem><PropertyName>description</PropertyName></TableColumnItem>
+            </TableColumnItems>
+          </TableRowEntry>
+        </TableRowEntries>
+      </TableControl>
+    </View>
+
+  </ViewDefinitions>
+</Configuration>

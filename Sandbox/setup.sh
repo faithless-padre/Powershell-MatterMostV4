@@ -90,7 +90,12 @@ curl -sf -X PUT "$MM_URL/api/v4/config/patch" \
   -H "Content-Type: application/json" \
   -d '{
     "TeamSettings": { "EnableCustomUserStatuses": true },
-    "ServiceSettings": { "EnableIncomingWebhooks": true, "EnableOutgoingWebhooks": true }
+    "ServiceSettings": {
+      "EnableIncomingWebhooks": true,
+      "EnableOutgoingWebhooks": true,
+      "EnableUserAccessTokens": true,
+      "EnableBotAccountCreation": true
+    }
   }' > /dev/null
 
 echo "Setup complete!"
