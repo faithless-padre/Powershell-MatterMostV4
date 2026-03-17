@@ -85,6 +85,15 @@
         'Set-MMUserStatus',
         'Set-MMUserCustomStatus',
         'Remove-MMUserCustomStatus',
+        'Disable-MMBot',
+        'Enable-MMBot',
+        'Get-MMBot',
+        'New-MMBot',
+        'Set-MMBot',
+        'Set-MMBotOwner',
+        'Get-MMUserToken',
+        'New-MMUserToken',
+        'Revoke-MMUserToken',
         'Find-MMEmoji',
         'Get-MMEmoji',
         'New-MMEmoji',
@@ -105,6 +114,8 @@
         'Formats/MatterMost.OutgoingWebhook.Format.ps1xml'
         'Formats/MatterMost.UserStatus.Format.ps1xml'
         'Formats/MatterMost.Emoji.Format.ps1xml'
+        'Formats/MatterMost.UserToken.Format.ps1xml'
+        'Formats/MatterMost.Bot.Format.ps1xml'
     )
     CmdletsToExport   = @()
     VariablesToExport = @()
