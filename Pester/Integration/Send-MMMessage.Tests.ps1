@@ -19,6 +19,13 @@ BeforeAll {
     Connect-MMServer -Url $config.Url -Username $config.AdminUsername -Password (ConvertTo-SecureString $config.AdminPassword -AsPlainText -Force) -DefaultTeam $config.TestTeamName
 
     $script:TestUser = Get-MMUser -Username $config.TestUsername
+
+    $script:TempFile = Join-Path ([System.IO.Path]::GetTempPath()) 'mm_msg_attach.txt'
+    Set-Content -Path $script:TempFile -Value 'Send-MMMessage attachment test'
+}
+
+AfterAll {
+    if (Test-Path $script:TempFile) { Remove-Item $script:TempFile -Force }
 }
 
 Describe 'Send-MMMessage' {
@@ -76,6 +83,27 @@ Describe 'Send-MMMessage' {
             $result = Send-MMMessage -ToChannel 'town-square' -Message 'Thread reply' -RootId $root.id
 
             $result.root_id | Should -Be $root.id
+        }
+    }
+
+    Context 'Сообщение с вложением в канал (-ToChannel -FilePath)' {
+        It 'отправляет сообщение с файлом в канал' {
+            $result = Send-MMMessage -ToChannel 'town-square' -Message 'Channel with attachment' -FilePath $script:TempFile
+
+            $result                | Should -Not -BeNullOrEmpty
+            $result.file_ids       | Should -Not -BeNullOrEmpty
+            $result.file_ids.Count | Should -Be 1
+            $result.GetType().Name | Should -Be 'MMPost'
+        }
+    }
+
+    Context 'Личное сообщение с вложением (-ToUser -FilePath)' {
+        It 'отправляет DM с файлом' {
+            $result = Send-MMMessage -ToUser $script:TestUser.username -Message 'DM with attachment' -FilePath $script:TempFile
+
+            $result                | Should -Not -BeNullOrEmpty
+            $result.file_ids       | Should -Not -BeNullOrEmpty
+            $result.file_ids.Count | Should -Be 1
         }
     }
 
