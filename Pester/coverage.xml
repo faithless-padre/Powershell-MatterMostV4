@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <!DOCTYPE report PUBLIC "-//JACOCO//DTD Report 1.1//EN" "report.dtd"[]>
-<report name="Pester (03/17/2026 07:49:41)">
-  <sessioninfo id="this" start="1773733730324" dump="1773733781620" />
+<report name="Pester (03/17/2026 09:17:10)">
+  <sessioninfo id="this" start="1773738946068" dump="1773739030991" />
   <package name="module">
     <class name="module/MatterMostV4" sourcefilename="MatterMostV4.psm1">
       <method name="&lt;script&gt;" desc="()" line="1">
@@ -150,6 +150,17 @@
     </class>
     <class name="module/Private/ConvertTo-MMUser" sourcefilename="Private/ConvertTo-MMUser.ps1">
       <method name="ConvertTo-MMUser" desc="()" line="15">
+        <counter type="INSTRUCTION" missed="0" covered="8" />
+        <counter type="LINE" missed="0" covered="7" />
+        <counter type="METHOD" missed="0" covered="1" />
+      </method>
+      <counter type="INSTRUCTION" missed="0" covered="8" />
+      <counter type="LINE" missed="0" covered="7" />
+      <counter type="METHOD" missed="0" covered="1" />
+      <counter type="CLASS" missed="0" covered="1" />
+    </class>
+    <class name="module/Private/ConvertTo-MMUserStatus" sourcefilename="Private/ConvertTo-MMUserStatus.ps1">
+      <method name="ConvertTo-MMUserStatus" desc="()" line="15">
         <counter type="INSTRUCTION" missed="0" covered="8" />
         <counter type="LINE" missed="0" covered="7" />
         <counter type="METHOD" missed="0" covered="1" />
@@ -346,6 +357,19 @@
       <counter type="METHOD" missed="0" covered="1" />
       <counter type="CLASS" missed="0" covered="1" />
     </sourcefile>
+    <sourcefile name="Private/ConvertTo-MMUserStatus.ps1">
+      <line nr="15" mi="0" ci="1" mb="0" cb="0" />
+      <line nr="17" mi="0" ci="1" mb="0" cb="0" />
+      <line nr="18" mi="0" ci="1" mb="0" cb="0" />
+      <line nr="19" mi="0" ci="1" mb="0" cb="0" />
+      <line nr="20" mi="0" ci="2" mb="0" cb="0" />
+      <line nr="22" mi="0" ci="1" mb="0" cb="0" />
+      <line nr="25" mi="0" ci="1" mb="0" cb="0" />
+      <counter type="INSTRUCTION" missed="0" covered="8" />
+      <counter type="LINE" missed="0" covered="7" />
+      <counter type="METHOD" missed="0" covered="1" />
+      <counter type="CLASS" missed="0" covered="1" />
+    </sourcefile>
     <sourcefile name="Private/Get-MMDefaultTeamId.ps1">
       <line nr="8" mi="0" ci="1" mb="0" cb="0" />
       <line nr="9" mi="1" ci="0" mb="0" cb="0" />
@@ -420,10 +444,10 @@
       <counter type="METHOD" missed="0" covered="1" />
       <counter type="CLASS" missed="0" covered="1" />
     </sourcefile>
-    <counter type="INSTRUCTION" missed="3" covered="151" />
-    <counter type="LINE" missed="3" covered="124" />
-    <counter type="METHOD" missed="0" covered="15" />
-    <counter type="CLASS" missed="0" covered="15" />
+    <counter type="INSTRUCTION" missed="3" covered="159" />
+    <counter type="LINE" missed="3" covered="131" />
+    <counter type="METHOD" missed="0" covered="16" />
+    <counter type="CLASS" missed="0" covered="16" />
   </package>
   <package name="module/Private/Teams">
     <class name="module/Private/Teams/Get-MMTeamList" sourcefilename="Private/Teams/Get-MMTeamList.ps1">
@@ -1182,6 +1206,99 @@
     <counter type="METHOD" missed="0" covered="2" />
     <counter type="CLASS" missed="0" covered="2" />
   </package>
+  <package name="module/Public/Status">
+    <class name="module/Public/Status/Get-MMUserStatus" sourcefilename="Public/Status/Get-MMUserStatus.ps1">
+      <method name="Get-MMUserStatus" desc="()" line="26">
+        <counter type="INSTRUCTION" missed="0" covered="7" />
+        <counter type="LINE" missed="0" covered="4" />
+        <counter type="METHOD" missed="0" covered="1" />
+      </method>
+      <counter type="INSTRUCTION" missed="0" covered="7" />
+      <counter type="LINE" missed="0" covered="4" />
+      <counter type="METHOD" missed="0" covered="1" />
+      <counter type="CLASS" missed="0" covered="1" />
+    </class>
+    <class name="module/Public/Status/Remove-MMUserCustomStatus" sourcefilename="Public/Status/Remove-MMUserCustomStatus.ps1">
+      <method name="Remove-MMUserCustomStatus" desc="()" line="20">
+        <counter type="INSTRUCTION" missed="0" covered="3" />
+        <counter type="LINE" missed="0" covered="2" />
+        <counter type="METHOD" missed="0" covered="1" />
+      </method>
+      <counter type="INSTRUCTION" missed="0" covered="3" />
+      <counter type="LINE" missed="0" covered="2" />
+      <counter type="METHOD" missed="0" covered="1" />
+      <counter type="CLASS" missed="0" covered="1" />
+    </class>
+    <class name="module/Public/Status/Set-MMUserCustomStatus" sourcefilename="Public/Status/Set-MMUserCustomStatus.ps1">
+      <method name="Set-MMUserCustomStatus" desc="()" line="34">
+        <counter type="INSTRUCTION" missed="2" covered="7" />
+        <counter type="LINE" missed="1" covered="6" />
+        <counter type="METHOD" missed="0" covered="1" />
+      </method>
+      <counter type="INSTRUCTION" missed="2" covered="7" />
+      <counter type="LINE" missed="1" covered="6" />
+      <counter type="METHOD" missed="0" covered="1" />
+      <counter type="CLASS" missed="0" covered="1" />
+    </class>
+    <class name="module/Public/Status/Set-MMUserStatus" sourcefilename="Public/Status/Set-MMUserStatus.ps1">
+      <method name="Set-MMUserStatus" desc="()" line="31">
+        <counter type="INSTRUCTION" missed="0" covered="8" />
+        <counter type="LINE" missed="0" covered="6" />
+        <counter type="METHOD" missed="0" covered="1" />
+      </method>
+      <counter type="INSTRUCTION" missed="0" covered="8" />
+      <counter type="LINE" missed="0" covered="6" />
+      <counter type="METHOD" missed="0" covered="1" />
+      <counter type="CLASS" missed="0" covered="1" />
+    </class>
+    <sourcefile name="Public/Status/Get-MMUserStatus.ps1">
+      <line nr="26" mi="0" ci="1" mb="0" cb="0" />
+      <line nr="27" mi="0" ci="1" mb="0" cb="0" />
+      <line nr="28" mi="0" ci="3" mb="0" cb="0" />
+      <line nr="30" mi="0" ci="2" mb="0" cb="0" />
+      <counter type="INSTRUCTION" missed="0" covered="7" />
+      <counter type="LINE" missed="0" covered="4" />
+      <counter type="METHOD" missed="0" covered="1" />
+      <counter type="CLASS" missed="0" covered="1" />
+    </sourcefile>
+    <sourcefile name="Public/Status/Remove-MMUserCustomStatus.ps1">
+      <line nr="20" mi="0" ci="1" mb="0" cb="0" />
+      <line nr="21" mi="0" ci="2" mb="0" cb="0" />
+      <counter type="INSTRUCTION" missed="0" covered="3" />
+      <counter type="LINE" missed="0" covered="2" />
+      <counter type="METHOD" missed="0" covered="1" />
+      <counter type="CLASS" missed="0" covered="1" />
+    </sourcefile>
+    <sourcefile name="Public/Status/Set-MMUserCustomStatus.ps1">
+      <line nr="34" mi="0" ci="1" mb="0" cb="0" />
+      <line nr="35" mi="0" ci="1" mb="0" cb="0" />
+      <line nr="36" mi="0" ci="1" mb="0" cb="0" />
+      <line nr="38" mi="1" ci="1" mb="0" cb="0" />
+      <line nr="39" mi="0" ci="1" mb="0" cb="0" />
+      <line nr="40" mi="1" ci="0" mb="0" cb="0" />
+      <line nr="43" mi="0" ci="2" mb="0" cb="0" />
+      <counter type="INSTRUCTION" missed="2" covered="7" />
+      <counter type="LINE" missed="1" covered="6" />
+      <counter type="METHOD" missed="0" covered="1" />
+      <counter type="CLASS" missed="0" covered="1" />
+    </sourcefile>
+    <sourcefile name="Public/Status/Set-MMUserStatus.ps1">
+      <line nr="31" mi="0" ci="1" mb="0" cb="0" />
+      <line nr="32" mi="0" ci="1" mb="0" cb="0" />
+      <line nr="33" mi="0" ci="1" mb="0" cb="0" />
+      <line nr="35" mi="0" ci="1" mb="0" cb="0" />
+      <line nr="36" mi="0" ci="2" mb="0" cb="0" />
+      <line nr="39" mi="0" ci="2" mb="0" cb="0" />
+      <counter type="INSTRUCTION" missed="0" covered="8" />
+      <counter type="LINE" missed="0" covered="6" />
+      <counter type="METHOD" missed="0" covered="1" />
+      <counter type="CLASS" missed="0" covered="1" />
+    </sourcefile>
+    <counter type="INSTRUCTION" missed="2" covered="25" />
+    <counter type="LINE" missed="1" covered="18" />
+    <counter type="METHOD" missed="0" covered="4" />
+    <counter type="CLASS" missed="0" covered="4" />
+  </package>
   <package name="module/Public/Teams">
     <class name="module/Public/Teams/Add-MMUserToTeam" sourcefilename="Public/Teams/Add-MMUserToTeam.ps1">
       <method name="Add-MMUserToTeam" desc="()" line="22">
@@ -1832,7 +1949,7 @@
       <counter type="CLASS" missed="0" covered="1" />
     </class>
     <class name="module/Public/Webhooks/Set-MMIncomingWebhook" sourcefilename="Public/Webhooks/Set-MMIncomingWebhook.ps1">
-      <method name="Set-MMIncomingWebhook" desc="()" line="39">
+      <method name="Set-MMIncomingWebhook" desc="()" line="40">
         <counter type="INSTRUCTION" missed="4" covered="11" />
         <counter type="LINE" missed="1" covered="9" />
         <counter type="METHOD" missed="0" covered="1" />
@@ -1949,16 +2066,16 @@
       <counter type="CLASS" missed="0" covered="1" />
     </sourcefile>
     <sourcefile name="Public/Webhooks/Set-MMIncomingWebhook.ps1">
-      <line nr="39" mi="0" ci="1" mb="0" cb="0" />
       <line nr="40" mi="0" ci="1" mb="0" cb="0" />
       <line nr="41" mi="0" ci="1" mb="0" cb="0" />
       <line nr="42" mi="0" ci="1" mb="0" cb="0" />
-      <line nr="43" mi="1" ci="2" mb="0" cb="0" />
-      <line nr="45" mi="1" ci="1" mb="0" cb="0" />
+      <line nr="43" mi="0" ci="1" mb="0" cb="0" />
+      <line nr="44" mi="1" ci="2" mb="0" cb="0" />
       <line nr="46" mi="1" ci="1" mb="0" cb="0" />
-      <line nr="47" mi="0" ci="1" mb="0" cb="0" />
-      <line nr="48" mi="1" ci="0" mb="0" cb="0" />
-      <line nr="51" mi="0" ci="2" mb="0" cb="0" />
+      <line nr="47" mi="1" ci="1" mb="0" cb="0" />
+      <line nr="48" mi="0" ci="1" mb="0" cb="0" />
+      <line nr="49" mi="1" ci="0" mb="0" cb="0" />
+      <line nr="52" mi="0" ci="2" mb="0" cb="0" />
       <counter type="INSTRUCTION" missed="4" covered="11" />
       <counter type="LINE" missed="1" covered="9" />
       <counter type="METHOD" missed="0" covered="1" />
@@ -1983,8 +2100,8 @@
     <counter type="METHOD" missed="0" covered="9" />
     <counter type="CLASS" missed="0" covered="9" />
   </package>
-  <counter type="INSTRUCTION" missed="28" covered="669" />
-  <counter type="LINE" missed="11" covered="499" />
-  <counter type="METHOD" missed="0" covered="83" />
-  <counter type="CLASS" missed="0" covered="82" />
+  <counter type="INSTRUCTION" missed="30" covered="702" />
+  <counter type="LINE" missed="12" covered="524" />
+  <counter type="METHOD" missed="0" covered="88" />
+  <counter type="CLASS" missed="0" covered="87" />
 </report>

@@ -79,7 +79,11 @@
         'New-MMOutgoingWebhook',
         'Set-MMOutgoingWebhook',
         'Remove-MMOutgoingWebhook',
-        'Reset-MMOutgoingWebhookToken'
+        'Reset-MMOutgoingWebhookToken',
+        'Get-MMUserStatus',
+        'Set-MMUserStatus',
+        'Set-MMUserCustomStatus',
+        'Remove-MMUserCustomStatus'
     )
     FormatsToProcess  = @(
         'Formats/MatterMost.User.Format.ps1xml'
@@ -93,6 +97,7 @@
         'Formats/MatterMost.Post.Format.ps1xml'
         'Formats/MatterMost.IncomingWebhook.Format.ps1xml'
         'Formats/MatterMost.OutgoingWebhook.Format.ps1xml'
+        'Formats/MatterMost.UserStatus.Format.ps1xml'
     )
     CmdletsToExport   = @()
     VariablesToExport = @()
