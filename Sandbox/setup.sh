@@ -83,6 +83,16 @@ curl -sf -X POST "$MM_URL/api/v4/users" \
     \"last_name\": \"$TEST_LASTNAME\"
   }" > /dev/null
 
+# Включаем кастомные статусы и вебхуки
+echo "Configuring system settings..."
+curl -sf -X PUT "$MM_URL/api/v4/config/patch" \
+  -H "Authorization: Bearer $TOKEN" \
+  -H "Content-Type: application/json" \
+  -d '{
+    "TeamSettings": { "EnableCustomUserStatuses": true },
+    "ServiceSettings": { "EnableIncomingWebhooks": true, "EnableOutgoingWebhooks": true }
+  }' > /dev/null
+
 echo "Setup complete!"
 echo "  Admin:    $ADMIN_USERNAME / $ADMIN_PASSWORD"
 echo "  TestUser: $TEST_USERNAME / $TEST_PASSWORD"

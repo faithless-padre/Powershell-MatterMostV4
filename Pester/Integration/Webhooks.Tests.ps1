@@ -102,7 +102,7 @@ Describe 'Set-MMIncomingWebhook' {
         }
 
         It 'принимает объект MMIncomingWebhook из пайплайна' {
-            $result = $script:IncomingHook | Set-MMIncomingWebhook -DisplayName 'Pester Pipeline Update' -ChannelId $script:Channel.id
+            $result = $script:IncomingHook | Set-MMIncomingWebhook -DisplayName 'Pester Pipeline Update'
 
             $result.display_name | Should -Be 'Pester Pipeline Update'
         }
@@ -110,7 +110,7 @@ Describe 'Set-MMIncomingWebhook' {
 
     Context 'Ошибки' {
         It 'бросает исключение при невалидном HookId' {
-            { Set-MMIncomingWebhook -HookId 'invalid-id' -DisplayName 'test' } | Should -Throw
+            { Set-MMIncomingWebhook -HookId 'invalid-id' -DisplayName 'test' -ChannelId 'invalid-channel' } | Should -Throw
         }
     }
 }
