@@ -47,6 +47,15 @@ PS /home/padre/> Get-Command -Module MatterMostV4 | Get-Help | Select-Object Nam
 Name                     Synopsis
 ----                     --------
 Add-MMPostPin            Pins a post to its MatterMost channel.
+Disable-MMBot            Disables a MatterMost bot account.
+Enable-MMBot             Enables a disabled MatterMost bot account.
+Get-MMBot                Gets a MatterMost bot by ID, or returns a list of bots.
+New-MMBot                Creates a new bot account in MatterMost.
+Set-MMBot                Updates a MatterMost bot account (username, display name, description).
+Set-MMBotOwner           Assigns a MatterMost bot to a specified user.
+Get-MMUserToken          Gets personal access tokens for a user or a single token by ID.
+New-MMUserToken          Creates a personal access token for a MatterMost user.
+Revoke-MMUserToken       Revokes a MatterMost personal access token.
 Add-MMUserToChannel      Adds a user to a MatterMost channel.
 Add-MMUserToTeam         Adds a user to a MatterMost team.
 Connect-MMServer         Connects to a MatterMost server and stores the session token for subsequent requests.
