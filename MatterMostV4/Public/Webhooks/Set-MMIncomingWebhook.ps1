@@ -19,7 +19,8 @@ function Set-MMIncomingWebhook {
         [Parameter(Mandatory)]
         [string]$DisplayName,
 
-        [Parameter(Mandatory)]
+        [Parameter(Mandatory, ValueFromPipelineByPropertyName)]
+        [Alias('channel_id')]
         [string]$ChannelId,
 
         [Parameter()]

@@ -69,6 +69,7 @@ Get-MMTeam               Returns a MatterMost team by ID, name, or all teams.
 Get-MMTeamMembers        Returns the list of members for a MatterMost team.
 Get-MMUser               Returns a MatterMost user by ID, username, filter, or current session.
 Get-MMUserAudit          Returns audit log entries for a MatterMost user (GET /users/{id}/audits).
+Get-MMUserStatus         Gets the status of one or more MatterMost users.
 Get-MMUserChannels       Returns the list of channels a user belongs to in a MatterMost team.
 Get-MMUserSession        Returns the list of active sessions for a MatterMost user.
 Get-MMUserStats          Returns overall MatterMost user statistics (total_users_count, total_bots_count).
@@ -82,6 +83,7 @@ New-MMGroupChannel       Creates a group message channel for 3–8 MatterMost us
 New-MMTeam               Creates a new team in MatterMost.
 New-MMUser               Creates a new user in MatterMost.
 Remove-MMChannel         Archives a MatterMost channel.
+Remove-MMUserCustomStatus Clears a MatterMost user's custom status.
 Remove-MMIncomingWebhook Deletes a MatterMost incoming webhook by ID.
 Remove-MMOutgoingWebhook Deletes a MatterMost outgoing webhook by ID.
 Remove-MMPost            Deletes a MatterMost post.
@@ -100,6 +102,8 @@ Send-MMFile              Uploads a file to a MatterMost channel. Returns an MMFi
 Send-MMMessage           Sends a message to a user (DM), group of users, or a channel by name.
 Send-MMTeamInvite        Sends an invitation to a MatterMost team by email address(es).
 Set-MMChannel            Updates MatterMost channel settings (PUT /channels/{id}/patch).
+Set-MMUserCustomStatus   Sets a MatterMost user's custom status with an emoji, text, and optional duration.
+Set-MMUserStatus         Sets a MatterMost user's status to online, away, dnd, or offline.
 Set-MMIncomingWebhook    Updates an existing MatterMost incoming webhook.
 Set-MMOutgoingWebhook    Updates an existing MatterMost outgoing webhook.
 Set-MMPost               Updates the message of an existing MatterMost post (PATCH).
