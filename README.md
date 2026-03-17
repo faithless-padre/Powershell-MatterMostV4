@@ -62,6 +62,8 @@ Get-MMFileLink           Returns a public link to a MatterMost file that can be 
 Get-MMFileMetadata       Returns metadata for a previously uploaded MatterMost file.
 Get-MMPost               Returns a MatterMost post by ID, or multiple posts by a list of IDs.
 Get-MMPostThread         Returns all posts in a MatterMost thread (root post and all replies).
+Get-MMIncomingWebhook    Gets incoming webhooks. Returns a single webhook by ID or a list filtered by team.
+Get-MMOutgoingWebhook    Gets outgoing webhooks. Returns a single webhook by ID or a list filtered by team or channel.
 Get-MMRole               Returns a MatterMost role by ID, name, list of names, or all roles.
 Get-MMTeam               Returns a MatterMost team by ID, name, or all teams.
 Get-MMTeamMembers        Returns the list of members for a MatterMost team.
@@ -72,18 +74,23 @@ Get-MMUserSession        Returns the list of active sessions for a MatterMost us
 Get-MMUserStats          Returns overall MatterMost user statistics (total_users_count, total_bots_count).
 Get-MMUserTeams          Returns the list of teams a MatterMost user belongs to.
 New-MMChannel            Creates a new channel in a MatterMost team.
+New-MMIncomingWebhook    Creates a new incoming webhook for a MatterMost channel.
+New-MMOutgoingWebhook    Creates a new outgoing webhook for a MatterMost team.
 New-MMPost               Creates a new post in a MatterMost channel.
 New-MMDirectChannel      Creates a direct message (DM) channel between two MatterMost users.
 New-MMGroupChannel       Creates a group message channel for 3–8 MatterMost users.
 New-MMTeam               Creates a new team in MatterMost.
 New-MMUser               Creates a new user in MatterMost.
 Remove-MMChannel         Archives a MatterMost channel.
+Remove-MMIncomingWebhook Deletes a MatterMost incoming webhook by ID.
+Remove-MMOutgoingWebhook Deletes a MatterMost outgoing webhook by ID.
 Remove-MMPost            Deletes a MatterMost post.
 Remove-MMPostPin         Unpins a post from its MatterMost channel.
 Remove-MMTeam            Archives a MatterMost team.
 Remove-MMUser            Deactivates a MatterMost user (soft delete).
 Remove-MMUserFromChannel Removes a user from a MatterMost channel.
 Remove-MMUserFromTeam    Removes a user from a MatterMost team.
+Reset-MMOutgoingWebhookToken Regenerates the security token for a MatterMost outgoing webhook.
 Restore-MMChannel        Restores a deleted (archived) MatterMost channel.
 Restore-MMTeam           Restores a deleted (archived) MatterMost team.
 Revoke-MMAllUserSessions Revokes all active sessions for a MatterMost user.
@@ -93,6 +100,8 @@ Send-MMFile              Uploads a file to a MatterMost channel. Returns an MMFi
 Send-MMMessage           Sends a message to a user (DM), group of users, or a channel by name.
 Send-MMTeamInvite        Sends an invitation to a MatterMost team by email address(es).
 Set-MMChannel            Updates MatterMost channel settings (PUT /channels/{id}/patch).
+Set-MMIncomingWebhook    Updates an existing MatterMost incoming webhook.
+Set-MMOutgoingWebhook    Updates an existing MatterMost outgoing webhook.
 Set-MMPost               Updates the message of an existing MatterMost post (PATCH).
 Set-MMChannelPrivacy     Updates MatterMost channel privacy: Public or Private.
 Set-MMRole               Updates the permissions list for the specified MatterMost role.
