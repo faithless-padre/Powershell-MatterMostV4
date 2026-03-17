@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <!DOCTYPE report PUBLIC "-//JACOCO//DTD Report 1.1//EN" "report.dtd"[]>
-<report name="Pester (03/17/2026 11:56:41)">
-  <sessioninfo id="this" start="1773748513074" dump="1773748601028" />
+<report name="Pester (03/17/2026 12:14:00)">
+  <sessioninfo id="this" start="1773749588498" dump="1773749640386" />
   <package name="module">
     <class name="module/MatterMostV4" sourcefilename="MatterMostV4.psm1">
       <method name="&lt;script&gt;" desc="()" line="1">
