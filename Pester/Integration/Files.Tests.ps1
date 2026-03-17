@@ -123,6 +123,21 @@ Describe 'Save-MMFile' {
             Remove-Item $destFile -Force
         }
 
+        It 'скачивает файл по FileId без FileName (запрашивает метаданные)' {
+            $uploaded = Send-MMFile -FilePath $script:TempFile -ChannelId $script:Channel.id
+            $destFile = Join-Path $script:DownloadDir 'mmtest_upload.txt'
+
+            if (Test-Path $destFile) { Remove-Item $destFile -Force }
+
+            # Передаём только FileId — имя должно быть получено из /api/v4/files/{id}/info
+            $result = Save-MMFile -FileId $uploaded.id -DestinationPath $script:DownloadDir
+
+            $result.Exists | Should -Be $true
+            $result.Name   | Should -Be 'mmtest_upload.txt'
+
+            Remove-Item $destFile -Force
+        }
+
         It 'бросает исключение при невалидном FileId' {
             { Save-MMFile -FileId 'invalid-id' -DestinationPath $script:DownloadDir } |
                 Should -Throw
