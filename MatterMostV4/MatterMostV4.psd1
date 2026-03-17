@@ -70,7 +70,16 @@
         'Remove-MMPost',
         'Remove-MMPostPin',
         'Send-MMMessage',
-        'Set-MMPost'
+        'Set-MMPost',
+        'Get-MMIncomingWebhook',
+        'New-MMIncomingWebhook',
+        'Set-MMIncomingWebhook',
+        'Remove-MMIncomingWebhook',
+        'Get-MMOutgoingWebhook',
+        'New-MMOutgoingWebhook',
+        'Set-MMOutgoingWebhook',
+        'Remove-MMOutgoingWebhook',
+        'Reset-MMOutgoingWebhookToken'
     )
     FormatsToProcess  = @(
         'Formats/MatterMost.User.Format.ps1xml'
@@ -82,6 +91,8 @@
         'Formats/MatterMost.TeamMember.Format.ps1xml'
         'Formats/MatterMost.File.Format.ps1xml'
         'Formats/MatterMost.Post.Format.ps1xml'
+        'Formats/MatterMost.IncomingWebhook.Format.ps1xml'
+        'Formats/MatterMost.OutgoingWebhook.Format.ps1xml'
     )
     CmdletsToExport   = @()
     VariablesToExport = @()

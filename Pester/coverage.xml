@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <!DOCTYPE report PUBLIC "-//JACOCO//DTD Report 1.1//EN" "report.dtd"[]>
-<report name="Pester (03/17/2026 07:18:08)">
-  <sessioninfo id="this" start="1773731815439" dump="1773731888713" />
+<report name="Pester (03/17/2026 07:49:41)">
+  <sessioninfo id="this" start="1773733730324" dump="1773733781620" />
   <package name="module">
     <class name="module/MatterMostV4" sourcefilename="MatterMostV4.psm1">
       <method name="&lt;script&gt;" desc="()" line="1">
@@ -62,6 +62,28 @@
     </class>
     <class name="module/Private/ConvertTo-MMFile" sourcefilename="Private/ConvertTo-MMFile.ps1">
       <method name="ConvertTo-MMFile" desc="()" line="15">
+        <counter type="INSTRUCTION" missed="0" covered="8" />
+        <counter type="LINE" missed="0" covered="7" />
+        <counter type="METHOD" missed="0" covered="1" />
+      </method>
+      <counter type="INSTRUCTION" missed="0" covered="8" />
+      <counter type="LINE" missed="0" covered="7" />
+      <counter type="METHOD" missed="0" covered="1" />
+      <counter type="CLASS" missed="0" covered="1" />
+    </class>
+    <class name="module/Private/ConvertTo-MMIncomingWebhook" sourcefilename="Private/ConvertTo-MMIncomingWebhook.ps1">
+      <method name="ConvertTo-MMIncomingWebhook" desc="()" line="15">
+        <counter type="INSTRUCTION" missed="0" covered="8" />
+        <counter type="LINE" missed="0" covered="7" />
+        <counter type="METHOD" missed="0" covered="1" />
+      </method>
+      <counter type="INSTRUCTION" missed="0" covered="8" />
+      <counter type="LINE" missed="0" covered="7" />
+      <counter type="METHOD" missed="0" covered="1" />
+      <counter type="CLASS" missed="0" covered="1" />
+    </class>
+    <class name="module/Private/ConvertTo-MMOutgoingWebhook" sourcefilename="Private/ConvertTo-MMOutgoingWebhook.ps1">
+      <method name="ConvertTo-MMOutgoingWebhook" desc="()" line="15">
         <counter type="INSTRUCTION" missed="0" covered="8" />
         <counter type="LINE" missed="0" covered="7" />
         <counter type="METHOD" missed="0" covered="1" />
@@ -208,6 +230,32 @@
       <counter type="CLASS" missed="0" covered="1" />
     </sourcefile>
     <sourcefile name="Private/ConvertTo-MMFile.ps1">
+      <line nr="15" mi="0" ci="1" mb="0" cb="0" />
+      <line nr="17" mi="0" ci="1" mb="0" cb="0" />
+      <line nr="18" mi="0" ci="1" mb="0" cb="0" />
+      <line nr="19" mi="0" ci="1" mb="0" cb="0" />
+      <line nr="20" mi="0" ci="2" mb="0" cb="0" />
+      <line nr="22" mi="0" ci="1" mb="0" cb="0" />
+      <line nr="25" mi="0" ci="1" mb="0" cb="0" />
+      <counter type="INSTRUCTION" missed="0" covered="8" />
+      <counter type="LINE" missed="0" covered="7" />
+      <counter type="METHOD" missed="0" covered="1" />
+      <counter type="CLASS" missed="0" covered="1" />
+    </sourcefile>
+    <sourcefile name="Private/ConvertTo-MMIncomingWebhook.ps1">
+      <line nr="15" mi="0" ci="1" mb="0" cb="0" />
+      <line nr="17" mi="0" ci="1" mb="0" cb="0" />
+      <line nr="18" mi="0" ci="1" mb="0" cb="0" />
+      <line nr="19" mi="0" ci="1" mb="0" cb="0" />
+      <line nr="20" mi="0" ci="2" mb="0" cb="0" />
+      <line nr="22" mi="0" ci="1" mb="0" cb="0" />
+      <line nr="25" mi="0" ci="1" mb="0" cb="0" />
+      <counter type="INSTRUCTION" missed="0" covered="8" />
+      <counter type="LINE" missed="0" covered="7" />
+      <counter type="METHOD" missed="0" covered="1" />
+      <counter type="CLASS" missed="0" covered="1" />
+    </sourcefile>
+    <sourcefile name="Private/ConvertTo-MMOutgoingWebhook.ps1">
       <line nr="15" mi="0" ci="1" mb="0" cb="0" />
       <line nr="17" mi="0" ci="1" mb="0" cb="0" />
       <line nr="18" mi="0" ci="1" mb="0" cb="0" />
@@ -372,10 +420,10 @@
       <counter type="METHOD" missed="0" covered="1" />
       <counter type="CLASS" missed="0" covered="1" />
     </sourcefile>
-    <counter type="INSTRUCTION" missed="3" covered="135" />
-    <counter type="LINE" missed="3" covered="110" />
-    <counter type="METHOD" missed="0" covered="13" />
-    <counter type="CLASS" missed="0" covered="13" />
+    <counter type="INSTRUCTION" missed="3" covered="151" />
+    <counter type="LINE" missed="3" covered="124" />
+    <counter type="METHOD" missed="0" covered="15" />
+    <counter type="CLASS" missed="0" covered="15" />
   </package>
   <package name="module/Private/Teams">
     <class name="module/Private/Teams/Get-MMTeamList" sourcefilename="Private/Teams/Get-MMTeamList.ps1">
@@ -1705,8 +1753,238 @@
     <counter type="METHOD" missed="0" covered="16" />
     <counter type="CLASS" missed="0" covered="15" />
   </package>
-  <counter type="INSTRUCTION" missed="13" covered="564" />
-  <counter type="LINE" missed="9" covered="416" />
-  <counter type="METHOD" missed="0" covered="72" />
-  <counter type="CLASS" missed="0" covered="71" />
+  <package name="module/Public/Webhooks">
+    <class name="module/Public/Webhooks/Get-MMIncomingWebhook" sourcefilename="Public/Webhooks/Get-MMIncomingWebhook.ps1">
+      <method name="Get-MMIncomingWebhook" desc="()" line="44">
+        <counter type="INSTRUCTION" missed="0" covered="15" />
+        <counter type="LINE" missed="0" covered="10" />
+        <counter type="METHOD" missed="0" covered="1" />
+      </method>
+      <counter type="INSTRUCTION" missed="0" covered="15" />
+      <counter type="LINE" missed="0" covered="10" />
+      <counter type="METHOD" missed="0" covered="1" />
+      <counter type="CLASS" missed="0" covered="1" />
+    </class>
+    <class name="module/Public/Webhooks/Get-MMOutgoingWebhook" sourcefilename="Public/Webhooks/Get-MMOutgoingWebhook.ps1">
+      <method name="Get-MMOutgoingWebhook" desc="()" line="49">
+        <counter type="INSTRUCTION" missed="3" covered="14" />
+        <counter type="LINE" missed="1" covered="10" />
+        <counter type="METHOD" missed="0" covered="1" />
+      </method>
+      <counter type="INSTRUCTION" missed="3" covered="14" />
+      <counter type="LINE" missed="1" covered="10" />
+      <counter type="METHOD" missed="0" covered="1" />
+      <counter type="CLASS" missed="0" covered="1" />
+    </class>
+    <class name="module/Public/Webhooks/New-MMIncomingWebhook" sourcefilename="Public/Webhooks/New-MMIncomingWebhook.ps1">
+      <method name="New-MMIncomingWebhook" desc="()" line="44">
+        <counter type="INSTRUCTION" missed="4" covered="14" />
+        <counter type="LINE" missed="0" covered="12" />
+        <counter type="METHOD" missed="0" covered="1" />
+      </method>
+      <counter type="INSTRUCTION" missed="4" covered="14" />
+      <counter type="LINE" missed="0" covered="12" />
+      <counter type="METHOD" missed="0" covered="1" />
+      <counter type="CLASS" missed="0" covered="1" />
+    </class>
+    <class name="module/Public/Webhooks/New-MMOutgoingWebhook" sourcefilename="Public/Webhooks/New-MMOutgoingWebhook.ps1">
+      <method name="New-MMOutgoingWebhook" desc="()" line="52">
+        <counter type="INSTRUCTION" missed="2" covered="16" />
+        <counter type="LINE" missed="0" covered="14" />
+        <counter type="METHOD" missed="0" covered="1" />
+      </method>
+      <counter type="INSTRUCTION" missed="2" covered="16" />
+      <counter type="LINE" missed="0" covered="14" />
+      <counter type="METHOD" missed="0" covered="1" />
+      <counter type="CLASS" missed="0" covered="1" />
+    </class>
+    <class name="module/Public/Webhooks/Remove-MMIncomingWebhook" sourcefilename="Public/Webhooks/Remove-MMIncomingWebhook.ps1">
+      <method name="Remove-MMIncomingWebhook" desc="()" line="20">
+        <counter type="INSTRUCTION" missed="0" covered="3" />
+        <counter type="LINE" missed="0" covered="2" />
+        <counter type="METHOD" missed="0" covered="1" />
+      </method>
+      <counter type="INSTRUCTION" missed="0" covered="3" />
+      <counter type="LINE" missed="0" covered="2" />
+      <counter type="METHOD" missed="0" covered="1" />
+      <counter type="CLASS" missed="0" covered="1" />
+    </class>
+    <class name="module/Public/Webhooks/Remove-MMOutgoingWebhook" sourcefilename="Public/Webhooks/Remove-MMOutgoingWebhook.ps1">
+      <method name="Remove-MMOutgoingWebhook" desc="()" line="20">
+        <counter type="INSTRUCTION" missed="0" covered="3" />
+        <counter type="LINE" missed="0" covered="2" />
+        <counter type="METHOD" missed="0" covered="1" />
+      </method>
+      <counter type="INSTRUCTION" missed="0" covered="3" />
+      <counter type="LINE" missed="0" covered="2" />
+      <counter type="METHOD" missed="0" covered="1" />
+      <counter type="CLASS" missed="0" covered="1" />
+    </class>
+    <class name="module/Public/Webhooks/Reset-MMOutgoingWebhookToken" sourcefilename="Public/Webhooks/Reset-MMOutgoingWebhookToken.ps1">
+      <method name="Reset-MMOutgoingWebhookToken" desc="()" line="20">
+        <counter type="INSTRUCTION" missed="0" covered="3" />
+        <counter type="LINE" missed="0" covered="2" />
+        <counter type="METHOD" missed="0" covered="1" />
+      </method>
+      <counter type="INSTRUCTION" missed="0" covered="3" />
+      <counter type="LINE" missed="0" covered="2" />
+      <counter type="METHOD" missed="0" covered="1" />
+      <counter type="CLASS" missed="0" covered="1" />
+    </class>
+    <class name="module/Public/Webhooks/Set-MMIncomingWebhook" sourcefilename="Public/Webhooks/Set-MMIncomingWebhook.ps1">
+      <method name="Set-MMIncomingWebhook" desc="()" line="39">
+        <counter type="INSTRUCTION" missed="4" covered="11" />
+        <counter type="LINE" missed="1" covered="9" />
+        <counter type="METHOD" missed="0" covered="1" />
+      </method>
+      <counter type="INSTRUCTION" missed="4" covered="11" />
+      <counter type="LINE" missed="1" covered="9" />
+      <counter type="METHOD" missed="0" covered="1" />
+      <counter type="CLASS" missed="0" covered="1" />
+    </class>
+    <class name="module/Public/Webhooks/Set-MMOutgoingWebhook" sourcefilename="Public/Webhooks/Set-MMOutgoingWebhook.ps1">
+      <method name="Set-MMOutgoingWebhook" desc="()" line="36">
+        <counter type="INSTRUCTION" missed="2" covered="10" />
+        <counter type="LINE" missed="0" covered="8" />
+        <counter type="METHOD" missed="0" covered="1" />
+      </method>
+      <counter type="INSTRUCTION" missed="2" covered="10" />
+      <counter type="LINE" missed="0" covered="8" />
+      <counter type="METHOD" missed="0" covered="1" />
+      <counter type="CLASS" missed="0" covered="1" />
+    </class>
+    <sourcefile name="Public/Webhooks/Get-MMIncomingWebhook.ps1">
+      <line nr="44" mi="0" ci="1" mb="0" cb="0" />
+      <line nr="45" mi="0" ci="2" mb="0" cb="0" />
+      <line nr="49" mi="0" ci="1" mb="0" cb="0" />
+      <line nr="50" mi="0" ci="2" mb="0" cb="0" />
+      <line nr="51" mi="0" ci="1" mb="0" cb="0" />
+      <line nr="52" mi="0" ci="1" mb="0" cb="0" />
+      <line nr="55" mi="0" ci="1" mb="0" cb="0" />
+      <line nr="56" mi="0" ci="2" mb="0" cb="0" />
+      <line nr="58" mi="0" ci="1" mb="0" cb="0" />
+      <line nr="59" mi="0" ci="3" mb="0" cb="0" />
+      <counter type="INSTRUCTION" missed="0" covered="15" />
+      <counter type="LINE" missed="0" covered="10" />
+      <counter type="METHOD" missed="0" covered="1" />
+      <counter type="CLASS" missed="0" covered="1" />
+    </sourcefile>
+    <sourcefile name="Public/Webhooks/Get-MMOutgoingWebhook.ps1">
+      <line nr="49" mi="0" ci="1" mb="0" cb="0" />
+      <line nr="50" mi="0" ci="2" mb="0" cb="0" />
+      <line nr="54" mi="0" ci="1" mb="0" cb="0" />
+      <line nr="55" mi="2" ci="0" mb="0" cb="0" />
+      <line nr="56" mi="0" ci="1" mb="0" cb="0" />
+      <line nr="57" mi="0" ci="1" mb="0" cb="0" />
+      <line nr="60" mi="0" ci="1" mb="0" cb="0" />
+      <line nr="61" mi="0" ci="2" mb="0" cb="0" />
+      <line nr="62" mi="1" ci="1" mb="0" cb="0" />
+      <line nr="64" mi="0" ci="1" mb="0" cb="0" />
+      <line nr="65" mi="0" ci="3" mb="0" cb="0" />
+      <counter type="INSTRUCTION" missed="3" covered="14" />
+      <counter type="LINE" missed="1" covered="10" />
+      <counter type="METHOD" missed="0" covered="1" />
+      <counter type="CLASS" missed="0" covered="1" />
+    </sourcefile>
+    <sourcefile name="Public/Webhooks/New-MMIncomingWebhook.ps1">
+      <line nr="44" mi="0" ci="1" mb="0" cb="0" />
+      <line nr="45" mi="0" ci="2" mb="0" cb="0" />
+      <line nr="46" mi="0" ci="1" mb="0" cb="0" />
+      <line nr="47" mi="0" ci="1" mb="0" cb="0" />
+      <line nr="50" mi="0" ci="1" mb="0" cb="0" />
+      <line nr="51" mi="0" ci="1" mb="0" cb="0" />
+      <line nr="52" mi="0" ci="1" mb="0" cb="0" />
+      <line nr="54" mi="1" ci="1" mb="0" cb="0" />
+      <line nr="55" mi="1" ci="1" mb="0" cb="0" />
+      <line nr="56" mi="1" ci="1" mb="0" cb="0" />
+      <line nr="57" mi="1" ci="1" mb="0" cb="0" />
+      <line nr="59" mi="0" ci="2" mb="0" cb="0" />
+      <counter type="INSTRUCTION" missed="4" covered="14" />
+      <counter type="LINE" missed="0" covered="12" />
+      <counter type="METHOD" missed="0" covered="1" />
+      <counter type="CLASS" missed="0" covered="1" />
+    </sourcefile>
+    <sourcefile name="Public/Webhooks/New-MMOutgoingWebhook.ps1">
+      <line nr="52" mi="0" ci="1" mb="0" cb="0" />
+      <line nr="53" mi="0" ci="2" mb="0" cb="0" />
+      <line nr="54" mi="0" ci="1" mb="0" cb="0" />
+      <line nr="55" mi="0" ci="1" mb="0" cb="0" />
+      <line nr="58" mi="0" ci="1" mb="0" cb="0" />
+      <line nr="59" mi="0" ci="1" mb="0" cb="0" />
+      <line nr="60" mi="0" ci="1" mb="0" cb="0" />
+      <line nr="61" mi="0" ci="1" mb="0" cb="0" />
+      <line nr="62" mi="0" ci="1" mb="0" cb="0" />
+      <line nr="63" mi="0" ci="1" mb="0" cb="0" />
+      <line nr="64" mi="0" ci="1" mb="0" cb="0" />
+      <line nr="66" mi="1" ci="1" mb="0" cb="0" />
+      <line nr="67" mi="1" ci="1" mb="0" cb="0" />
+      <line nr="69" mi="0" ci="2" mb="0" cb="0" />
+      <counter type="INSTRUCTION" missed="2" covered="16" />
+      <counter type="LINE" missed="0" covered="14" />
+      <counter type="METHOD" missed="0" covered="1" />
+      <counter type="CLASS" missed="0" covered="1" />
+    </sourcefile>
+    <sourcefile name="Public/Webhooks/Remove-MMIncomingWebhook.ps1">
+      <line nr="20" mi="0" ci="1" mb="0" cb="0" />
+      <line nr="21" mi="0" ci="2" mb="0" cb="0" />
+      <counter type="INSTRUCTION" missed="0" covered="3" />
+      <counter type="LINE" missed="0" covered="2" />
+      <counter type="METHOD" missed="0" covered="1" />
+      <counter type="CLASS" missed="0" covered="1" />
+    </sourcefile>
+    <sourcefile name="Public/Webhooks/Remove-MMOutgoingWebhook.ps1">
+      <line nr="20" mi="0" ci="1" mb="0" cb="0" />
+      <line nr="21" mi="0" ci="2" mb="0" cb="0" />
+      <counter type="INSTRUCTION" missed="0" covered="3" />
+      <counter type="LINE" missed="0" covered="2" />
+      <counter type="METHOD" missed="0" covered="1" />
+      <counter type="CLASS" missed="0" covered="1" />
+    </sourcefile>
+    <sourcefile name="Public/Webhooks/Reset-MMOutgoingWebhookToken.ps1">
+      <line nr="20" mi="0" ci="1" mb="0" cb="0" />
+      <line nr="21" mi="0" ci="2" mb="0" cb="0" />
+      <counter type="INSTRUCTION" missed="0" covered="3" />
+      <counter type="LINE" missed="0" covered="2" />
+      <counter type="METHOD" missed="0" covered="1" />
+      <counter type="CLASS" missed="0" covered="1" />
+    </sourcefile>
+    <sourcefile name="Public/Webhooks/Set-MMIncomingWebhook.ps1">
+      <line nr="39" mi="0" ci="1" mb="0" cb="0" />
+      <line nr="40" mi="0" ci="1" mb="0" cb="0" />
+      <line nr="41" mi="0" ci="1" mb="0" cb="0" />
+      <line nr="42" mi="0" ci="1" mb="0" cb="0" />
+      <line nr="43" mi="1" ci="2" mb="0" cb="0" />
+      <line nr="45" mi="1" ci="1" mb="0" cb="0" />
+      <line nr="46" mi="1" ci="1" mb="0" cb="0" />
+      <line nr="47" mi="0" ci="1" mb="0" cb="0" />
+      <line nr="48" mi="1" ci="0" mb="0" cb="0" />
+      <line nr="51" mi="0" ci="2" mb="0" cb="0" />
+      <counter type="INSTRUCTION" missed="4" covered="11" />
+      <counter type="LINE" missed="1" covered="9" />
+      <counter type="METHOD" missed="0" covered="1" />
+      <counter type="CLASS" missed="0" covered="1" />
+    </sourcefile>
+    <sourcefile name="Public/Webhooks/Set-MMOutgoingWebhook.ps1">
+      <line nr="36" mi="0" ci="1" mb="0" cb="0" />
+      <line nr="37" mi="0" ci="1" mb="0" cb="0" />
+      <line nr="38" mi="0" ci="1" mb="0" cb="0" />
+      <line nr="39" mi="0" ci="1" mb="0" cb="0" />
+      <line nr="41" mi="0" ci="2" mb="0" cb="0" />
+      <line nr="42" mi="1" ci="1" mb="0" cb="0" />
+      <line nr="43" mi="1" ci="1" mb="0" cb="0" />
+      <line nr="45" mi="0" ci="2" mb="0" cb="0" />
+      <counter type="INSTRUCTION" missed="2" covered="10" />
+      <counter type="LINE" missed="0" covered="8" />
+      <counter type="METHOD" missed="0" covered="1" />
+      <counter type="CLASS" missed="0" covered="1" />
+    </sourcefile>
+    <counter type="INSTRUCTION" missed="15" covered="89" />
+    <counter type="LINE" missed="2" covered="69" />
+    <counter type="METHOD" missed="0" covered="9" />
+    <counter type="CLASS" missed="0" covered="9" />
+  </package>
+  <counter type="INSTRUCTION" missed="28" covered="669" />
+  <counter type="LINE" missed="11" covered="499" />
+  <counter type="METHOD" missed="0" covered="83" />
+  <counter type="CLASS" missed="0" covered="82" />
 </report>
