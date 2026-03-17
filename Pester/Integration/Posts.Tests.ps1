@@ -18,6 +18,13 @@ BeforeAll {
     Connect-MMServer -Url $config.Url -Username $config.AdminUsername -Password (ConvertTo-SecureString $config.AdminPassword -AsPlainText -Force) -DefaultTeam $config.TestTeamName
 
     $script:Channel = Get-MMChannel -Name 'town-square'
+
+    $script:TempFile = Join-Path ([System.IO.Path]::GetTempPath()) 'mm_post_attach.txt'
+    Set-Content -Path $script:TempFile -Value 'Pester attachment test'
+}
+
+AfterAll {
+    if (Test-Path $script:TempFile) { Remove-Item $script:TempFile -Force }
 }
 
 Describe 'New-MMPost' {
@@ -61,6 +68,17 @@ Describe 'New-MMPost' {
             $result.message | Should -Be 'Thread reply'
 
             $script:ThreadReply = $result
+        }
+    }
+
+    Context 'Пост с вложением (-FilePath)' {
+        It 'прикрепляет файл и возвращает пост с file_ids' {
+            $result = New-MMPost -ChannelId $script:Channel.id -Message 'Post with attachment' -FilePath $script:TempFile
+
+            $result                | Should -Not -BeNullOrEmpty
+            $result.file_ids       | Should -Not -BeNullOrEmpty
+            $result.file_ids.Count | Should -Be 1
+            $result.GetType().Name | Should -Be 'MMPost'
         }
     }
 
