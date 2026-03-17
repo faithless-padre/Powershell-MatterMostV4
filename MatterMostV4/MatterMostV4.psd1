@@ -69,6 +69,7 @@
         'New-MMPost',
         'Remove-MMPost',
         'Remove-MMPostPin',
+        'Get-MMMessage',
         'Send-MMMessage',
         'Set-MMPost',
         'Get-MMIncomingWebhook',
@@ -83,7 +84,12 @@
         'Get-MMUserStatus',
         'Set-MMUserStatus',
         'Set-MMUserCustomStatus',
-        'Remove-MMUserCustomStatus'
+        'Remove-MMUserCustomStatus',
+        'Find-MMEmoji',
+        'Get-MMEmoji',
+        'New-MMEmoji',
+        'Remove-MMEmoji',
+        'Save-MMEmojiImage'
     )
     FormatsToProcess  = @(
         'Formats/MatterMost.User.Format.ps1xml'
@@ -98,6 +104,7 @@
         'Formats/MatterMost.IncomingWebhook.Format.ps1xml'
         'Formats/MatterMost.OutgoingWebhook.Format.ps1xml'
         'Formats/MatterMost.UserStatus.Format.ps1xml'
+        'Formats/MatterMost.Emoji.Format.ps1xml'
     )
     CmdletsToExport   = @()
     VariablesToExport = @()

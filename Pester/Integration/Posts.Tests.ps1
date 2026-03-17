@@ -199,6 +199,20 @@ Describe 'Get-MMChannelPosts' {
             # Посты на разных страницах должны отличаться
             $page0[0].id | Should -Not -Be $page1[0].id
         }
+
+        It 'поддерживает фильтрацию по Since' {
+            # Unix timestamp в миллисекундах — год назад
+            $since  = [long]((Get-Date).AddYears(-1) - [datetime]'1970-01-01').TotalMilliseconds
+            $result = Get-MMChannelPosts -ChannelId $script:Channel.id -Since $since -PerPage 5
+
+            $result | Should -Not -BeNullOrEmpty
+        }
+
+        It 'поддерживает IncludeDeleted' {
+            $result = Get-MMChannelPosts -ChannelId $script:Channel.id -IncludeDeleted -PerPage 5
+
+            $result | Should -Not -BeNullOrEmpty
+        }
     }
 
     Context 'Ошибки' {
