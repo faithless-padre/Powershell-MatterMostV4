@@ -111,6 +111,13 @@ Describe 'Set-MMUserCustomStatus / Remove-MMUserCustomStatus' {
                 Should -Not -Throw
         }
 
+        It 'устанавливает кастомный статус с ExpiresAt' -Skip {
+            # ExpiresAt требует Duration = 'date_and_time' — в sandbox MM 11.5.1 не работает
+            $expires = (Get-Date).AddHours(2)
+            { Set-MMUserCustomStatus -UserId $script:AdminUser.id -Emoji 'clock' -Text 'Back at 5' -Duration 'date_and_time' -ExpiresAt $expires } |
+                Should -Not -Throw
+        }
+
         It 'принимает объект MMUser из пайплайна' {
             { $script:AdminUser | Set-MMUserCustomStatus -Emoji 'coffee' -Text 'On break' } |
                 Should -Not -Throw

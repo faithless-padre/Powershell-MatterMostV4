@@ -53,6 +53,22 @@ Describe 'Get-MMIncomingWebhook / New-MMIncomingWebhook' {
 
             Remove-MMIncomingWebhook -HookId $result.id
         }
+
+        It 'создаёт webhook с Description, Username, IconUrl и ChannelLocked' {
+            $result = New-MMIncomingWebhook `
+                -ChannelId     $script:Channel.id `
+                -DisplayName   'Pester Full Incoming' `
+                -Description   'Pester description' `
+                -Username      'pester-bot' `
+                -IconUrl       'https://example.com/icon.png' `
+                -ChannelLocked $true
+
+            $result.display_name   | Should -Be 'Pester Full Incoming'
+            $result.channel_locked | Should -Be $true
+            $result.GetType().Name | Should -Be 'MMIncomingWebhook'
+
+            Remove-MMIncomingWebhook -HookId $result.id
+        }
     }
 
     Context 'Получение incoming webhook' {
@@ -105,6 +121,29 @@ Describe 'Set-MMIncomingWebhook' {
             $result = $script:IncomingHook | Set-MMIncomingWebhook -DisplayName 'Pester Pipeline Update'
 
             $result.display_name | Should -Be 'Pester Pipeline Update'
+        }
+
+        It 'обновляет webhook с Username, IconUrl и ChannelLocked' {
+            $result = Set-MMIncomingWebhook `
+                -HookId        $script:IncomingHook.id `
+                -DisplayName   'Pester Full Update' `
+                -ChannelId     $script:Channel.id `
+                -Username      'updated-bot' `
+                -IconUrl       'https://example.com/icon2.png' `
+                -ChannelLocked $true
+
+            $result.display_name   | Should -Be 'Pester Full Update'
+            $result.channel_locked | Should -Be $true
+        }
+
+        It 'обновляет webhook с Description' {
+            $result = Set-MMIncomingWebhook `
+                -HookId      $script:IncomingHook.id `
+                -DisplayName 'Pester With Description' `
+                -ChannelId   $script:Channel.id `
+                -Description 'Pester description text'
+
+            $result.display_name | Should -Be 'Pester With Description'
         }
     }
 
@@ -178,6 +217,21 @@ Describe 'Get-MMOutgoingWebhook / New-MMOutgoingWebhook' {
 
             Remove-MMOutgoingWebhook -HookId $result.id
         }
+
+        It 'создаёт webhook с ChannelId и Description' {
+            $result = New-MMOutgoingWebhook `
+                -TeamId       $script:Team.id `
+                -DisplayName  'Pester Outgoing Full' `
+                -TriggerWords @('!full') `
+                -CallbackUrls @('http://localhost:9000/hook') `
+                -ChannelId    $script:Channel.id `
+                -Description  'Pester full outgoing hook'
+
+            $result.channel_id   | Should -Be $script:Channel.id
+            $result.GetType().Name | Should -Be 'MMOutgoingWebhook'
+
+            Remove-MMOutgoingWebhook -HookId $result.id
+        }
     }
 
     Context 'Получение outgoing webhook' {
@@ -193,6 +247,17 @@ Describe 'Get-MMOutgoingWebhook / New-MMOutgoingWebhook' {
 
             $result | Should -Not -BeNullOrEmpty
             $result[0].GetType().Name | Should -Be 'MMOutgoingWebhook'
+        }
+
+        It 'фильтрует по ChannelId' {
+            # может вернуть пустой список — главное что нет ошибки
+            { Get-MMOutgoingWebhook -TeamId $script:Team.id -ChannelId $script:Channel.id } | Should -Not -Throw
+        }
+
+        It 'возвращает список webhooks по TeamName' {
+            $result = Get-MMOutgoingWebhook -TeamName $script:Team.name
+
+            $result | Should -Not -BeNullOrEmpty
         }
 
         It 'принимает объект MMTeam из пайплайна' {
@@ -231,6 +296,19 @@ Describe 'Set-MMOutgoingWebhook' {
                 -TriggerWords  @('!pester')
 
             $result.display_name | Should -Be 'Pester Pipeline Outgoing'
+        }
+
+        It 'обновляет webhook с Description и ChannelId' {
+            $result = Set-MMOutgoingWebhook `
+                -HookId       $script:OutgoingHook.id `
+                -DisplayName  'Pester With Desc' `
+                -CallbackUrls @('http://localhost:9000/hook') `
+                -TriggerWords @('!pester') `
+                -ChannelId    $script:Channel.id `
+                -Description  'Pester outgoing description'
+
+            $result.display_name | Should -Be 'Pester With Desc'
+            $result.channel_id   | Should -Be $script:Channel.id
         }
     }
 }
