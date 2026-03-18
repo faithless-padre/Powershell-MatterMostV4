@@ -68,6 +68,18 @@ Describe 'New-MMChannel' {
         }
     }
 
+    Context 'По TeamName' {
+        It 'создаёт канал по TeamName' {
+            $chan = New-MMChannel -TeamName $script:Team.name -Name "byname_$($script:Suffix)" -DisplayName 'ByName Channel'
+            try {
+                $chan      | Should -Not -BeNullOrEmpty
+                $chan.name | Should -Be "byname_$($script:Suffix)"
+            } finally {
+                Remove-MMChannel -ChannelId $chan.id
+            }
+        }
+    }
+
     Context 'Ошибки' {
         It 'бросает исключение при дублирующемся имени канала' {
             $tempChan = New-MMChannel -TeamId $script:Team.id -Name "dup_$($script:Suffix)" -DisplayName 'Dup Channel'

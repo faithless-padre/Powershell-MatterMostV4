@@ -3,13 +3,15 @@
 function Get-MMTeam {
     <#
     .SYNOPSIS
-        Returns a MatterMost team by ID, name, or all teams.
+        Returns a MatterMost team by ID, name, all teams, or filtered by expression.
     .EXAMPLE
         Get-MMTeam -All
     .EXAMPLE
         Get-MMTeam -TeamId 'abc123'
     .EXAMPLE
         Get-MMTeam -Name 'testteam'
+    .EXAMPLE
+        Get-MMTeam -Filter { $_.name -like 'dev*' }
     #>
     [OutputType('MMTeam')]
     [CmdletBinding(DefaultParameterSetName = 'All')]
@@ -22,7 +24,10 @@ function Get-MMTeam {
         [string]$TeamId,
 
         [Parameter(Mandatory, ParameterSetName = 'ByName', Position = 0)]
-        [string]$Name
+        [string]$Name,
+
+        [Parameter(Mandatory, ParameterSetName = 'Filter')]
+        [scriptblock]$Filter
     )
 
     process {
@@ -30,6 +35,7 @@ function Get-MMTeam {
             'ById'   { Invoke-MMRequest -Endpoint "teams/$TeamId" | ConvertTo-MMTeam }
             'ByName' { Invoke-MMRequest -Endpoint "teams/name/$Name" | ConvertTo-MMTeam }
             'All'    { Get-MMTeamList | ConvertTo-MMTeam }
+            'Filter' { Get-MMTeamList | ConvertTo-MMTeam | Where-Object $Filter }
         }
     }
 }

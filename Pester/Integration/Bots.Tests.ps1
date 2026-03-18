@@ -74,6 +74,20 @@ Describe 'New-MMBot / Get-MMBot' {
         It 'бросает исключение при невалидном BotUserId' {
             { Get-MMBot -BotUserId 'invalid-bot-id' } | Should -Throw
         }
+
+        It 'возвращает ботов по -Filter на username' {
+            $botUsername = $script:Bot.username
+            $result      = Get-MMBot -Filter { $_.username -eq $botUsername }
+
+            $result          | Should -Not -BeNullOrEmpty
+            $result.username | Should -Be $script:Bot.username
+        }
+
+        It '-Filter возвращает пустой результат при несовпадении' {
+            $result = Get-MMBot -Filter { $_.username -eq 'nonexistent-bot-xyz-abc' }
+
+            $result | Should -BeNullOrEmpty
+        }
     }
 }
 

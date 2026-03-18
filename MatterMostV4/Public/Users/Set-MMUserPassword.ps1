@@ -5,9 +5,9 @@ function Set-MMUserPassword {
     .SYNOPSIS
         Changes a MatterMost user password.
     .EXAMPLE
-        Set-MMUserPassword -UserId 'abc123' -NewPassword 'NewPass123!'
+        Set-MMUserPassword -UserId 'abc123' -NewPassword (ConvertTo-SecureString 'NewPass123!' -AsPlainText -Force)
     .EXAMPLE
-        Get-MMUser -Username 'jdoe' | Set-MMUserPassword -NewPassword 'NewPass123!'
+        Get-MMUser -Username 'jdoe' | Set-MMUserPassword -NewPassword (ConvertTo-SecureString 'NewPass123!' -AsPlainText -Force)
     #>
     [CmdletBinding()]
     param(

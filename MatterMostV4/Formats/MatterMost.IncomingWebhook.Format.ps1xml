@@ -4,48 +4,34 @@
 
     <View>
       <Name>MMIncomingWebhook.Table</Name>
-      <ViewSelectedBy>
-        <TypeName>MMIncomingWebhook</TypeName>
-      </ViewSelectedBy>
+      <ViewSelectedBy><TypeName>MMIncomingWebhook</TypeName></ViewSelectedBy>
       <TableControl>
         <TableHeaders>
-          <TableColumnHeader><Label>Display Name</Label><Width>28</Width></TableColumnHeader>
-          <TableColumnHeader><Label>Channel Id</Label><Width>28</Width></TableColumnHeader>
+          <TableColumnHeader><Label>DisplayName</Label><Width>28</Width></TableColumnHeader>
+          <TableColumnHeader><Label>ChannelId</Label><Width>28</Width></TableColumnHeader>
           <TableColumnHeader><Label>Locked</Label><Width>8</Width></TableColumnHeader>
           <TableColumnHeader><Label>Description</Label></TableColumnHeader>
         </TableHeaders>
-        <TableRowEntries>
-          <TableRowEntry>
-            <TableColumnItems>
-              <TableColumnItem><PropertyName>display_name</PropertyName></TableColumnItem>
-              <TableColumnItem><PropertyName>channel_id</PropertyName></TableColumnItem>
-              <TableColumnItem><PropertyName>channel_locked</PropertyName></TableColumnItem>
-              <TableColumnItem><PropertyName>description</PropertyName></TableColumnItem>
-            </TableColumnItems>
-          </TableRowEntry>
-        </TableRowEntries>
+        <TableRowEntries><TableRowEntry><TableColumnItems>
+          <TableColumnItem><PropertyName>DisplayName</PropertyName></TableColumnItem>
+          <TableColumnItem><PropertyName>ChannelId</PropertyName></TableColumnItem>
+          <TableColumnItem><PropertyName>ChannelLocked</PropertyName></TableColumnItem>
+          <TableColumnItem><PropertyName>description</PropertyName></TableColumnItem>
+        </TableColumnItems></TableRowEntry></TableRowEntries>
       </TableControl>
     </View>
 
     <View>
       <Name>MMIncomingWebhook.List</Name>
-      <ViewSelectedBy>
-        <TypeName>MMIncomingWebhook</TypeName>
-      </ViewSelectedBy>
-      <ListControl>
-        <ListEntries>
-          <ListEntry>
-            <ListItems>
-              <ListItem><Label>Id</Label><PropertyName>id</PropertyName></ListItem>
-              <ListItem><Label>Display Name</Label><PropertyName>display_name</PropertyName></ListItem>
-              <ListItem><Label>Channel Id</Label><PropertyName>channel_id</PropertyName></ListItem>
-              <ListItem><Label>Description</Label><PropertyName>description</PropertyName></ListItem>
-              <ListItem><Label>Username</Label><PropertyName>username</PropertyName></ListItem>
-              <ListItem><Label>Locked</Label><PropertyName>channel_locked</PropertyName></ListItem>
-            </ListItems>
-          </ListEntry>
-        </ListEntries>
-      </ListControl>
+      <ViewSelectedBy><TypeName>MMIncomingWebhook</TypeName></ViewSelectedBy>
+      <ListControl><ListEntries><ListEntry><ListItems>
+        <ListItem><Label>Id</Label><PropertyName>id</PropertyName></ListItem>
+        <ListItem><Label>DisplayName</Label><PropertyName>DisplayName</PropertyName></ListItem>
+        <ListItem><Label>ChannelId</Label><PropertyName>ChannelId</PropertyName></ListItem>
+        <ListItem><Label>Description</Label><PropertyName>description</PropertyName></ListItem>
+        <ListItem><Label>Username</Label><PropertyName>username</PropertyName></ListItem>
+        <ListItem><Label>Locked</Label><PropertyName>ChannelLocked</PropertyName></ListItem>
+      </ListItems></ListEntry></ListEntries></ListControl>
     </View>
 
   </ViewDefinitions>

@@ -99,6 +99,11 @@ Describe 'Get-MMUserTeams' {
             $teams = $script:TestUser | Get-MMUserTeams
             $teams.id | Should -Contain $script:Team.id
         }
+
+        It 'возвращает команды по Username' {
+            $teams = Get-MMUserTeams -Username $script:TestUser.username
+            $teams.id | Should -Contain $script:Team.id
+        }
     }
 }
 

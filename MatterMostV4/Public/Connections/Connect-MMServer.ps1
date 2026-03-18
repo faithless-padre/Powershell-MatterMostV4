@@ -8,7 +8,7 @@ function Connect-MMServer {
         Поддерживает три способа аутентификации: PSCredential, Username/Password или Personal Access Token.
         После успешного подключения токен сохраняется в $script:MMSession и используется автоматически всеми командлетами модуля.
     .EXAMPLE
-        Connect-MMServer -Url "http://localhost:8065" -Username "admin" -Password "Admin123456!"
+        Connect-MMServer -Url "http://localhost:8065" -Username "admin" -Password (ConvertTo-SecureString "Admin123456!" -AsPlainText -Force)
     .EXAMPLE
         Connect-MMServer -Url "http://localhost:8065" -Credential (Get-Credential)
     .EXAMPLE

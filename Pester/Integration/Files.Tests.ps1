@@ -52,6 +52,13 @@ Describe 'Send-MMFile' {
             $result.id | Should -Not -BeNullOrEmpty
         }
 
+        It 'загружает файл по ChannelName' {
+            $result = Send-MMFile -FilePath $script:TempFile -ChannelName $script:Channel.name
+
+            $result    | Should -Not -BeNullOrEmpty
+            $result.id | Should -Not -BeNullOrEmpty
+        }
+
         It 'бросает исключение если файл не существует' {
             { Send-MMFile -FilePath 'C:\nonexistent\file.txt' -ChannelId $script:Channel.id } |
                 Should -Throw

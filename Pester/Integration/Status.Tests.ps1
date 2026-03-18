@@ -39,6 +39,13 @@ Describe 'Get-MMUserStatus' {
 
             $result.user_id | Should -Be $script:AdminUser.id
         }
+
+        It 'возвращает статус по Username' {
+            $result = Get-MMUserStatus -Username $script:AdminUser.username
+
+            $result.user_id        | Should -Be $script:AdminUser.id
+            $result.GetType().Name | Should -Be 'MMUserStatus'
+        }
     }
 
     Context 'Batch получение статусов по UserIds' {

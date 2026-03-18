@@ -3,7 +3,7 @@
 function Get-MMChannel {
     <#
     .SYNOPSIS
-        Returns a MatterMost channel by ID, name within a team, team channel list, or all channels.
+        Returns a MatterMost channel by ID, name within a team, team channel list, all channels, or filtered by expression.
     .EXAMPLE
         Get-MMChannel -All
     .EXAMPLE
@@ -12,6 +12,10 @@ function Get-MMChannel {
         Get-MMChannel -TeamId 'team123' -Name 'general'
     .EXAMPLE
         Get-MMChannel -TeamId 'team123'
+    .EXAMPLE
+        Get-MMChannel -Filter { $_.name -like 'dev*' }
+    .EXAMPLE
+        Get-MMChannel -TeamId 'team123' -Filter { $_.type -eq 'O' }
     #>
     [OutputType('MMChannel')]
     [CmdletBinding(DefaultParameterSetName = 'ByTeam')]
@@ -25,10 +29,14 @@ function Get-MMChannel {
 
         [Parameter(ParameterSetName = 'ByName')]
         [Parameter(ParameterSetName = 'ByTeam')]
+        [Parameter(ParameterSetName = 'Filter')]
         [string]$TeamId,
 
         [Parameter(Mandatory, ParameterSetName = 'ByName', Position = 0)]
-        [string]$Name
+        [string]$Name,
+
+        [Parameter(Mandatory, ParameterSetName = 'Filter')]
+        [scriptblock]$Filter
     )
 
     process {
@@ -56,6 +64,18 @@ function Get-MMChannel {
                     $batch | ConvertTo-MMChannel
                     $page++
                 } while ($batch.Count -eq $perPage)
+            }
+            'Filter' {
+                $resolvedTeamId = if ($TeamId) { $TeamId } else { Get-MMDefaultTeamId }
+                $page    = 0
+                $perPage = 200
+                $fetched = @()
+                do {
+                    $batch   = Invoke-MMRequest -Endpoint "teams/$resolvedTeamId/channels?page=$page&per_page=$perPage"
+                    $fetched += $batch
+                    $page++
+                } while ($batch.Count -eq $perPage)
+                $fetched | ConvertTo-MMChannel | Where-Object $Filter
             }
         }
     }

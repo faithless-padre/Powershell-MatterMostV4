@@ -7,17 +7,28 @@ function Get-MMUserTeams {
     .EXAMPLE
         Get-MMUserTeams -UserId 'abc123'
     .EXAMPLE
+        Get-MMUserTeams -Username 'jdoe'
+    .EXAMPLE
         Get-MMUser -Username 'jdoe' | Get-MMUserTeams
     #>
     [OutputType('MMTeam')]
-    [CmdletBinding()]
+    [CmdletBinding(DefaultParameterSetName = 'ById')]
     param(
-        [Parameter(Mandatory, ValueFromPipelineByPropertyName)]
+        [Parameter(Mandatory, ParameterSetName = 'ById', ValueFromPipelineByPropertyName)]
         [Alias('id')]
-        [string]$UserId
+        [string]$UserId,
+
+        [Parameter(Mandatory, ParameterSetName = 'ByName')]
+        [string]$Username
     )
 
     process {
-        Invoke-MMRequest -Endpoint "users/$UserId/teams" | ConvertTo-MMTeam
+        $resolvedId = if ($PSCmdlet.ParameterSetName -eq 'ByName') {
+            (Get-MMUser -Username $Username).id
+        } else {
+            $UserId
+        }
+
+        Invoke-MMRequest -Endpoint "users/$resolvedId/teams" | ConvertTo-MMTeam
     }
 }

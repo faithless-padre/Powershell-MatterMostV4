@@ -4,50 +4,36 @@
 
     <View>
       <Name>MMChannel.Table</Name>
-      <ViewSelectedBy>
-        <TypeName>MMChannel</TypeName>
-      </ViewSelectedBy>
+      <ViewSelectedBy><TypeName>MMChannel</TypeName></ViewSelectedBy>
       <TableControl>
         <TableHeaders>
-          <TableColumnHeader><Label>Display Name</Label><Width>28</Width></TableColumnHeader>
+          <TableColumnHeader><Label>DisplayName</Label><Width>28</Width></TableColumnHeader>
           <TableColumnHeader><Label>Name</Label><Width>22</Width></TableColumnHeader>
           <TableColumnHeader><Label>Type</Label><Width>8</Width></TableColumnHeader>
           <TableColumnHeader><Label>Purpose</Label></TableColumnHeader>
         </TableHeaders>
-        <TableRowEntries>
-          <TableRowEntry>
-            <TableColumnItems>
-              <TableColumnItem><PropertyName>display_name</PropertyName></TableColumnItem>
-              <TableColumnItem><PropertyName>name</PropertyName></TableColumnItem>
-              <TableColumnItem><PropertyName>type</PropertyName></TableColumnItem>
-              <TableColumnItem><PropertyName>purpose</PropertyName></TableColumnItem>
-            </TableColumnItems>
-          </TableRowEntry>
-        </TableRowEntries>
+        <TableRowEntries><TableRowEntry><TableColumnItems>
+          <TableColumnItem><PropertyName>DisplayName</PropertyName></TableColumnItem>
+          <TableColumnItem><PropertyName>name</PropertyName></TableColumnItem>
+          <TableColumnItem><PropertyName>type</PropertyName></TableColumnItem>
+          <TableColumnItem><PropertyName>purpose</PropertyName></TableColumnItem>
+        </TableColumnItems></TableRowEntry></TableRowEntries>
       </TableControl>
     </View>
 
     <View>
       <Name>MMChannel.List</Name>
-      <ViewSelectedBy>
-        <TypeName>MMChannel</TypeName>
-      </ViewSelectedBy>
-      <ListControl>
-        <ListEntries>
-          <ListEntry>
-            <ListItems>
-              <ListItem><Label>Id</Label><PropertyName>id</PropertyName></ListItem>
-              <ListItem><Label>Name</Label><PropertyName>name</PropertyName></ListItem>
-              <ListItem><Label>Display Name</Label><PropertyName>display_name</PropertyName></ListItem>
-              <ListItem><Label>Type</Label><PropertyName>type</PropertyName></ListItem>
-              <ListItem><Label>Team Id</Label><PropertyName>team_id</PropertyName></ListItem>
-              <ListItem><Label>Purpose</Label><PropertyName>purpose</PropertyName></ListItem>
-              <ListItem><Label>Header</Label><PropertyName>header</PropertyName></ListItem>
-              <ListItem><Label>Total Messages</Label><PropertyName>total_msg_count</PropertyName></ListItem>
-            </ListItems>
-          </ListEntry>
-        </ListEntries>
-      </ListControl>
+      <ViewSelectedBy><TypeName>MMChannel</TypeName></ViewSelectedBy>
+      <ListControl><ListEntries><ListEntry><ListItems>
+        <ListItem><Label>Id</Label><PropertyName>id</PropertyName></ListItem>
+        <ListItem><Label>Name</Label><PropertyName>name</PropertyName></ListItem>
+        <ListItem><Label>DisplayName</Label><PropertyName>DisplayName</PropertyName></ListItem>
+        <ListItem><Label>Type</Label><PropertyName>type</PropertyName></ListItem>
+        <ListItem><Label>TeamId</Label><PropertyName>TeamId</PropertyName></ListItem>
+        <ListItem><Label>Purpose</Label><PropertyName>purpose</PropertyName></ListItem>
+        <ListItem><Label>Header</Label><PropertyName>header</PropertyName></ListItem>
+        <ListItem><Label>TotalMessages</Label><PropertyName>TotalMessages</PropertyName></ListItem>
+      </ListItems></ListEntry></ListEntries></ListControl>
     </View>
 
   </ViewDefinitions>
