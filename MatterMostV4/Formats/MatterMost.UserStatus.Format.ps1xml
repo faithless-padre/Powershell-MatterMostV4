@@ -4,26 +4,20 @@
 
     <View>
       <Name>MMUserStatus.Table</Name>
-      <ViewSelectedBy>
-        <TypeName>MMUserStatus</TypeName>
-      </ViewSelectedBy>
+      <ViewSelectedBy><TypeName>MMUserStatus</TypeName></ViewSelectedBy>
       <TableControl>
         <TableHeaders>
-          <TableColumnHeader><Label>User Id</Label><Width>28</Width></TableColumnHeader>
+          <TableColumnHeader><Label>UserId</Label><Width>28</Width></TableColumnHeader>
           <TableColumnHeader><Label>Status</Label><Width>10</Width></TableColumnHeader>
           <TableColumnHeader><Label>Manual</Label><Width>8</Width></TableColumnHeader>
-          <TableColumnHeader><Label>Last Activity</Label></TableColumnHeader>
+          <TableColumnHeader><Label>LastActivityAt</Label></TableColumnHeader>
         </TableHeaders>
-        <TableRowEntries>
-          <TableRowEntry>
-            <TableColumnItems>
-              <TableColumnItem><PropertyName>user_id</PropertyName></TableColumnItem>
-              <TableColumnItem><PropertyName>status</PropertyName></TableColumnItem>
-              <TableColumnItem><PropertyName>manual</PropertyName></TableColumnItem>
-              <TableColumnItem><PropertyName>last_activity_at</PropertyName></TableColumnItem>
-            </TableColumnItems>
-          </TableRowEntry>
-        </TableRowEntries>
+        <TableRowEntries><TableRowEntry><TableColumnItems>
+          <TableColumnItem><PropertyName>UserId</PropertyName></TableColumnItem>
+          <TableColumnItem><PropertyName>status</PropertyName></TableColumnItem>
+          <TableColumnItem><PropertyName>manual</PropertyName></TableColumnItem>
+          <TableColumnItem><PropertyName>LastActivityAt</PropertyName></TableColumnItem>
+        </TableColumnItems></TableRowEntry></TableRowEntries>
       </TableControl>
     </View>
 

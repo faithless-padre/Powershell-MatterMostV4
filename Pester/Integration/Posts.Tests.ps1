@@ -192,6 +192,12 @@ Describe 'Get-MMChannelPosts' {
             $result | Should -Not -BeNullOrEmpty
         }
 
+        It 'возвращает посты по ChannelName' {
+            $result = Get-MMChannelPosts -ChannelName $script:Channel.name -PerPage 5
+
+            $result | Should -Not -BeNullOrEmpty
+        }
+
         It 'поддерживает пагинацию' {
             $page0 = Get-MMChannelPosts -ChannelId $script:Channel.id -Page 0 -PerPage 5
             $page1 = Get-MMChannelPosts -ChannelId $script:Channel.id -Page 1 -PerPage 5

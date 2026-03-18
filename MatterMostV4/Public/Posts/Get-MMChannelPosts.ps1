@@ -7,16 +7,24 @@ function Get-MMChannelPosts {
     .EXAMPLE
         Get-MMChannelPosts -ChannelId 'abc123'
     .EXAMPLE
+        Get-MMChannelPosts -ChannelName 'general'
+    .EXAMPLE
         Get-MMChannel -Name 'general' | Get-MMChannelPosts -Page 0 -PerPage 20
     .EXAMPLE
         Get-MMChannelPosts -ChannelId 'abc123' -Since 1700000000000
     #>
-    [CmdletBinding()]
+    [CmdletBinding(DefaultParameterSetName = 'ById')]
     [OutputType('MMPost')]
     param(
-        [Parameter(Mandatory, ValueFromPipelineByPropertyName)]
+        [Parameter(Mandatory, ParameterSetName = 'ById', ValueFromPipelineByPropertyName)]
         [Alias('id')]
         [string]$ChannelId,
+
+        [Parameter(Mandatory, ParameterSetName = 'ByName')]
+        [string]$ChannelName,
+
+        [Parameter(ParameterSetName = 'ByName')]
+        [string]$TeamId,
 
         [Parameter()]
         [int]$Page = 0,
@@ -24,7 +32,6 @@ function Get-MMChannelPosts {
         [Parameter()]
         [int]$PerPage = 60,
 
-        # Unix timestamp в миллисекундах — вернуть посты изменённые после этого момента
         [Parameter()]
         [long]$Since,
 
@@ -33,13 +40,18 @@ function Get-MMChannelPosts {
     )
 
     process {
+        $resolvedId = if ($PSCmdlet.ParameterSetName -eq 'ByName') {
+            (Get-MMChannel -Name $ChannelName -TeamId $TeamId).id
+        } else {
+            $ChannelId
+        }
+
         $query = "page=$Page&per_page=$PerPage"
-        if ($Since)           { $query += "&since=$Since" }
-        if ($IncludeDeleted)  { $query += "&include_deleted=true" }
+        if ($Since)          { $query += "&since=$Since" }
+        if ($IncludeDeleted) { $query += "&include_deleted=true" }
 
-        $response = Invoke-MMRequest -Endpoint "channels/$ChannelId/posts?$query"
+        $response = Invoke-MMRequest -Endpoint "channels/$resolvedId/posts?$query"
 
-        # API возвращает { order: [...], posts: { id: PostObject, ... } }
         if ($response.order -and $response.posts) {
             foreach ($postId in $response.order) {
                 $response.posts.$postId | ConvertTo-MMPost

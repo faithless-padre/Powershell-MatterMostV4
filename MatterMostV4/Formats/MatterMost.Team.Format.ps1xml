@@ -4,51 +4,37 @@
 
     <View>
       <Name>MMTeam.Table</Name>
-      <ViewSelectedBy>
-        <TypeName>MMTeam</TypeName>
-      </ViewSelectedBy>
+      <ViewSelectedBy><TypeName>MMTeam</TypeName></ViewSelectedBy>
       <TableControl>
         <TableHeaders>
-          <TableColumnHeader><Label>Display Name</Label><Width>28</Width></TableColumnHeader>
+          <TableColumnHeader><Label>DisplayName</Label><Width>28</Width></TableColumnHeader>
           <TableColumnHeader><Label>Name</Label><Width>22</Width></TableColumnHeader>
           <TableColumnHeader><Label>Type</Label><Width>8</Width></TableColumnHeader>
           <TableColumnHeader><Label>Description</Label></TableColumnHeader>
         </TableHeaders>
-        <TableRowEntries>
-          <TableRowEntry>
-            <TableColumnItems>
-              <TableColumnItem><PropertyName>display_name</PropertyName></TableColumnItem>
-              <TableColumnItem><PropertyName>name</PropertyName></TableColumnItem>
-              <TableColumnItem><PropertyName>type</PropertyName></TableColumnItem>
-              <TableColumnItem><PropertyName>description</PropertyName></TableColumnItem>
-            </TableColumnItems>
-          </TableRowEntry>
-        </TableRowEntries>
+        <TableRowEntries><TableRowEntry><TableColumnItems>
+          <TableColumnItem><PropertyName>DisplayName</PropertyName></TableColumnItem>
+          <TableColumnItem><PropertyName>name</PropertyName></TableColumnItem>
+          <TableColumnItem><PropertyName>type</PropertyName></TableColumnItem>
+          <TableColumnItem><PropertyName>description</PropertyName></TableColumnItem>
+        </TableColumnItems></TableRowEntry></TableRowEntries>
       </TableControl>
     </View>
 
     <View>
       <Name>MMTeam.List</Name>
-      <ViewSelectedBy>
-        <TypeName>MMTeam</TypeName>
-      </ViewSelectedBy>
-      <ListControl>
-        <ListEntries>
-          <ListEntry>
-            <ListItems>
-              <ListItem><Label>Id</Label><PropertyName>id</PropertyName></ListItem>
-              <ListItem><Label>Name</Label><PropertyName>name</PropertyName></ListItem>
-              <ListItem><Label>Display Name</Label><PropertyName>display_name</PropertyName></ListItem>
-              <ListItem><Label>Type</Label><PropertyName>type</PropertyName></ListItem>
-              <ListItem><Label>Description</Label><PropertyName>description</PropertyName></ListItem>
-              <ListItem><Label>Company Name</Label><PropertyName>company_name</PropertyName></ListItem>
-              <ListItem><Label>Email</Label><PropertyName>email</PropertyName></ListItem>
-              <ListItem><Label>Allow Open Invite</Label><PropertyName>allow_open_invite</PropertyName></ListItem>
-              <ListItem><Label>Invite Id</Label><PropertyName>invite_id</PropertyName></ListItem>
-            </ListItems>
-          </ListEntry>
-        </ListEntries>
-      </ListControl>
+      <ViewSelectedBy><TypeName>MMTeam</TypeName></ViewSelectedBy>
+      <ListControl><ListEntries><ListEntry><ListItems>
+        <ListItem><Label>Id</Label><PropertyName>id</PropertyName></ListItem>
+        <ListItem><Label>Name</Label><PropertyName>name</PropertyName></ListItem>
+        <ListItem><Label>DisplayName</Label><PropertyName>DisplayName</PropertyName></ListItem>
+        <ListItem><Label>Type</Label><PropertyName>type</PropertyName></ListItem>
+        <ListItem><Label>Description</Label><PropertyName>description</PropertyName></ListItem>
+        <ListItem><Label>CompanyName</Label><PropertyName>CompanyName</PropertyName></ListItem>
+        <ListItem><Label>Email</Label><PropertyName>email</PropertyName></ListItem>
+        <ListItem><Label>AllowOpenInvite</Label><PropertyName>AllowOpenInvite</PropertyName></ListItem>
+        <ListItem><Label>InviteId</Label><PropertyName>InviteId</PropertyName></ListItem>
+      </ListItems></ListEntry></ListEntries></ListControl>
     </View>
 
   </ViewDefinitions>

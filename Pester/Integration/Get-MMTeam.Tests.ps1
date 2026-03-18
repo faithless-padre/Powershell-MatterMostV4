@@ -68,4 +68,27 @@ Describe 'Get-MMTeam' {
             $result.id | Should -Be $source.id
         }
     }
+
+    Context '-Filter' {
+        It 'возвращает команды по -eq на name' {
+            $teamName = $config.TestTeamName
+            $result   = Get-MMTeam -Filter { $_.name -eq $teamName }
+
+            $result      | Should -Not -BeNullOrEmpty
+            $result.name | Should -Be $config.TestTeamName
+        }
+
+        It 'возвращает команды по -like на name' {
+            $prefix = $config.TestTeamName.Substring(0, [Math]::Min(3, $config.TestTeamName.Length))
+            $result = Get-MMTeam -Filter ([scriptblock]::Create('$_.name -like "' + $prefix + '*"'))
+
+            $result | Should -Not -BeNullOrEmpty
+        }
+
+        It 'возвращает пустой результат при несовпадении' {
+            $result = Get-MMTeam -Filter { $_.name -eq 'nonexistent-team-xyz-abc' }
+
+            $result | Should -BeNullOrEmpty
+        }
+    }
 }

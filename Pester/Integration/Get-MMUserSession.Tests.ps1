@@ -36,6 +36,11 @@ Describe 'Get-MMUserSession' {
             $result = $script:AdminUser | Get-MMUserSession
             $result | Should -Not -BeNullOrEmpty
         }
+
+        It 'возвращает сессии по Username' {
+            $result = Get-MMUserSession -Username $script:AdminUser.username
+            $result | Should -Not -BeNullOrEmpty
+        }
     }
 
     Context 'Ошибки' {

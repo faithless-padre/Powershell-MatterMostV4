@@ -85,6 +85,16 @@ Describe 'Get-MMUserChannels' {
             $channels = $script:TestUser | Get-MMUserChannels -TeamId $script:Team.id
             $channels | Should -Not -BeNullOrEmpty
         }
+
+        It 'возвращает членов канала по ChannelName' {
+            $result = Get-MMChannelMembers -ChannelName $script:Channel.name -TeamId $script:Team.id
+            $result | Should -Not -BeNullOrEmpty
+        }
+
+        It 'возвращает каналы по Username и TeamName' {
+            $channels = Get-MMUserChannels -Username $script:TestUser.username -TeamName $script:Team.name
+            $channels | Should -Not -BeNullOrEmpty
+        }
     }
 }
 

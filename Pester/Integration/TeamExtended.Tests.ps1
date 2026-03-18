@@ -39,6 +39,13 @@ Describe 'Get-MMTeamMembers' {
 
             $result | Should -Not -BeNullOrEmpty
         }
+
+        It 'возвращает участников по TeamName' {
+            $result = Get-MMTeamMembers -TeamName $script:Team.name
+
+            $result            | Should -Not -BeNullOrEmpty
+            $result[0].team_id | Should -Be $script:Team.id
+        }
     }
 
     Context 'Ошибки' {
@@ -127,6 +134,14 @@ Describe 'Send-MMTeamInvite' {
         It 'принимает объект команды из пайплайна' {
             try {
                 $script:Team | Send-MMTeamInvite -Emails 'invite2@example.com'
+            } catch {
+                $_.Exception.Message | Should -Match '(disabled|invite|501|200)'
+            }
+        }
+
+        It 'отправляет приглашение по TeamName' {
+            try {
+                Send-MMTeamInvite -TeamName $script:Team.name -Emails 'invitename@example.com'
             } catch {
                 $_.Exception.Message | Should -Match '(disabled|invite|501|200)'
             }

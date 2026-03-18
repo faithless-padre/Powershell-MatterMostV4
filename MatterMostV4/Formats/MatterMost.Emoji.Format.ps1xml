@@ -4,24 +4,16 @@
 
     <View>
       <Name>MMEmoji.Table</Name>
-      <ViewSelectedBy>
-        <TypeName>MMEmoji</TypeName>
-      </ViewSelectedBy>
+      <ViewSelectedBy><TypeName>MMEmoji</TypeName></ViewSelectedBy>
       <TableControl>
         <TableHeaders>
           <TableColumnHeader><Label>Name</Label><Width>24</Width></TableColumnHeader>
-          <TableColumnHeader><Label>Id</Label><Width>28</Width></TableColumnHeader>
-          <TableColumnHeader><Label>Creator Id</Label></TableColumnHeader>
+          <TableColumnHeader><Label>CreatorId</Label></TableColumnHeader>
         </TableHeaders>
-        <TableRowEntries>
-          <TableRowEntry>
-            <TableColumnItems>
-              <TableColumnItem><PropertyName>name</PropertyName></TableColumnItem>
-              <TableColumnItem><PropertyName>id</PropertyName></TableColumnItem>
-              <TableColumnItem><PropertyName>creator_id</PropertyName></TableColumnItem>
-            </TableColumnItems>
-          </TableRowEntry>
-        </TableRowEntries>
+        <TableRowEntries><TableRowEntry><TableColumnItems>
+          <TableColumnItem><PropertyName>name</PropertyName></TableColumnItem>
+          <TableColumnItem><PropertyName>CreatorId</PropertyName></TableColumnItem>
+        </TableColumnItems></TableRowEntry></TableRowEntries>
       </TableControl>
     </View>
 

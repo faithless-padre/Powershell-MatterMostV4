@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Types>
+
+  <!-- MMChannel -->
+  <Type>
+    <Name>MMChannel</Name>
+    <Members>
+      <ScriptProperty><Name>DisplayName</Name><GetScriptBlock>$this.display_name</GetScriptBlock></ScriptProperty>
+      <ScriptProperty><Name>TeamId</Name><GetScriptBlock>$this.team_id</GetScriptBlock></ScriptProperty>
+      <ScriptProperty><Name>TotalMessages</Name><GetScriptBlock>$this.total_msg_count</GetScriptBlock></ScriptProperty>
+    </Members>
+  </Type>
+
+  <!-- MMUser -->
+  <Type>
+    <Name>MMUser</Name>
+    <Members>
+      <ScriptProperty><Name>FirstName</Name><GetScriptBlock>$this.first_name</GetScriptBlock></ScriptProperty>
+      <ScriptProperty><Name>LastName</Name><GetScriptBlock>$this.last_name</GetScriptBlock></ScriptProperty>
+      <ScriptProperty><Name>EmailVerified</Name><GetScriptBlock>$this.email_verified</GetScriptBlock></ScriptProperty>
+      <ScriptProperty><Name>MfaActive</Name><GetScriptBlock>$this.mfa_active</GetScriptBlock></ScriptProperty>
+      <ScriptProperty><Name>AuthService</Name><GetScriptBlock>$this.auth_service</GetScriptBlock></ScriptProperty>
+    </Members>
+  </Type>
+
+  <!-- MMBot -->
+  <Type>
+    <Name>MMBot</Name>
+    <Members>
+      <ScriptProperty><Name>UserId</Name><GetScriptBlock>$this.user_id</GetScriptBlock></ScriptProperty>
+      <ScriptProperty><Name>DisplayName</Name><GetScriptBlock>$this.display_name</GetScriptBlock></ScriptProperty>
+      <ScriptProperty><Name>OwnerId</Name><GetScriptBlock>$this.owner_id</GetScriptBlock></ScriptProperty>
+    </Members>
+  </Type>
+
+  <!-- MMIncomingWebhook -->
+  <Type>
+    <Name>MMIncomingWebhook</Name>
+    <Members>
+      <ScriptProperty><Name>DisplayName</Name><GetScriptBlock>$this.display_name</GetScriptBlock></ScriptProperty>
+      <ScriptProperty><Name>ChannelId</Name><GetScriptBlock>$this.channel_id</GetScriptBlock></ScriptProperty>
+      <ScriptProperty><Name>ChannelLocked</Name><GetScriptBlock>$this.channel_locked</GetScriptBlock></ScriptProperty>
+    </Members>
+  </Type>
+
+  <!-- MMOutgoingWebhook -->
+  <Type>
+    <Name>MMOutgoingWebhook</Name>
+    <Members>
+      <ScriptProperty><Name>DisplayName</Name><GetScriptBlock>$this.display_name</GetScriptBlock></ScriptProperty>
+      <ScriptProperty><Name>TeamId</Name><GetScriptBlock>$this.team_id</GetScriptBlock></ScriptProperty>
+      <ScriptProperty><Name>ChannelId</Name><GetScriptBlock>$this.channel_id</GetScriptBlock></ScriptProperty>
+      <ScriptProperty><Name>TriggerWords</Name><GetScriptBlock>$this.trigger_words</GetScriptBlock></ScriptProperty>
+      <ScriptProperty><Name>CallbackUrls</Name><GetScriptBlock>$this.callback_urls</GetScriptBlock></ScriptProperty>
+    </Members>
+  </Type>
+
+  <!-- MMPost -->
+  <Type>
+    <Name>MMPost</Name>
+    <Members>
+      <ScriptProperty><Name>ChannelId</Name><GetScriptBlock>$this.channel_id</GetScriptBlock></ScriptProperty>
+      <ScriptProperty><Name>UserId</Name><GetScriptBlock>$this.user_id</GetScriptBlock></ScriptProperty>
+      <ScriptProperty><Name>RootId</Name><GetScriptBlock>$this.root_id</GetScriptBlock></ScriptProperty>
+      <ScriptProperty><Name>FileIds</Name><GetScriptBlock>$this.file_ids</GetScriptBlock></ScriptProperty>
+    </Members>
+  </Type>
+
+  <!-- MMFile -->
+  <Type>
+    <Name>MMFile</Name>
+    <Members>
+      <ScriptProperty><Name>MimeType</Name><GetScriptBlock>$this.mime_type</GetScriptBlock></ScriptProperty>
+      <ScriptProperty><Name>HasPreview</Name><GetScriptBlock>$this.has_preview_image</GetScriptBlock></ScriptProperty>
+      <ScriptProperty><Name>PostId</Name><GetScriptBlock>$this.post_id</GetScriptBlock></ScriptProperty>
+      <ScriptProperty><Name>UserId</Name><GetScriptBlock>$this.user_id</GetScriptBlock></ScriptProperty>
+    </Members>
+  </Type>
+
+  <!-- MMSession -->
+  <Type>
+    <Name>MMSession</Name>
+    <Members>
+      <ScriptProperty><Name>UserId</Name><GetScriptBlock>$this.user_id</GetScriptBlock></ScriptProperty>
+      <ScriptProperty><Name>DeviceId</Name><GetScriptBlock>$this.device_id</GetScriptBlock></ScriptProperty>
+      <ScriptProperty><Name>IsOAuth</Name><GetScriptBlock>$this.is_oauth</GetScriptBlock></ScriptProperty>
+      <ScriptProperty><Name>LastActivityAt</Name><GetScriptBlock>$this.last_activity_at</GetScriptBlock></ScriptProperty>
+      <ScriptProperty><Name>ExpiresAt</Name><GetScriptBlock>$this.expires_at</GetScriptBlock></ScriptProperty>
+      <ScriptProperty><Name>CreateAt</Name><GetScriptBlock>$this.create_at</GetScriptBlock></ScriptProperty>
+    </Members>
+  </Type>
+
+  <!-- MMTeam -->
+  <Type>
+    <Name>MMTeam</Name>
+    <Members>
+      <ScriptProperty><Name>DisplayName</Name><GetScriptBlock>$this.display_name</GetScriptBlock></ScriptProperty>
+      <ScriptProperty><Name>CompanyName</Name><GetScriptBlock>$this.company_name</GetScriptBlock></ScriptProperty>
+      <ScriptProperty><Name>AllowOpenInvite</Name><GetScriptBlock>$this.allow_open_invite</GetScriptBlock></ScriptProperty>
+      <ScriptProperty><Name>InviteId</Name><GetScriptBlock>$this.invite_id</GetScriptBlock></ScriptProperty>
+    </Members>
+  </Type>
+
+  <!-- MMTeamMember -->
+  <Type>
+    <Name>MMTeamMember</Name>
+    <Members>
+      <ScriptProperty><Name>UserId</Name><GetScriptBlock>$this.user_id</GetScriptBlock></ScriptProperty>
+      <ScriptProperty><Name>TeamId</Name><GetScriptBlock>$this.team_id</GetScriptBlock></ScriptProperty>
+      <ScriptProperty><Name>SchemeAdmin</Name><GetScriptBlock>$this.scheme_admin</GetScriptBlock></ScriptProperty>
+      <ScriptProperty><Name>SchemeUser</Name><GetScriptBlock>$this.scheme_user</GetScriptBlock></ScriptProperty>
+      <ScriptProperty><Name>SchemeGuest</Name><GetScriptBlock>$this.scheme_guest</GetScriptBlock></ScriptProperty>
+    </Members>
+  </Type>
+
+  <!-- MMChannelMember -->
+  <Type>
+    <Name>MMChannelMember</Name>
+    <Members>
+      <ScriptProperty><Name>UserId</Name><GetScriptBlock>$this.user_id</GetScriptBlock></ScriptProperty>
+      <ScriptProperty><Name>ChannelId</Name><GetScriptBlock>$this.channel_id</GetScriptBlock></ScriptProperty>
+      <ScriptProperty><Name>MsgCount</Name><GetScriptBlock>$this.msg_count</GetScriptBlock></ScriptProperty>
+      <ScriptProperty><Name>MentionCount</Name><GetScriptBlock>$this.mention_count</GetScriptBlock></ScriptProperty>
+    </Members>
+  </Type>
+
+  <!-- MMEmoji -->
+  <Type>
+    <Name>MMEmoji</Name>
+    <Members>
+      <ScriptProperty><Name>CreatorId</Name><GetScriptBlock>$this.creator_id</GetScriptBlock></ScriptProperty>
+    </Members>
+  </Type>
+
+  <!-- MMUserStatus -->
+  <Type>
+    <Name>MMUserStatus</Name>
+    <Members>
+      <ScriptProperty><Name>UserId</Name><GetScriptBlock>$this.user_id</GetScriptBlock></ScriptProperty>
+      <ScriptProperty><Name>LastActivityAt</Name><GetScriptBlock>$this.last_activity_at</GetScriptBlock></ScriptProperty>
+    </Members>
+  </Type>
+
+  <!-- MMUserToken -->
+  <Type>
+    <Name>MMUserToken</Name>
+    <Members>
+      <ScriptProperty><Name>UserId</Name><GetScriptBlock>$this.user_id</GetScriptBlock></ScriptProperty>
+      <ScriptProperty><Name>IsActive</Name><GetScriptBlock>$this.is_active</GetScriptBlock></ScriptProperty>
+    </Members>
+  </Type>
+
+  <!-- MMRole -->
+  <Type>
+    <Name>MMRole</Name>
+    <Members>
+      <ScriptProperty><Name>DisplayName</Name><GetScriptBlock>$this.display_name</GetScriptBlock></ScriptProperty>
+    </Members>
+  </Type>
+
+</Types>

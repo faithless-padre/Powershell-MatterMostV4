@@ -4,52 +4,38 @@
 
     <View>
       <Name>MMSession.Table</Name>
-      <ViewSelectedBy>
-        <TypeName>MMSession</TypeName>
-      </ViewSelectedBy>
+      <ViewSelectedBy><TypeName>MMSession</TypeName></ViewSelectedBy>
       <TableControl>
         <TableHeaders>
           <TableColumnHeader><Label>Id</Label><Width>28</Width></TableColumnHeader>
-          <TableColumnHeader><Label>Device</Label><Width>20</Width></TableColumnHeader>
-          <TableColumnHeader><Label>OAuth</Label><Width>6</Width></TableColumnHeader>
-          <TableColumnHeader><Label>Last Activity</Label><Width>22</Width></TableColumnHeader>
-          <TableColumnHeader><Label>Expires</Label></TableColumnHeader>
+          <TableColumnHeader><Label>DeviceId</Label><Width>20</Width></TableColumnHeader>
+          <TableColumnHeader><Label>IsOAuth</Label><Width>8</Width></TableColumnHeader>
+          <TableColumnHeader><Label>LastActivityAt</Label><Width>22</Width></TableColumnHeader>
+          <TableColumnHeader><Label>ExpiresAt</Label></TableColumnHeader>
         </TableHeaders>
-        <TableRowEntries>
-          <TableRowEntry>
-            <TableColumnItems>
-              <TableColumnItem><PropertyName>id</PropertyName></TableColumnItem>
-              <TableColumnItem><PropertyName>device_id</PropertyName></TableColumnItem>
-              <TableColumnItem><PropertyName>is_oauth</PropertyName></TableColumnItem>
-              <TableColumnItem><PropertyName>last_activity_at</PropertyName></TableColumnItem>
-              <TableColumnItem><PropertyName>expires_at</PropertyName></TableColumnItem>
-            </TableColumnItems>
-          </TableRowEntry>
-        </TableRowEntries>
+        <TableRowEntries><TableRowEntry><TableColumnItems>
+          <TableColumnItem><PropertyName>id</PropertyName></TableColumnItem>
+          <TableColumnItem><PropertyName>DeviceId</PropertyName></TableColumnItem>
+          <TableColumnItem><PropertyName>IsOAuth</PropertyName></TableColumnItem>
+          <TableColumnItem><PropertyName>LastActivityAt</PropertyName></TableColumnItem>
+          <TableColumnItem><PropertyName>ExpiresAt</PropertyName></TableColumnItem>
+        </TableColumnItems></TableRowEntry></TableRowEntries>
       </TableControl>
     </View>
 
     <View>
       <Name>MMSession.List</Name>
-      <ViewSelectedBy>
-        <TypeName>MMSession</TypeName>
-      </ViewSelectedBy>
-      <ListControl>
-        <ListEntries>
-          <ListEntry>
-            <ListItems>
-              <ListItem><Label>Id</Label><PropertyName>id</PropertyName></ListItem>
-              <ListItem><Label>User Id</Label><PropertyName>user_id</PropertyName></ListItem>
-              <ListItem><Label>Device</Label><PropertyName>device_id</PropertyName></ListItem>
-              <ListItem><Label>Roles</Label><PropertyName>roles</PropertyName></ListItem>
-              <ListItem><Label>OAuth</Label><PropertyName>is_oauth</PropertyName></ListItem>
-              <ListItem><Label>Created</Label><PropertyName>create_at</PropertyName></ListItem>
-              <ListItem><Label>Last Activity</Label><PropertyName>last_activity_at</PropertyName></ListItem>
-              <ListItem><Label>Expires</Label><PropertyName>expires_at</PropertyName></ListItem>
-            </ListItems>
-          </ListEntry>
-        </ListEntries>
-      </ListControl>
+      <ViewSelectedBy><TypeName>MMSession</TypeName></ViewSelectedBy>
+      <ListControl><ListEntries><ListEntry><ListItems>
+        <ListItem><Label>Id</Label><PropertyName>id</PropertyName></ListItem>
+        <ListItem><Label>UserId</Label><PropertyName>UserId</PropertyName></ListItem>
+        <ListItem><Label>DeviceId</Label><PropertyName>DeviceId</PropertyName></ListItem>
+        <ListItem><Label>Roles</Label><PropertyName>roles</PropertyName></ListItem>
+        <ListItem><Label>IsOAuth</Label><PropertyName>IsOAuth</PropertyName></ListItem>
+        <ListItem><Label>CreateAt</Label><PropertyName>CreateAt</PropertyName></ListItem>
+        <ListItem><Label>LastActivityAt</Label><PropertyName>LastActivityAt</PropertyName></ListItem>
+        <ListItem><Label>ExpiresAt</Label><PropertyName>ExpiresAt</PropertyName></ListItem>
+      </ListItems></ListEntry></ListEntries></ListControl>
     </View>
 
   </ViewDefinitions>

@@ -117,6 +117,9 @@
         'Formats/MatterMost.UserToken.Format.ps1xml'
         'Formats/MatterMost.Bot.Format.ps1xml'
     )
+    TypesToProcess    = @(
+        'MatterMost.Types.ps1xml'
+    )
     CmdletsToExport   = @()
     VariablesToExport = @()
     AliasesToExport   = @()
