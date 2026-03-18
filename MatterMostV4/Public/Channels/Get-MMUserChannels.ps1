@@ -7,20 +7,40 @@ function Get-MMUserChannels {
     .EXAMPLE
         Get-MMUserChannels -UserId 'user123' -TeamId 'team456'
     .EXAMPLE
-        Get-MMUser -Username 'jdoe' | Get-MMUserChannels -TeamId 'team456'
+        Get-MMUserChannels -Username 'jdoe' -TeamName 'my-team'
+    .EXAMPLE
+        Get-MMUser -Username 'jdoe' | Get-MMUserChannels -TeamName 'my-team'
     #>
     [OutputType('MMChannel')]
-    [CmdletBinding()]
+    [CmdletBinding(DefaultParameterSetName = 'ById')]
     param(
-        [Parameter(Mandatory, ValueFromPipelineByPropertyName)]
+        [Parameter(Mandatory, ParameterSetName = 'ById', ValueFromPipelineByPropertyName)]
         [Alias('id')]
         [string]$UserId,
 
-        [Parameter(Mandatory)]
-        [string]$TeamId
+        [Parameter(Mandatory, ParameterSetName = 'ById')]
+        [string]$TeamId,
+
+        [Parameter(Mandatory, ParameterSetName = 'ByName')]
+        [string]$Username,
+
+        [Parameter(Mandatory, ParameterSetName = 'ByName')]
+        [string]$TeamName
     )
 
     process {
-        Invoke-MMRequest -Endpoint "users/$UserId/teams/$TeamId/channels" | ConvertTo-MMChannel
+        $resolvedUserId = if ($PSCmdlet.ParameterSetName -eq 'ByName') {
+            (Get-MMUser -Username $Username).id
+        } else {
+            $UserId
+        }
+
+        $resolvedTeamId = if ($PSCmdlet.ParameterSetName -eq 'ByName') {
+            (Get-MMTeam -Name $TeamName).id
+        } else {
+            $TeamId
+        }
+
+        Invoke-MMRequest -Endpoint "users/$resolvedUserId/teams/$resolvedTeamId/channels" | ConvertTo-MMChannel
     }
 }

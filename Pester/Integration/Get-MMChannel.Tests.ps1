@@ -103,4 +103,33 @@ Describe 'Get-MMChannel' {
             $result.name | Should -Be 'town-square'
         }
     }
+
+    Context '-Filter' {
+        It 'возвращает каналы по -eq на name' {
+            $result = Get-MMChannel -TeamId $script:Team.id -Filter { $_.name -eq 'town-square' }
+
+            $result      | Should -Not -BeNullOrEmpty
+            $result.name | Should -Be 'town-square'
+        }
+
+        It 'возвращает каналы по -like на name' {
+            $result = Get-MMChannel -TeamId $script:Team.id -Filter { $_.name -like 'town*' }
+
+            $result | Should -Not -BeNullOrEmpty
+            ($result | Where-Object { $_.name -like 'town*' }) | Should -Not -BeNullOrEmpty
+        }
+
+        It 'фильтрует по type' {
+            $result = Get-MMChannel -TeamId $script:Team.id -Filter { $_.type -eq 'O' }
+
+            $result | Should -Not -BeNullOrEmpty
+            $result | ForEach-Object { $_.type | Should -Be 'O' }
+        }
+
+        It 'возвращает пустой результат при несовпадении' {
+            $result = Get-MMChannel -TeamId $script:Team.id -Filter { $_.name -eq 'nonexistent-channel-xyz-abc' }
+
+            $result | Should -BeNullOrEmpty
+        }
+    }
 }

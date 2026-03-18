@@ -4,56 +4,42 @@
 
     <View>
       <Name>MMUser.Table</Name>
-      <ViewSelectedBy>
-        <TypeName>MMUser</TypeName>
-      </ViewSelectedBy>
+      <ViewSelectedBy><TypeName>MMUser</TypeName></ViewSelectedBy>
       <TableControl>
         <TableHeaders>
           <TableColumnHeader><Label>Username</Label><Width>22</Width></TableColumnHeader>
           <TableColumnHeader><Label>Email</Label><Width>32</Width></TableColumnHeader>
-          <TableColumnHeader><Label>First Name</Label><Width>14</Width></TableColumnHeader>
-          <TableColumnHeader><Label>Last Name</Label><Width>14</Width></TableColumnHeader>
+          <TableColumnHeader><Label>FirstName</Label><Width>14</Width></TableColumnHeader>
+          <TableColumnHeader><Label>LastName</Label><Width>14</Width></TableColumnHeader>
           <TableColumnHeader><Label>Roles</Label></TableColumnHeader>
         </TableHeaders>
-        <TableRowEntries>
-          <TableRowEntry>
-            <TableColumnItems>
-              <TableColumnItem><PropertyName>username</PropertyName></TableColumnItem>
-              <TableColumnItem><PropertyName>email</PropertyName></TableColumnItem>
-              <TableColumnItem><PropertyName>first_name</PropertyName></TableColumnItem>
-              <TableColumnItem><PropertyName>last_name</PropertyName></TableColumnItem>
-              <TableColumnItem><PropertyName>roles</PropertyName></TableColumnItem>
-            </TableColumnItems>
-          </TableRowEntry>
-        </TableRowEntries>
+        <TableRowEntries><TableRowEntry><TableColumnItems>
+          <TableColumnItem><PropertyName>username</PropertyName></TableColumnItem>
+          <TableColumnItem><PropertyName>email</PropertyName></TableColumnItem>
+          <TableColumnItem><PropertyName>FirstName</PropertyName></TableColumnItem>
+          <TableColumnItem><PropertyName>LastName</PropertyName></TableColumnItem>
+          <TableColumnItem><PropertyName>roles</PropertyName></TableColumnItem>
+        </TableColumnItems></TableRowEntry></TableRowEntries>
       </TableControl>
     </View>
 
     <View>
       <Name>MMUser.List</Name>
-      <ViewSelectedBy>
-        <TypeName>MMUser</TypeName>
-      </ViewSelectedBy>
-      <ListControl>
-        <ListEntries>
-          <ListEntry>
-            <ListItems>
-              <ListItem><Label>Id</Label><PropertyName>id</PropertyName></ListItem>
-              <ListItem><Label>Username</Label><PropertyName>username</PropertyName></ListItem>
-              <ListItem><Label>Email</Label><PropertyName>email</PropertyName></ListItem>
-              <ListItem><Label>First Name</Label><PropertyName>first_name</PropertyName></ListItem>
-              <ListItem><Label>Last Name</Label><PropertyName>last_name</PropertyName></ListItem>
-              <ListItem><Label>Nickname</Label><PropertyName>nickname</PropertyName></ListItem>
-              <ListItem><Label>Position</Label><PropertyName>position</PropertyName></ListItem>
-              <ListItem><Label>Roles</Label><PropertyName>roles</PropertyName></ListItem>
-              <ListItem><Label>Locale</Label><PropertyName>locale</PropertyName></ListItem>
-              <ListItem><Label>Email Verified</Label><PropertyName>email_verified</PropertyName></ListItem>
-              <ListItem><Label>MFA Active</Label><PropertyName>mfa_active</PropertyName></ListItem>
-              <ListItem><Label>Auth Service</Label><PropertyName>auth_service</PropertyName></ListItem>
-            </ListItems>
-          </ListEntry>
-        </ListEntries>
-      </ListControl>
+      <ViewSelectedBy><TypeName>MMUser</TypeName></ViewSelectedBy>
+      <ListControl><ListEntries><ListEntry><ListItems>
+        <ListItem><Label>Id</Label><PropertyName>id</PropertyName></ListItem>
+        <ListItem><Label>Username</Label><PropertyName>username</PropertyName></ListItem>
+        <ListItem><Label>Email</Label><PropertyName>email</PropertyName></ListItem>
+        <ListItem><Label>FirstName</Label><PropertyName>FirstName</PropertyName></ListItem>
+        <ListItem><Label>LastName</Label><PropertyName>LastName</PropertyName></ListItem>
+        <ListItem><Label>Nickname</Label><PropertyName>nickname</PropertyName></ListItem>
+        <ListItem><Label>Position</Label><PropertyName>position</PropertyName></ListItem>
+        <ListItem><Label>Roles</Label><PropertyName>roles</PropertyName></ListItem>
+        <ListItem><Label>Locale</Label><PropertyName>locale</PropertyName></ListItem>
+        <ListItem><Label>EmailVerified</Label><PropertyName>EmailVerified</PropertyName></ListItem>
+        <ListItem><Label>MfaActive</Label><PropertyName>MfaActive</PropertyName></ListItem>
+        <ListItem><Label>AuthService</Label><PropertyName>AuthService</PropertyName></ListItem>
+      </ListItems></ListEntry></ListEntries></ListControl>
     </View>
 
   </ViewDefinitions>

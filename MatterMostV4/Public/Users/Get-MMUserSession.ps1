@@ -7,17 +7,28 @@ function Get-MMUserSession {
     .EXAMPLE
         Get-MMUserSession -UserId 'abc123'
     .EXAMPLE
+        Get-MMUserSession -Username 'jdoe'
+    .EXAMPLE
         Get-MMUser -Username 'jdoe' | Get-MMUserSession
     #>
     [OutputType('MMSession')]
-    [CmdletBinding()]
+    [CmdletBinding(DefaultParameterSetName = 'ById')]
     param(
-        [Parameter(Mandatory, ValueFromPipelineByPropertyName)]
+        [Parameter(Mandatory, ParameterSetName = 'ById', ValueFromPipelineByPropertyName)]
         [Alias('id')]
-        [string]$UserId
+        [string]$UserId,
+
+        [Parameter(Mandatory, ParameterSetName = 'ByName')]
+        [string]$Username
     )
 
     process {
-        Invoke-MMRequest -Endpoint "users/$UserId/sessions" | ConvertTo-MMSession
+        $resolvedId = if ($PSCmdlet.ParameterSetName -eq 'ByName') {
+            (Get-MMUser -Username $Username).id
+        } else {
+            $UserId
+        }
+
+        Invoke-MMRequest -Endpoint "users/$resolvedId/sessions" | ConvertTo-MMSession
     }
 }

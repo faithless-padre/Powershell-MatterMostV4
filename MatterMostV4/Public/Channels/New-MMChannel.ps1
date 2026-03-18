@@ -7,12 +7,18 @@ function New-MMChannel {
     .EXAMPLE
         New-MMChannel -TeamId 'team123' -Name 'mychannel' -DisplayName 'My Channel'
     .EXAMPLE
+        New-MMChannel -TeamName 'myteam' -Name 'mychannel' -DisplayName 'My Channel'
+    .EXAMPLE
         New-MMChannel -TeamId 'team123' -Name 'private' -DisplayName 'Private Channel' -Type Private
     #>
     [OutputType('MMChannel')]
-    [CmdletBinding()]
+    [CmdletBinding(DefaultParameterSetName = 'ById')]
     param(
+        [Parameter(ParameterSetName = 'ById')]
         [string]$TeamId,
+
+        [Parameter(Mandatory, ParameterSetName = 'ByName')]
+        [string]$TeamName,
 
         [Parameter(Mandatory)]
         [string]$Name,
@@ -20,7 +26,6 @@ function New-MMChannel {
         [Parameter(Mandatory)]
         [string]$DisplayName,
 
-        # Public — открытый канал, Private — закрытый
         [ValidateSet('Public', 'Private')]
         [string]$Type = 'Public',
 
@@ -28,7 +33,13 @@ function New-MMChannel {
         [string]$Header
     )
 
-    $resolvedTeamId = if ($TeamId) { $TeamId } else { Get-MMDefaultTeamId }
+    $resolvedTeamId = if ($PSCmdlet.ParameterSetName -eq 'ByName') {
+        (Get-MMTeam -Name $TeamName).id
+    } elseif ($TeamId) {
+        $TeamId
+    } else {
+        Get-MMDefaultTeamId
+    }
 
     $body = @{
         team_id      = $resolvedTeamId

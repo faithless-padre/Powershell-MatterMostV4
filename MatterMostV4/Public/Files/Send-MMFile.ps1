@@ -7,20 +7,34 @@ function Send-MMFile {
     .EXAMPLE
         Send-MMFile -FilePath 'C:\report.pdf' -ChannelId 'abc123'
     .EXAMPLE
+        Send-MMFile -FilePath 'C:\report.pdf' -ChannelName 'general'
+    .EXAMPLE
         Get-MMChannel -Name 'general' | Send-MMFile -FilePath 'C:\report.pdf'
     #>
-    [CmdletBinding()]
+    [CmdletBinding(DefaultParameterSetName = 'ById')]
     [OutputType('MMFile')]
     param(
         [Parameter(Mandatory)]
         [string]$FilePath,
 
-        [Parameter(Mandatory, ValueFromPipelineByPropertyName)]
+        [Parameter(Mandatory, ParameterSetName = 'ById', ValueFromPipelineByPropertyName)]
         [Alias('id')]
-        [string]$ChannelId
+        [string]$ChannelId,
+
+        [Parameter(Mandatory, ParameterSetName = 'ByName')]
+        [string]$ChannelName,
+
+        [Parameter(ParameterSetName = 'ByName')]
+        [string]$TeamId
     )
 
     process {
-        Invoke-MMFileUpload -FilePath $FilePath -ChannelId $ChannelId | ConvertTo-MMFile
+        $resolvedId = if ($PSCmdlet.ParameterSetName -eq 'ByName') {
+            (Get-MMChannel -Name $ChannelName -TeamId $TeamId).id
+        } else {
+            $ChannelId
+        }
+
+        Invoke-MMFileUpload -FilePath $FilePath -ChannelId $resolvedId | ConvertTo-MMFile
     }
 }
