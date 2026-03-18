@@ -7,6 +7,9 @@
 PowerShell module for managing MatterMost via REST API v4.
 Compatible with **Windows PowerShell 5.x** and **PowerShell 7.x**.
 
+For usage examples and full documentation, see the **[Wiki](https://github.com/faithless-padre/Powershell-MatterMostV4/wiki)**.
+For module details and version history, check the **[PSGallery page](https://www.powershellgallery.com/packages/MatterMostV4)**.
+
 ---
 
 ## Prerequisites
@@ -133,9 +136,3 @@ Set-MMUserRole           Assigns system roles to a MatterMost user.
 
 </details>
 
----
-
-## Links
-
-- [PSGallery](https://www.powershellgallery.com/packages/MatterMostV4)
-- [Documentation](https://github.com/faithless-padre/Powershell-MatterMostV4/wiki)
