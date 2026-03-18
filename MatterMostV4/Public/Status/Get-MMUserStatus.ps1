@@ -4,6 +4,17 @@ function Get-MMUserStatus {
     <#
     .SYNOPSIS
         Gets the status of one or more MatterMost users.
+    .DESCRIPTION
+        Retrieves online/away/dnd/offline status. Single user lookup uses GET /users/{user_id}/status.
+        Batch lookup uses POST /users/status/ids. Username lookup resolves the user first via Get-MMUser.
+    .PARAMETER UserId
+        The ID of a single user. Used with the Single parameter set. Accepts pipeline input by property name (id, user_id).
+    .PARAMETER Username
+        The username to look up. Used with the ByName parameter set.
+    .PARAMETER UserIds
+        An array of user IDs for batch status lookup. Used with the Batch parameter set.
+    .OUTPUTS
+        MMUserStatus. One or more user status objects.
     .EXAMPLE
         Get-MMUserStatus -UserId 'abc123'
     .EXAMPLE

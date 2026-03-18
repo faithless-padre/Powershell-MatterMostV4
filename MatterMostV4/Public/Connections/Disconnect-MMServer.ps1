@@ -4,6 +4,12 @@ function Disconnect-MMServer {
     <#
     .SYNOPSIS
         Logs out from MatterMost and clears the stored session token.
+    .DESCRIPTION
+        Sends POST /users/logout to invalidate the current session on the server,
+        then clears the $script:MMSession variable. If the logout request fails, a warning is issued
+        but the local session is still cleared.
+    .OUTPUTS
+        System.Void.
     .EXAMPLE
         Disconnect-MMServer
     #>

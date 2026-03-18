@@ -4,6 +4,14 @@ function Remove-MMChannel {
     <#
     .SYNOPSIS
         Archives a MatterMost channel.
+    .DESCRIPTION
+        Sends DELETE /channels/{channel_id} to archive (soft-delete) the channel.
+        Archived channels are hidden from users but not permanently deleted.
+        Use Restore-MMChannel to unarchive. Supports ShouldProcess (-WhatIf / -Confirm).
+    .PARAMETER ChannelId
+        The ID of the channel to archive. Accepts pipeline input by property name (id).
+    .OUTPUTS
+        System.Void.
     .EXAMPLE
         Remove-MMChannel -ChannelId 'abc123'
     .EXAMPLE

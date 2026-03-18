@@ -4,6 +4,19 @@ function Get-MMUserChannels {
     <#
     .SYNOPSIS
         Returns the list of channels a user belongs to in a MatterMost team.
+    .DESCRIPTION
+        Calls /users/{user_id}/teams/{team_id}/channels to retrieve all channels the specified user
+        is a member of within the given team. Supports lookup by ID or by username/team name.
+    .PARAMETER UserId
+        The ID of the user. Used with the ById parameter set. Accepts pipeline input by property name (id).
+    .PARAMETER TeamId
+        The ID of the team. Used with the ById parameter set.
+    .PARAMETER Username
+        The username of the user. Used with the ByName parameter set.
+    .PARAMETER TeamName
+        The name of the team. Used with the ByName parameter set.
+    .OUTPUTS
+        MMChannel. One or more channel objects the user belongs to.
     .EXAMPLE
         Get-MMUserChannels -UserId 'user123' -TeamId 'team456'
     .EXAMPLE

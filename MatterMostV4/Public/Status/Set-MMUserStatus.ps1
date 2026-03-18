@@ -4,6 +4,17 @@ function Set-MMUserStatus {
     <#
     .SYNOPSIS
         Sets a MatterMost user's status to online, away, dnd, or offline.
+    .DESCRIPTION
+        Sends PUT /users/{user_id}/status to change the user's presence status.
+        When setting 'dnd', optionally specify -DndEndTime to automatically lift Do Not Disturb at a future time.
+    .PARAMETER UserId
+        The ID of the user to update. Accepts pipeline input by property name (id, user_id).
+    .PARAMETER Status
+        The new status value. One of: 'online', 'away', 'dnd', 'offline'.
+    .PARAMETER DndEndTime
+        The date/time when Do Not Disturb should automatically end. Only applicable when Status is 'dnd'.
+    .OUTPUTS
+        MMUserStatus. The updated user status object.
     .EXAMPLE
         Set-MMUserStatus -UserId 'abc123' -Status 'dnd'
     .EXAMPLE

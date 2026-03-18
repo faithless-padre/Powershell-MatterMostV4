@@ -4,6 +4,26 @@ function New-MMChannel {
     <#
     .SYNOPSIS
         Creates a new channel in a MatterMost team.
+    .DESCRIPTION
+        Calls POST /channels to create a public or private channel within a team. The team can be specified
+        by ID, by name, or via the default team set with Connect-MMServer -DefaultTeam.
+    .PARAMETER TeamId
+        The ID of the team to create the channel in. Used with the ById parameter set.
+        Falls back to the default team if omitted.
+    .PARAMETER TeamName
+        The name of the team. Used with the ByName parameter set.
+    .PARAMETER Name
+        The channel handle (URL slug). Must be lowercase with no spaces, e.g. 'dev-alerts'.
+    .PARAMETER DisplayName
+        The human-readable display name shown in the MatterMost UI.
+    .PARAMETER Type
+        Channel visibility: 'Public' (default) or 'Private'. Mapped to 'O' and 'P' internally.
+    .PARAMETER Purpose
+        A short description of the channel's purpose (shown in channel header).
+    .PARAMETER Header
+        Channel header text (supports markdown).
+    .OUTPUTS
+        MMChannel. The newly created channel object.
     .EXAMPLE
         New-MMChannel -TeamId 'team123' -Name 'mychannel' -DisplayName 'My Channel'
     .EXAMPLE

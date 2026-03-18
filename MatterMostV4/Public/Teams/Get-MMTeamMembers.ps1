@@ -4,6 +4,16 @@ function Get-MMTeamMembers {
     <#
     .SYNOPSIS
         Returns the list of members for a MatterMost team.
+    .DESCRIPTION
+        Retrieves all team members from /teams/{team_id}/members with automatic pagination (200 per page).
+        Returns MMTeamMember objects containing user ID, roles, and scheme flags — not full user profiles.
+        Use Get-MMUser to enrich the results with user details.
+    .PARAMETER TeamId
+        The ID of the team. Used with the ById parameter set. Accepts pipeline input by property name (id).
+    .PARAMETER TeamName
+        The name of the team. Used with the ByName parameter set.
+    .OUTPUTS
+        MMTeamMember. One or more team membership objects.
     .EXAMPLE
         Get-MMTeamMembers -TeamId 'abc123'
     .EXAMPLE

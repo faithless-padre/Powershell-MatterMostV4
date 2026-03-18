@@ -4,6 +4,30 @@ function Get-MMUser {
     <#
     .SYNOPSIS
         Returns a MatterMost user by ID, username, filter, or current session.
+    .DESCRIPTION
+        Multi-mode cmdlet for fetching users. Default (no params) returns the currently authenticated user.
+        -All fetches all users with automatic pagination. -Filter uses a custom DSL routed to the most
+        efficient API endpoint. -Ids and -Usernames accept arrays for bulk lookups via POST endpoints.
+    .PARAMETER All
+        Returns all users in the system with automatic pagination (200 per page).
+    .PARAMETER Me
+        Returns the currently authenticated user (default when no parameters are specified).
+    .PARAMETER UserId
+        The ID of the user to fetch. Accepts pipeline input by property name (id).
+    .PARAMETER Username
+        The username of the user to fetch (exact match, case-insensitive).
+    .PARAMETER Email
+        The email address of the user to fetch (exact match).
+    .PARAMETER Ids
+        An array of user IDs to fetch in a single bulk request.
+    .PARAMETER Usernames
+        An array of usernames to fetch in a single bulk request.
+    .PARAMETER Filter
+        A scriptblock filter in the format: {field -eq 'value'}, {field -like 'value'}, {field -ne 'value'}.
+        Routes to the most efficient API endpoint based on field and operator.
+        Supported fields: username, email, and other user properties.
+    .OUTPUTS
+        MMUser. One or more user objects.
     .EXAMPLE
         Get-MMUser -All
     .EXAMPLE

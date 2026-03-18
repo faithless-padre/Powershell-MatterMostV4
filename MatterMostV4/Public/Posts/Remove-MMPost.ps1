@@ -4,6 +4,14 @@ function Remove-MMPost {
     <#
     .SYNOPSIS
         Deletes a MatterMost post.
+    .DESCRIPTION
+        Sends DELETE /posts/{post_id} to soft-delete a post. The post content is replaced with
+        a deletion notice in the UI. Only the post author or a system admin can delete a post.
+        Supports ShouldProcess (-WhatIf / -Confirm).
+    .PARAMETER PostId
+        The ID of the post to delete. Accepts pipeline input by property name (id).
+    .OUTPUTS
+        System.Void.
     .EXAMPLE
         Remove-MMPost -PostId 'abc123'
     .EXAMPLE

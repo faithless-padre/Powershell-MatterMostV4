@@ -4,6 +4,25 @@ function Get-MMIncomingWebhook {
     <#
     .SYNOPSIS
         Gets incoming webhooks. Returns a single webhook by ID or a list filtered by team.
+    .DESCRIPTION
+        Retrieves incoming webhooks from MatterMost via GET /hooks/incoming.
+        Without parameters, returns all incoming webhooks visible to the current user.
+        Filter by team using -TeamId, -TeamName, or pipe a team object.
+        Use -HookId to fetch a specific webhook by its ID.
+    .PARAMETER HookId
+        The ID of a specific incoming webhook to retrieve.
+    .PARAMETER TeamId
+        Filters webhooks to those belonging to the specified team ID.
+    .PARAMETER TeamName
+        Filters webhooks to those belonging to the named team. Resolved to an ID internally.
+    .PARAMETER TeamIdFromPipe
+        Team ID accepted from pipeline input (by property name: id or team_id).
+    .PARAMETER Page
+        The page number for paginated list results (0-based). Default is 0.
+    .PARAMETER PerPage
+        The number of webhooks per page. Default is 60.
+    .OUTPUTS
+        MMIncomingWebhook. One or more incoming webhook objects.
     .EXAMPLE
         Get-MMIncomingWebhook
     .EXAMPLE

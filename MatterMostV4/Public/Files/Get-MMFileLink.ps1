@@ -4,6 +4,14 @@ function Get-MMFileLink {
     <#
     .SYNOPSIS
         Returns a public link to a MatterMost file that can be accessed without authentication.
+    .DESCRIPTION
+        Calls GET /files/{file_id}/link and returns the publicly accessible URL string.
+        Requires the "Allow Public File Links" system setting to be enabled in MatterMost.
+        The link is temporary and will expire based on server configuration.
+    .PARAMETER FileId
+        The ID of the uploaded file. Accepts pipeline input by property name (id).
+    .OUTPUTS
+        System.String. The public URL of the file.
     .EXAMPLE
         Get-MMFileLink -FileId 'abc123'
     .EXAMPLE
