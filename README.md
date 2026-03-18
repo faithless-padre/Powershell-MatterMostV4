@@ -132,3 +132,10 @@ Set-MMUserRole           Assigns system roles to a MatterMost user.
 ```
 
 </details>
+
+---
+
+## Links
+
+- [PSGallery](https://www.powershellgallery.com/packages/MatterMostV4)
+- [Documentation](https://github.com/faithless-padre/Powershell-MatterMostV4/wiki)
