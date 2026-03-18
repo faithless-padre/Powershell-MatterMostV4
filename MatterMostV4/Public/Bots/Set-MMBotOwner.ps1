@@ -4,6 +4,17 @@ function Set-MMBotOwner {
     <#
     .SYNOPSIS
         Assigns a MatterMost bot to a specified user.
+    .DESCRIPTION
+        Changes the owner of a bot account via POST /bots/{bot_user_id}/assign/{user_id}.
+        Useful when an employee who owns a bot leaves the team. Supports lookup by user ID or username.
+    .PARAMETER BotUserId
+        The user ID of the bot to reassign. Accepts pipeline input by property name (user_id).
+    .PARAMETER OwnerId
+        The user ID of the new owner. Used with the ById parameter set.
+    .PARAMETER OwnerName
+        The username of the new owner. Used with the ByName parameter set.
+    .OUTPUTS
+        MMBot. The updated bot object reflecting the new owner.
     .EXAMPLE
         Set-MMBotOwner -BotUserId 'abc123' -OwnerId 'user456'
     .EXAMPLE

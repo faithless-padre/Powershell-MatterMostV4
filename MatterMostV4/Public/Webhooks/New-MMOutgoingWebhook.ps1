@@ -4,6 +4,33 @@ function New-MMOutgoingWebhook {
     <#
     .SYNOPSIS
         Creates a new outgoing webhook for a MatterMost team.
+    .DESCRIPTION
+        Sends POST /hooks/outgoing to create a new outgoing webhook.
+        The webhook fires when a message in the team matches one of the configured trigger words,
+        then POSTs the message data to all configured callback URLs.
+        Supports team resolution by name or by piping a team object.
+    .PARAMETER TeamId
+        The ID of the team to scope the webhook to. Used with the ById parameter set.
+    .PARAMETER TeamName
+        The name of the team to scope the webhook to. Used with the ByName parameter set.
+    .PARAMETER TeamIdFromPipe
+        Team ID accepted from pipeline input (by property name: id or team_id).
+    .PARAMETER DisplayName
+        The display name for the webhook shown in the admin console.
+    .PARAMETER TriggerWords
+        An array of words that trigger the webhook when a message starts with them.
+    .PARAMETER CallbackUrls
+        An array of URLs to call when the webhook is triggered.
+    .PARAMETER ChannelId
+        Optionally restrict the webhook to a specific channel ID. If omitted, monitors all channels.
+    .PARAMETER Description
+        An optional description of the webhook's purpose.
+    .PARAMETER TriggerWhen
+        When to trigger: 0 = first word must match (default), 1 = any word must match.
+    .PARAMETER ContentType
+        The Content-Type for callback requests: 'application/json' or 'application/x-www-form-urlencoded'.
+    .OUTPUTS
+        MMOutgoingWebhook. The newly created webhook object.
     .EXAMPLE
         New-MMOutgoingWebhook -TeamId 'abc123' -DisplayName 'My Hook' -TriggerWords @('!cmd') -CallbackUrls @('https://example.com/hook')
     .EXAMPLE

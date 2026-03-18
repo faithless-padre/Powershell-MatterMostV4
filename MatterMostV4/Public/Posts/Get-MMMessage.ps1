@@ -4,10 +4,37 @@ function Get-MMMessage {
     <#
     .SYNOPSIS
         Gets messages from a DM, group chat, channel by name, or by post ID(s).
+    .DESCRIPTION
+        A high-level wrapper around Get-MMChannelPosts, Get-MMPost, and channel resolution.
+        Transparently creates or reuses DM/group channels when fetching messages by user(s).
+        Use this instead of Get-MMChannelPosts when you want to work with usernames and channel names
+        rather than raw IDs.
+    .PARAMETER PostId
+        The ID of a single post to retrieve. Used with the ById parameter set.
+    .PARAMETER PostIds
+        An array of post IDs for batch retrieval. Used with the ByIds parameter set.
+    .PARAMETER FromUser
+        The username of the user whose DM conversation to read. Used with the FromUser parameter set.
+    .PARAMETER FromUserId
+        The user ID for DM conversation. Used with the FromUserId parameter set. Accepts pipeline input by property name (id).
+    .PARAMETER FromUsers
+        Array of 2–7 usernames for a group message conversation. Used with the FromUsers parameter set.
+    .PARAMETER FromChannel
+        The channel name to read posts from. Used with the FromChannel parameter set.
+    .PARAMETER Page
+        The page number (0-based). Applies to channel/user message sets.
+    .PARAMETER PerPage
+        Number of posts per page. Default is 60.
+    .PARAMETER Since
+        Unix timestamp in milliseconds. Only posts created after this time are returned.
+    .PARAMETER IncludeDeleted
+        When specified, includes soft-deleted posts in the results.
+    .OUTPUTS
+        MMPost. One or more post objects.
     .EXAMPLE
-        Get-MMMessage -Id 'abc123'
+        Get-MMMessage -PostId 'abc123'
     .EXAMPLE
-        Get-MMMessage -Ids @('abc123', 'def456')
+        Get-MMMessage -PostIds @('abc123', 'def456')
     .EXAMPLE
         Get-MMMessage -FromUser 'john'
     .EXAMPLE

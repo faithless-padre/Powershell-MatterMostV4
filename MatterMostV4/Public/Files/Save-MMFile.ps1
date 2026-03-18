@@ -4,6 +4,17 @@ function Save-MMFile {
     <#
     .SYNOPSIS
         Downloads a file from MatterMost to the local filesystem.
+    .DESCRIPTION
+        Fetches the file binary from /files/{file_id} and saves it to the specified location.
+        If FileName is not provided via pipeline, the metadata is fetched automatically to determine the filename.
+    .PARAMETER FileId
+        The ID of the file to download. Accepts pipeline input by property name (id).
+    .PARAMETER FileName
+        The filename to save as. When piped from Send-MMFile or Get-MMFileMetadata, this is populated automatically.
+    .PARAMETER DestinationPath
+        The local directory where the file will be saved. Defaults to the current directory.
+    .OUTPUTS
+        System.IO.FileInfo. A FileInfo object pointing to the downloaded file.
     .EXAMPLE
         Save-MMFile -FileId 'abc123' -DestinationPath 'C:\Downloads'
     .EXAMPLE

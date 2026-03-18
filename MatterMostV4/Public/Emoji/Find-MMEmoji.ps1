@@ -4,6 +4,17 @@ function Find-MMEmoji {
     <#
     .SYNOPSIS
         Searches MatterMost custom emoji by name term or returns autocomplete suggestions.
+    .DESCRIPTION
+        Supports two modes: full search via POST /emoji/search (with optional prefix-only restriction),
+        and autocomplete via GET /emoji/autocomplete for use in type-ahead scenarios.
+    .PARAMETER Term
+        The search term to look for in emoji names. Used with the Search parameter set.
+    .PARAMETER PrefixOnly
+        When specified, only emoji whose names start with Term are returned. Used with the Search parameter set.
+    .PARAMETER Autocomplete
+        A short prefix string to get autocomplete suggestions from /emoji/autocomplete. Used with the Autocomplete parameter set.
+    .OUTPUTS
+        MMEmoji. One or more matching emoji objects.
     .EXAMPLE
         Find-MMEmoji -Term 'party'
     .EXAMPLE

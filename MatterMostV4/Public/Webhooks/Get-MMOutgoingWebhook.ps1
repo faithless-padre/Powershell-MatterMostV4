@@ -4,6 +4,27 @@ function Get-MMOutgoingWebhook {
     <#
     .SYNOPSIS
         Gets outgoing webhooks. Returns a single webhook by ID or a list filtered by team or channel.
+    .DESCRIPTION
+        Retrieves outgoing webhooks from MatterMost via GET /hooks/outgoing.
+        Without parameters, returns all outgoing webhooks visible to the current user.
+        Filter by team or channel ID. Use -HookId to fetch a specific webhook.
+        Outgoing webhooks fire when a message matches configured trigger words, posting to callback URLs.
+    .PARAMETER HookId
+        The ID of a specific outgoing webhook to retrieve.
+    .PARAMETER TeamId
+        Filters webhooks to those belonging to the specified team ID.
+    .PARAMETER TeamName
+        Filters webhooks to those belonging to the named team. Resolved to an ID internally.
+    .PARAMETER TeamIdFromPipe
+        Team ID accepted from pipeline input (by property name: id or team_id).
+    .PARAMETER ChannelId
+        Further filters results to webhooks associated with the specified channel ID.
+    .PARAMETER Page
+        The page number for paginated list results (0-based). Default is 0.
+    .PARAMETER PerPage
+        The number of webhooks per page. Default is 60.
+    .OUTPUTS
+        MMOutgoingWebhook. One or more outgoing webhook objects.
     .EXAMPLE
         Get-MMOutgoingWebhook
     .EXAMPLE

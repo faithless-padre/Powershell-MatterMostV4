@@ -4,6 +4,25 @@ function Send-MMMessage {
     <#
     .SYNOPSIS
         Sends a message to a user (DM), group of users, or a channel by name.
+    .DESCRIPTION
+        A high-level convenience wrapper around New-MMPost. Automatically resolves DM/group channels
+        from usernames. Supports file attachments and thread replies. For lower-level control, use New-MMPost directly.
+    .PARAMETER ToUser
+        The username of the user to send a direct message to. Used with the ToUser parameter set.
+    .PARAMETER ToUserId
+        The user ID to send a direct message to. Used with the ToUserId parameter set. Accepts pipeline input by property name (id).
+    .PARAMETER ToUsers
+        Array of 2–7 usernames for a group message. The current session user is added automatically. Used with the ToUsers parameter set.
+    .PARAMETER ToChannel
+        The name of the channel to post to. Used with the ToChannel parameter set.
+    .PARAMETER Message
+        The message text. Supports MatterMost markdown.
+    .PARAMETER RootId
+        The ID of the root post to reply to (creates a thread reply).
+    .PARAMETER FilePath
+        One or more local file paths to upload and attach (maximum 5 files).
+    .OUTPUTS
+        MMPost. The newly created post object.
     .EXAMPLE
         Send-MMMessage -ToUser 'john' -Message 'Hey!'
     .EXAMPLE

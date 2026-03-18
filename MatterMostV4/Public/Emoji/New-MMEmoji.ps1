@@ -4,6 +4,18 @@ function New-MMEmoji {
     <#
     .SYNOPSIS
         Creates a new custom emoji in MatterMost from an image file.
+    .DESCRIPTION
+        Uploads an image and registers it as a custom emoji via POST /emoji using multipart form data.
+        Supported formats: PNG, GIF, JPG. If CreatorId is not specified, the currently connected user is used.
+        Requires the "Enable Custom Emoji" system setting to be active.
+    .PARAMETER Name
+        The emoji shortcode name (without colons), e.g. 'party-parrot'. Must be unique.
+    .PARAMETER ImagePath
+        The local filesystem path to the image file to upload.
+    .PARAMETER CreatorId
+        The user ID to associate as the emoji creator. Defaults to the current session user.
+    .OUTPUTS
+        MMEmoji. The newly created emoji object.
     .EXAMPLE
         New-MMEmoji -Name 'myemoji' -ImagePath 'C:\emoji.png'
     .EXAMPLE

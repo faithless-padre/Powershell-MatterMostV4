@@ -5,8 +5,26 @@ function Connect-MMServer {
     .SYNOPSIS
         Connects to a MatterMost server and stores the session token for subsequent requests.
     .DESCRIPTION
-        Поддерживает три способа аутентификации: PSCredential, Username/Password или Personal Access Token.
-        После успешного подключения токен сохраняется в $script:MMSession и используется автоматически всеми командлетами модуля.
+        Authenticates against a MatterMost server using one of three methods: PSCredential object,
+        Username + SecureString password, or a Personal Access Token. On success, the session token
+        is stored in module scope and used automatically by all other cmdlets. Optionally sets a default
+        team so that team-scoped cmdlets don't require -TeamId on every call.
+    .PARAMETER Url
+        The base URL of the MatterMost server, e.g. 'https://mattermost.example.com'.
+    .PARAMETER Credential
+        A PSCredential object containing the username and password. Used with the Credential parameter set.
+    .PARAMETER Username
+        The MatterMost username. Used with the UsernamePassword parameter set.
+    .PARAMETER Password
+        The user password as a SecureString. Used with the UsernamePassword parameter set.
+    .PARAMETER Token
+        A personal access token. Used with the Token parameter set.
+        The token is validated by calling /users/me before storing the session.
+    .PARAMETER DefaultTeam
+        The name of the team to use as default for team-scoped cmdlets.
+        Eliminates the need to pass -TeamId to every command.
+    .OUTPUTS
+        PSCustomObject with Url, Username, UserId, AuthType, and DefaultTeamId properties.
     .EXAMPLE
         Connect-MMServer -Url "http://localhost:8065" -Username "admin" -Password (ConvertTo-SecureString "Admin123456!" -AsPlainText -Force)
     .EXAMPLE

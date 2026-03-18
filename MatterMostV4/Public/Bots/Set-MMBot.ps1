@@ -4,6 +4,19 @@ function Set-MMBot {
     <#
     .SYNOPSIS
         Updates a MatterMost bot account (username, display name, description).
+    .DESCRIPTION
+        Sends a PUT request to /bots/{bot_user_id} to update one or more properties of the bot.
+        Only the provided parameters are changed; omitted parameters retain their current values.
+    .PARAMETER BotUserId
+        The user ID of the bot to update. Accepts pipeline input by property name (user_id).
+    .PARAMETER Username
+        New username for the bot.
+    .PARAMETER DisplayName
+        New display name for the bot.
+    .PARAMETER Description
+        New description for the bot.
+    .OUTPUTS
+        MMBot. The updated bot object.
     .EXAMPLE
         Set-MMBot -BotUserId 'abc123' -DisplayName 'New Name'
     .EXAMPLE

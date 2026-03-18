@@ -4,6 +4,15 @@ function Get-MMPost {
     <#
     .SYNOPSIS
         Returns a MatterMost post by ID, or multiple posts by a list of IDs.
+    .DESCRIPTION
+        Retrieves post objects from /posts/{post_id} (single) or POST /posts/ids (batch).
+        For reading channel history use Get-MMChannelPosts or Get-MMMessage.
+    .PARAMETER PostId
+        The ID of a single post to retrieve. Used with the ById parameter set. Accepts pipeline input by property name (id).
+    .PARAMETER PostIds
+        An array of post IDs for batch lookup. Used with the ByIds parameter set.
+    .OUTPUTS
+        MMPost. One or more post objects.
     .EXAMPLE
         Get-MMPost -PostId 'abc123'
     .EXAMPLE

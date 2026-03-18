@@ -4,6 +4,19 @@ function New-MMTeam {
     <#
     .SYNOPSIS
         Creates a new team in MatterMost.
+    .DESCRIPTION
+        Sends POST /teams to create a new team with the specified name, display name, and type.
+        Team name must be lowercase alphanumeric with hyphens (used in URLs). Display name is what users see.
+    .PARAMETER Name
+        The URL-friendly name of the team (lowercase, alphanumeric, hyphens). Must be unique across the server.
+    .PARAMETER DisplayName
+        The human-readable display name of the team shown in the UI.
+    .PARAMETER Type
+        Team visibility: 'Open' allows anyone to join; 'Invite' requires an invitation. Defaults to 'Open'.
+    .PARAMETER Description
+        An optional description of the team displayed in team settings.
+    .OUTPUTS
+        MMTeam. The newly created team object.
     .EXAMPLE
         New-MMTeam -Name 'myteam' -DisplayName 'My Team'
     .EXAMPLE

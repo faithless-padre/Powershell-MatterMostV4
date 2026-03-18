@@ -4,6 +4,26 @@ function New-MMUser {
     <#
     .SYNOPSIS
         Creates a new user in MatterMost.
+    .DESCRIPTION
+        Sends POST /users to create a new user account. Username and email must be unique on the server.
+        Password is accepted as SecureString and converted internally — never passed as plaintext.
+        All pipeline-bindable parameters support bulk creation from a collection of objects.
+    .PARAMETER Username
+        The unique login name for the user (lowercase, alphanumeric, hyphens, underscores, periods).
+    .PARAMETER Email
+        The unique email address for the user's account.
+    .PARAMETER Password
+        The initial password as a SecureString. Use ConvertTo-SecureString to create one.
+    .PARAMETER FirstName
+        The user's first name (optional, displayed in profile).
+    .PARAMETER LastName
+        The user's last name (optional, displayed in profile).
+    .PARAMETER Nickname
+        An optional display nickname shown instead of the full name in some UI contexts.
+    .PARAMETER Locale
+        The UI locale for the user, e.g. 'en', 'ru', 'de'. Defaults to 'en'.
+    .OUTPUTS
+        MMUser. The newly created user object.
     .EXAMPLE
         New-MMUser -Username 'jdoe' -Email 'jdoe@example.com' -Password (ConvertTo-SecureString 'Pass123!' -AsPlainText -Force)
     .EXAMPLE
