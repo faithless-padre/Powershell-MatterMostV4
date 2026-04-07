@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Configuration>
+  <ViewDefinitions>
+
+    <View>
+      <Name>MMAudit.Table</Name>
+      <ViewSelectedBy>
+        <TypeName>MMAudit</TypeName>
+      </ViewSelectedBy>
+      <TableControl>
+        <TableHeaders>
+          <TableColumnHeader><Label>CreateAt</Label><Width>24</Width></TableColumnHeader>
+          <TableColumnHeader><Label>UserId</Label><Width>28</Width></TableColumnHeader>
+          <TableColumnHeader><Label>Action</Label><Width>30</Width></TableColumnHeader>
+          <TableColumnHeader><Label>ExtraInfo</Label></TableColumnHeader>
+        </TableHeaders>
+        <TableRowEntries>
+          <TableRowEntry>
+            <TableColumnItems>
+              <TableColumnItem><PropertyName>create_at</PropertyName></TableColumnItem>
+              <TableColumnItem><PropertyName>user_id</PropertyName></TableColumnItem>
+              <TableColumnItem><PropertyName>action</PropertyName></TableColumnItem>
+              <TableColumnItem><PropertyName>extra_info</PropertyName></TableColumnItem>
+            </TableColumnItems>
+          </TableRowEntry>
+        </TableRowEntries>
+      </TableControl>
+    </View>
+
+  </ViewDefinitions>
+</Configuration>

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Configuration>
+  <ViewDefinitions>
+
+    <View>
+      <Name>MMScheduledPost.Table</Name>
+      <ViewSelectedBy><TypeName>MMScheduledPost</TypeName></ViewSelectedBy>
+      <TableControl>
+        <TableHeaders>
+          <TableColumnHeader><Label>ScheduledAt</Label><Width>20</Width></TableColumnHeader>
+          <TableColumnHeader><Label>ChannelId</Label><Width>28</Width></TableColumnHeader>
+          <TableColumnHeader><Label>Message</Label></TableColumnHeader>
+        </TableHeaders>
+        <TableRowEntries><TableRowEntry><TableColumnItems>
+          <TableColumnItem>
+            <ScriptBlock>[System.DateTimeOffset]::FromUnixTimeMilliseconds($_.scheduled_at).LocalDateTime.ToString('yyyy-MM-dd HH:mm')</ScriptBlock>
+          </TableColumnItem>
+          <TableColumnItem><PropertyName>channel_id</PropertyName></TableColumnItem>
+          <TableColumnItem><PropertyName>message</PropertyName></TableColumnItem>
+        </TableColumnItems></TableRowEntry></TableRowEntries>
+      </TableControl>
+    </View>
+
+  </ViewDefinitions>
+</Configuration>

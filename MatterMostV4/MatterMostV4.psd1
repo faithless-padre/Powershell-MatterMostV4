@@ -102,7 +102,55 @@
         'Add-MMPostReaction',
         'Remove-MMPostReaction',
         'Get-MMPostReactions',
-        'Get-MMBulkPostReactions'
+        'Get-MMBulkPostReactions',
+        'New-MMScheduledPost',
+        'Get-MMScheduledPost',
+        'Set-MMScheduledPost',
+        'Remove-MMScheduledPost',
+        'Search-MMChannel',
+        'Get-MMChannelStats',
+        'Get-MMChannelPinnedPosts',
+        'Set-MMChannelViewed',
+        'Move-MMChannel',
+        'Set-MMChannelMemberRoles',
+        'Set-MMChannelMemberNotifyProps',
+        'Get-MMSidebarCategories',
+        'New-MMSidebarCategory',
+        'Get-MMSidebarCategory',
+        'Set-MMSidebarCategory',
+        'Remove-MMSidebarCategory',
+        'Get-MMSidebarCategoryOrder',
+        'Set-MMSidebarCategoryOrder',
+        'Search-MMUser',
+        'Send-MMPasswordResetEmail',
+        'Get-MMUserProfileImage',
+        'Set-MMUserProfileImage',
+        'Remove-MMUserProfileImage',
+        'Set-MMUserMFA',
+        'New-MMUserMFASecret',
+        'ConvertTo-MMBotAccount',
+        'Get-MMUsersByGroupChannel',
+        'Search-MMPost',
+        'Get-MMFlaggedPosts',
+        'Get-MMPostFileInfo',
+        'Set-MMPostUnread',
+        'New-MMEphemeralPost',
+        'New-MMPostReminder',
+        'Set-MMPostAcknowledged',
+        'Remove-MMPostAcknowledgement',
+        'Invoke-MMPostAction',
+        'Test-MMServer',
+        'Get-MMServerConfig',
+        'Set-MMServerConfig',
+        'Get-MMServerLogs',
+        'Add-MMServerLogEntry',
+        'Clear-MMServerCaches',
+        'Get-MMServerAudits',
+        'Test-MMEmail',
+        'Get-MMServerTimezones',
+        'Get-MMLicenseInfo',
+        'Get-MMServerAnalytics',
+        'Invoke-MMDatabaseRecycle'
     )
     FormatsToProcess  = @(
         'Formats/MatterMost.User.Format.ps1xml'
@@ -121,6 +169,9 @@
         'Formats/MatterMost.UserToken.Format.ps1xml'
         'Formats/MatterMost.Bot.Format.ps1xml'
         'Formats/MatterMost.Reaction.Format.ps1xml'
+        'Formats/MatterMost.ScheduledPost.Format.ps1xml'
+        'Formats/MatterMost.SidebarCategory.Format.ps1xml'
+        'Formats/MatterMost.Audit.Format.ps1xml'
     )
     TypesToProcess    = @(
         'MatterMost.Types.ps1xml'
