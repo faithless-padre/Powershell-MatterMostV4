@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <!DOCTYPE report PUBLIC "-//JACOCO//DTD Report 1.1//EN" "report.dtd"[]>
-<report name="Pester (03/18/2026 12:05:42)">
-  <sessioninfo id="this" start="1773835491758" dump="1773835542162" />
+<report name="Pester (04/07/2026 08:48:01)">
+  <sessioninfo id="this" start="1775551628307" dump="1775551681773" />
   <package name="module">
     <class name="module/MatterMostV4" sourcefilename="MatterMostV4.psm1">
       <method name="&lt;script&gt;" desc="()" line="1">
@@ -117,6 +117,17 @@
     </class>
     <class name="module/Private/ConvertTo-MMPost" sourcefilename="Private/ConvertTo-MMPost.ps1">
       <method name="ConvertTo-MMPost" desc="()" line="15">
+        <counter type="INSTRUCTION" missed="0" covered="8" />
+        <counter type="LINE" missed="0" covered="7" />
+        <counter type="METHOD" missed="0" covered="1" />
+      </method>
+      <counter type="INSTRUCTION" missed="0" covered="8" />
+      <counter type="LINE" missed="0" covered="7" />
+      <counter type="METHOD" missed="0" covered="1" />
+      <counter type="CLASS" missed="0" covered="1" />
+    </class>
+    <class name="module/Private/ConvertTo-MMReaction" sourcefilename="Private/ConvertTo-MMReaction.ps1">
+      <method name="ConvertTo-MMReaction" desc="()" line="15">
         <counter type="INSTRUCTION" missed="0" covered="8" />
         <counter type="LINE" missed="0" covered="7" />
         <counter type="METHOD" missed="0" covered="1" />
@@ -351,6 +362,19 @@
       <counter type="METHOD" missed="0" covered="1" />
       <counter type="CLASS" missed="0" covered="1" />
     </sourcefile>
+    <sourcefile name="Private/ConvertTo-MMReaction.ps1">
+      <line nr="15" mi="0" ci="1" mb="0" cb="0" />
+      <line nr="17" mi="0" ci="1" mb="0" cb="0" />
+      <line nr="18" mi="0" ci="1" mb="0" cb="0" />
+      <line nr="19" mi="0" ci="1" mb="0" cb="0" />
+      <line nr="20" mi="0" ci="2" mb="0" cb="0" />
+      <line nr="22" mi="0" ci="1" mb="0" cb="0" />
+      <line nr="25" mi="0" ci="1" mb="0" cb="0" />
+      <counter type="INSTRUCTION" missed="0" covered="8" />
+      <counter type="LINE" missed="0" covered="7" />
+      <counter type="METHOD" missed="0" covered="1" />
+      <counter type="CLASS" missed="0" covered="1" />
+    </sourcefile>
     <sourcefile name="Private/ConvertTo-MMRole.ps1">
       <line nr="15" mi="0" ci="1" mb="0" cb="0" />
       <line nr="17" mi="0" ci="1" mb="0" cb="0" />
@@ -516,10 +540,10 @@
       <counter type="METHOD" missed="0" covered="1" />
       <counter type="CLASS" missed="0" covered="1" />
     </sourcefile>
-    <counter type="INSTRUCTION" missed="6" covered="180" />
-    <counter type="LINE" missed="6" covered="149" />
-    <counter type="METHOD" missed="0" covered="19" />
-    <counter type="CLASS" missed="0" covered="19" />
+    <counter type="INSTRUCTION" missed="6" covered="188" />
+    <counter type="LINE" missed="6" covered="156" />
+    <counter type="METHOD" missed="0" covered="20" />
+    <counter type="CLASS" missed="0" covered="20" />
   </package>
   <package name="module/Private/Teams">
     <class name="module/Private/Teams/Get-MMTeamList" sourcefilename="Private/Teams/Get-MMTeamList.ps1">
@@ -1594,6 +1618,95 @@
     <counter type="METHOD" missed="0" covered="10" />
     <counter type="CLASS" missed="0" covered="10" />
   </package>
+  <package name="module/Public/Reactions">
+    <class name="module/Public/Reactions/Add-MMPostReaction" sourcefilename="Public/Reactions/Add-MMPostReaction.ps1">
+      <method name="Add-MMPostReaction" desc="()" line="34">
+        <counter type="INSTRUCTION" missed="0" covered="7" />
+        <counter type="LINE" missed="0" covered="6" />
+        <counter type="METHOD" missed="0" covered="1" />
+      </method>
+      <counter type="INSTRUCTION" missed="0" covered="7" />
+      <counter type="LINE" missed="0" covered="6" />
+      <counter type="METHOD" missed="0" covered="1" />
+      <counter type="CLASS" missed="0" covered="1" />
+    </class>
+    <class name="module/Public/Reactions/Get-MMBulkPostReactions" sourcefilename="Public/Reactions/Get-MMBulkPostReactions.ps1">
+      <method name="Get-MMBulkPostReactions" desc="()" line="28">
+        <counter type="INSTRUCTION" missed="0" covered="8" />
+        <counter type="LINE" missed="0" covered="5" />
+        <counter type="METHOD" missed="0" covered="1" />
+      </method>
+      <counter type="INSTRUCTION" missed="0" covered="8" />
+      <counter type="LINE" missed="0" covered="5" />
+      <counter type="METHOD" missed="0" covered="1" />
+      <counter type="CLASS" missed="0" covered="1" />
+    </class>
+    <class name="module/Public/Reactions/Get-MMPostReactions" sourcefilename="Public/Reactions/Get-MMPostReactions.ps1">
+      <method name="Get-MMPostReactions" desc="()" line="30">
+        <counter type="INSTRUCTION" missed="0" covered="2" />
+        <counter type="LINE" missed="0" covered="1" />
+        <counter type="METHOD" missed="0" covered="1" />
+      </method>
+      <counter type="INSTRUCTION" missed="0" covered="2" />
+      <counter type="LINE" missed="0" covered="1" />
+      <counter type="METHOD" missed="0" covered="1" />
+      <counter type="CLASS" missed="0" covered="1" />
+    </class>
+    <class name="module/Public/Reactions/Remove-MMPostReaction" sourcefilename="Public/Reactions/Remove-MMPostReaction.ps1">
+      <method name="Remove-MMPostReaction" desc="()" line="37">
+        <counter type="INSTRUCTION" missed="0" covered="4" />
+        <counter type="LINE" missed="0" covered="3" />
+        <counter type="METHOD" missed="0" covered="1" />
+      </method>
+      <counter type="INSTRUCTION" missed="0" covered="4" />
+      <counter type="LINE" missed="0" covered="3" />
+      <counter type="METHOD" missed="0" covered="1" />
+      <counter type="CLASS" missed="0" covered="1" />
+    </class>
+    <sourcefile name="Public/Reactions/Add-MMPostReaction.ps1">
+      <line nr="34" mi="0" ci="1" mb="0" cb="0" />
+      <line nr="35" mi="0" ci="1" mb="0" cb="0" />
+      <line nr="36" mi="0" ci="1" mb="0" cb="0" />
+      <line nr="37" mi="0" ci="1" mb="0" cb="0" />
+      <line nr="38" mi="0" ci="1" mb="0" cb="0" />
+      <line nr="40" mi="0" ci="2" mb="0" cb="0" />
+      <counter type="INSTRUCTION" missed="0" covered="7" />
+      <counter type="LINE" missed="0" covered="6" />
+      <counter type="METHOD" missed="0" covered="1" />
+      <counter type="CLASS" missed="0" covered="1" />
+    </sourcefile>
+    <sourcefile name="Public/Reactions/Get-MMBulkPostReactions.ps1">
+      <line nr="28" mi="0" ci="1" mb="0" cb="0" />
+      <line nr="29" mi="0" ci="1" mb="0" cb="0" />
+      <line nr="30" mi="0" ci="1" mb="0" cb="0" />
+      <line nr="31" mi="0" ci="4" mb="0" cb="0" />
+      <line nr="33" mi="0" ci="1" mb="0" cb="0" />
+      <counter type="INSTRUCTION" missed="0" covered="8" />
+      <counter type="LINE" missed="0" covered="5" />
+      <counter type="METHOD" missed="0" covered="1" />
+      <counter type="CLASS" missed="0" covered="1" />
+    </sourcefile>
+    <sourcefile name="Public/Reactions/Get-MMPostReactions.ps1">
+      <line nr="30" mi="0" ci="2" mb="0" cb="0" />
+      <counter type="INSTRUCTION" missed="0" covered="2" />
+      <counter type="LINE" missed="0" covered="1" />
+      <counter type="METHOD" missed="0" covered="1" />
+      <counter type="CLASS" missed="0" covered="1" />
+    </sourcefile>
+    <sourcefile name="Public/Reactions/Remove-MMPostReaction.ps1">
+      <line nr="37" mi="0" ci="1" mb="0" cb="0" />
+      <line nr="38" mi="0" ci="2" mb="0" cb="0" />
+      <line nr="40" mi="0" ci="1" mb="0" cb="0" />
+      <counter type="INSTRUCTION" missed="0" covered="4" />
+      <counter type="LINE" missed="0" covered="3" />
+      <counter type="METHOD" missed="0" covered="1" />
+      <counter type="CLASS" missed="0" covered="1" />
+    </sourcefile>
+    <counter type="INSTRUCTION" missed="0" covered="21" />
+    <counter type="LINE" missed="0" covered="15" />
+    <counter type="METHOD" missed="0" covered="4" />
+    <counter type="CLASS" missed="0" covered="4" />
+  </package>
   <package name="module/Public/Roles">
     <class name="module/Public/Roles/Get-MMRole" sourcefilename="Public/Roles/Get-MMRole.ps1">
       <method name="Get-MMRole" desc="()" line="45">
@@ -2613,8 +2726,8 @@
     <counter type="METHOD" missed="0" covered="9" />
     <counter type="CLASS" missed="0" covered="9" />
   </package>
-  <counter type="INSTRUCTION" missed="29" covered="1004" />
-  <counter type="LINE" missed="21" covered="710" />
-  <counter type="METHOD" missed="0" covered="106" />
-  <counter type="CLASS" missed="0" covered="105" />
+  <counter type="INSTRUCTION" missed="29" covered="1033" />
+  <counter type="LINE" missed="21" covered="732" />
+  <counter type="METHOD" missed="0" covered="111" />
+  <counter type="CLASS" missed="0" covered="110" />
 </report>

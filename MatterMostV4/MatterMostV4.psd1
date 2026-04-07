@@ -98,7 +98,11 @@
         'Get-MMEmoji',
         'New-MMEmoji',
         'Remove-MMEmoji',
-        'Save-MMEmojiImage'
+        'Save-MMEmojiImage',
+        'Add-MMPostReaction',
+        'Remove-MMPostReaction',
+        'Get-MMPostReactions',
+        'Get-MMBulkPostReactions'
     )
     FormatsToProcess  = @(
         'Formats/MatterMost.User.Format.ps1xml'
@@ -116,6 +120,7 @@
         'Formats/MatterMost.Emoji.Format.ps1xml'
         'Formats/MatterMost.UserToken.Format.ps1xml'
         'Formats/MatterMost.Bot.Format.ps1xml'
+        'Formats/MatterMost.Reaction.Format.ps1xml'
     )
     TypesToProcess    = @(
         'MatterMost.Types.ps1xml'
