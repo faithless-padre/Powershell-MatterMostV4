@@ -102,7 +102,11 @@
         'Add-MMPostReaction',
         'Remove-MMPostReaction',
         'Get-MMPostReactions',
-        'Get-MMBulkPostReactions'
+        'Get-MMBulkPostReactions',
+        'New-MMScheduledPost',
+        'Get-MMScheduledPost',
+        'Set-MMScheduledPost',
+        'Remove-MMScheduledPost'
     )
     FormatsToProcess  = @(
         'Formats/MatterMost.User.Format.ps1xml'
@@ -121,6 +125,7 @@
         'Formats/MatterMost.UserToken.Format.ps1xml'
         'Formats/MatterMost.Bot.Format.ps1xml'
         'Formats/MatterMost.Reaction.Format.ps1xml'
+        'Formats/MatterMost.ScheduledPost.Format.ps1xml'
     )
     TypesToProcess    = @(
         'MatterMost.Types.ps1xml'
