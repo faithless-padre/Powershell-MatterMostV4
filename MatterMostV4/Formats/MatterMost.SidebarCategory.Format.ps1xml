@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Configuration>
+  <ViewDefinitions>
+    <View>
+      <Name>MMSidebarCategory</Name>
+      <ViewSelectedBy>
+        <TypeName>MMSidebarCategory</TypeName>
+      </ViewSelectedBy>
+      <TableControl>
+        <TableHeaders>
+          <TableColumnHeader><Label>DisplayName</Label><Width>30</Width></TableColumnHeader>
+          <TableColumnHeader><Label>Type</Label><Width>12</Width></TableColumnHeader>
+          <TableColumnHeader><Label>SortOrder</Label><Width>10</Width></TableColumnHeader>
+          <TableColumnHeader><Label>Id</Label></TableColumnHeader>
+        </TableHeaders>
+        <TableRowEntries>
+          <TableRowEntry>
+            <TableColumnItems>
+              <TableColumnItem><PropertyName>display_name</PropertyName></TableColumnItem>
+              <TableColumnItem><PropertyName>type</PropertyName></TableColumnItem>
+              <TableColumnItem><PropertyName>sort_order</PropertyName></TableColumnItem>
+              <TableColumnItem><PropertyName>id</PropertyName></TableColumnItem>
+            </TableColumnItems>
+          </TableRowEntry>
+        </TableRowEntries>
+      </TableControl>
+    </View>
+  </ViewDefinitions>
+</Configuration>
