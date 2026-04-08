@@ -46,9 +46,8 @@ Describe 'Get-MMJob' {
         }
 
         It 'возвращает массив или пустой результат' {
-            $result = Get-MMJob
-            # Не $null — может быть пустой массив
-            $result | Should -Not -Be $null
+            # $null — валидный результат если джобов нет
+            { Get-MMJob } | Should -Not -Throw
         }
 
         It 'поддерживает пагинацию через Page и PerPage' {
